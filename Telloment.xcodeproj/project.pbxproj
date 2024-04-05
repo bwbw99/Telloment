@@ -13,6 +13,7 @@
 		1315264C2BBE6BAB0063DCC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1315264A2BBE6BAB0063DCC7 /* Main.storyboard */; };
 		1315264E2BBE6BAB0063DCC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1315264D2BBE6BAB0063DCC7 /* Assets.xcassets */; };
 		131526512BBE6BAB0063DCC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1315264F2BBE6BAB0063DCC7 /* LaunchScreen.storyboard */; };
+		1315265D2BC014C90063DCC7 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315265C2BC014C90063DCC7 /* TempViewController.swift */; };
 		733B39FD2BBFF18E00214797 /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B39FC2BBFF18E00214797 /* TextToSpeech.swift */; };
 		733B39FF2BBFF1A600214797 /* SpeechToText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733B39FE2BBFF1A600214797 /* SpeechToText.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		1315264D2BBE6BAB0063DCC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		131526502BBE6BAB0063DCC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		131526522BBE6BAB0063DCC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1315265C2BC014C90063DCC7 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		733B39FC2BBFF18E00214797 /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
 		733B39FE2BBFF1A600214797 /* SpeechToText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +67,7 @@
 				131526462BBE6BAB0063DCC7 /* SceneDelegate.swift */,
 				131526482BBE6BAB0063DCC7 /* ViewController.swift */,
 				1315264A2BBE6BAB0063DCC7 /* Main.storyboard */,
+				1315265C2BC014C90063DCC7 /* TempViewController.swift */,
 				1315264D2BBE6BAB0063DCC7 /* Assets.xcassets */,
 				1315264F2BBE6BAB0063DCC7 /* LaunchScreen.storyboard */,
 				131526522BBE6BAB0063DCC7 /* Info.plist */,
@@ -154,6 +157,7 @@
 			files = (
 				131526492BBE6BAB0063DCC7 /* ViewController.swift in Sources */,
 				733B39FD2BBFF18E00214797 /* TextToSpeech.swift in Sources */,
+				1315265D2BC014C90063DCC7 /* TempViewController.swift in Sources */,
 				131526452BBE6BAB0063DCC7 /* AppDelegate.swift in Sources */,
 				733B39FF2BBFF1A600214797 /* SpeechToText.swift in Sources */,
 				131526472BBE6BAB0063DCC7 /* SceneDelegate.swift in Sources */,
