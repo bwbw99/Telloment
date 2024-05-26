@@ -7,5 +7,7 @@ target 'may24' do
 
   # Pods for may24
 	pod 'DGCharts'
-
+	pod 'RxSwift', '6.5.0'
+	pod 'RxCocoa', '6.5.0'
+	pod 'Alamofire'
 end
