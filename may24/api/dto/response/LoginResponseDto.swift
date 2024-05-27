@@ -6,18 +6,6 @@
 //
 
 struct LoginResponseDto: Codable {
-    var data : LoginResponseDataDto?
-    var header : LoginResponseHeaderDto?
-    var message: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case data
-        case header
-        case message = "msg"
-    }
-}
-
-struct LoginResponseDataDto: Codable {
     var accessToken: String?
     var accessTokenExpiresIn : Int
         var grantType: String?
@@ -28,15 +16,5 @@ struct LoginResponseDataDto: Codable {
         case accessTokenExpiresIn
         case grantType
         case refreshToken
-    }
-}
-
-struct LoginResponseHeaderDto: Codable {
-    var code: Int
-    var message: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case code
-        case message
     }
 }

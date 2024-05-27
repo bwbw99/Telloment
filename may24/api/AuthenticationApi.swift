@@ -27,7 +27,7 @@ public class AuthenticationApi {
             encoding: JSONEncoding.default,
             headers: ["Content-Type":"application/json", "Accept":"application/json"])
         .validate(statusCode: 200..<300)
-        .responseDecodable(of: LoginResponseDto.self) { res in
+        .responseDecodable(of: BaseResponse<LoginResponseDto>.self) { res in
             guard let loginRes = res.value else {
                 completion(.failure(NSError()))
                 return
@@ -40,7 +40,7 @@ public class AuthenticationApi {
         }
     }
     
-    func refreshToken() async throws -> LoginResponseDataDto  {
+    func refreshToken() async throws -> LoginResponseDto  {
         let param = [
             "refreshToken": Authentication.refreshToken,
             "accessToken" : Authentication.token
@@ -50,6 +50,6 @@ public class AuthenticationApi {
             method: .post,
             parameters: param,
             headers: ["Content-Type":"application/json", "Accept":"application/json"]
-        ).serializingDecodable(LoginResponseDto.self).value.data!
+        ).serializingDecodable(BaseResponse<LoginResponseDto>.self).value.data!
     }
 }

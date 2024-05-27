@@ -6,6 +6,6 @@
 //
 
 struct ApiVariables {
-    public static let BaseURL = "localhost:8080/api"
+    public static let BaseURL = "http://13.209.209.29:8080/api"
 }
 
