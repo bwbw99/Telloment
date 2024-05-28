@@ -19,6 +19,14 @@
 		13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E7DEB32BF70A530093E643 /* MypageViewController.swift */; };
 		13E7DEC72BF7144B0093E643 /* voice-recognition.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E7DEC62BF7144B0093E643 /* voice-recognition.png */; };
 		13E7DEC92BF714620093E643 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 13E7DEC82BF714620093E643 /* fonts */; };
+		733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */; };
+		733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */; };
+		733CAE742C030099007A4568 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE732C030099007A4568 /* Authentication.swift */; };
+		733CAE762C03019A007A4568 /* AuthenticationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE752C03019A007A4568 /* AuthenticationApi.swift */; };
+		733CAE792C0302B0007A4568 /* ApiVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE782C0302B0007A4568 /* ApiVariables.swift */; };
+		733CAE7F2C03059C007A4568 /* LoginResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE7E2C03059C007A4568 /* LoginResponseDto.swift */; };
+		733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE822C045A71007A4568 /* BaseResponse.swift */; };
+		733CAE862C045D90007A4568 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE852C045D90007A4568 /* AudioRecorder.swift */; };
 		E4DCBA6BCE6C6A7D16108A19 /* Pods_may24.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C05CA1E589E7C2C0D7772 /* Pods_may24.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +47,14 @@
 		13E7DEC82BF714620093E643 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		439FD1C7EE556BB11A8BE45B /* Pods-may24.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-may24.debug.xcconfig"; path = "Target Support Files/Pods-may24/Pods-may24.debug.xcconfig"; sourceTree = "<group>"; };
 		65B7E023F07AED3E694B6052 /* Pods-may24.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-may24.release.xcconfig"; path = "Target Support Files/Pods-may24/Pods-may24.release.xcconfig"; sourceTree = "<group>"; };
+		733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceApi.swift; sourceTree = "<group>"; };
+		733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestInterceptor.swift; sourceTree = "<group>"; };
+		733CAE732C030099007A4568 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		733CAE752C03019A007A4568 /* AuthenticationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationApi.swift; sourceTree = "<group>"; };
+		733CAE782C0302B0007A4568 /* ApiVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiVariables.swift; sourceTree = "<group>"; };
+		733CAE7E2C03059C007A4568 /* LoginResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponseDto.swift; sourceTree = "<group>"; };
+		733CAE822C045A71007A4568 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		733CAE852C045D90007A4568 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		F97C05CA1E589E7C2C0D7772 /* Pods_may24.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_may24.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +91,8 @@
 		13E7DE922BF5C1B60093E643 /* may24 */ = {
 			isa = PBXGroup;
 			children = (
+				733CAE842C045D4F007A4568 /* features */,
+				733CAE692C02DB9C007A4568 /* api */,
 				13E7DECA2BF714810093E643 /* resources */,
 				13E7DECB2BF714A60093E643 /* ViewControllers */,
 				13E7DE932BF5C1B60093E643 /* AppDelegate.swift */,
@@ -123,6 +141,60 @@
 				F97C05CA1E589E7C2C0D7772 /* Pods_may24.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		733CAE692C02DB9C007A4568 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				733CAE772C03026A007A4568 /* interceptor */,
+				733CAE6A2C02DBAB007A4568 /* dto */,
+				733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */,
+				733CAE752C03019A007A4568 /* AuthenticationApi.swift */,
+				733CAE782C0302B0007A4568 /* ApiVariables.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		733CAE6A2C02DBAB007A4568 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				733CAE7B2C0303AA007A4568 /* response */,
+				733CAE7A2C0303A4007A4568 /* request */,
+			);
+			path = dto;
+			sourceTree = "<group>";
+		};
+		733CAE772C03026A007A4568 /* interceptor */ = {
+			isa = PBXGroup;
+			children = (
+				733CAE732C030099007A4568 /* Authentication.swift */,
+				733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */,
+			);
+			path = interceptor;
+			sourceTree = "<group>";
+		};
+		733CAE7A2C0303A4007A4568 /* request */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		733CAE7B2C0303AA007A4568 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				733CAE7E2C03059C007A4568 /* LoginResponseDto.swift */,
+				733CAE822C045A71007A4568 /* BaseResponse.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		733CAE842C045D4F007A4568 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				733CAE852C045D90007A4568 /* AudioRecorder.swift */,
+			);
+			path = features;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,13 +314,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				733CAE762C03019A007A4568 /* AuthenticationApi.swift in Sources */,
+				733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */,
 				13E7DEB02BF70A390093E643 /* WriteViewController.swift in Sources */,
+				733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */,
+				733CAE792C0302B0007A4568 /* ApiVariables.swift in Sources */,
 				13E7DEAE2BF70A2F0093E643 /* SearchViewController.swift in Sources */,
 				13E7DE942BF5C1B60093E643 /* AppDelegate.swift in Sources */,
 				13E7DE962BF5C1B60093E643 /* SceneDelegate.swift in Sources */,
 				13E7DEAC2BF6FB0F0093E643 /* HomeViewController.swift in Sources */,
+				733CAE862C045D90007A4568 /* AudioRecorder.swift in Sources */,
 				13E7DEB22BF70A460093E643 /* HeartViewController.swift in Sources */,
 				13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */,
+				733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */,
+				733CAE7F2C03059C007A4568 /* LoginResponseDto.swift in Sources */,
+				733CAE742C030099007A4568 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
