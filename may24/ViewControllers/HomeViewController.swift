@@ -11,8 +11,24 @@ import DGCharts
 class HomeViewController:UIViewController{
     
     @IBOutlet weak var CategoryChart: PieChartView!
+    @IBOutlet weak var normalButton: UIButton!
+    @IBOutlet weak var happyButton: UIButton!
+    @IBOutlet weak var sadButton: UIButton!
+    @IBOutlet weak var rageButton: UIButton!
     
-
+    
+    @IBOutlet weak var TodayEmotionTitle: UILabel!
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     var colorData = [UIColor]()
     var nameData: [String] = ["여행", "음악", "자기계발", "유머", "기타"]
@@ -21,11 +37,11 @@ class HomeViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        colorData.append(UIColor.lightGray)
-        colorData.append(UIColor.blue)
-        colorData.append(UIColor.red)
-        colorData.append(UIColor.green)
-        colorData.append(UIColor.orange)
+        colorData.append(UIColor(hexCode: "A38DEF"))
+        colorData.append(UIColor(hexCode: "7DB2EF"))
+        colorData.append(UIColor(hexCode: "94EF7A"))
+        colorData.append(UIColor(hexCode: "EFB56E"))
+        colorData.append(UIColor(hexCode: "EF8070"))
         
         
         self.CategoryChart.noDataText = "출력 데이터가 없습니다."
@@ -74,9 +90,52 @@ class HomeViewController:UIViewController{
         chartView.rotationAngle = 270
         chartView.rotationEnabled = true
         chartView.highlightPerTapEnabled = false
+        chartView.entryLabelFont = NSUIFont(name: "BMJUAOTF", size: 12.0)
     }
 
+    
+    @IBAction func normalButtonTapped(_ sender: UIButton) {
+        // 사실 아무것도 안함
+    }
+    
+    @IBAction func happyButtonTapped(_ sender: UIButton) {
+        self.TodayEmotionTitle.text = "행복한 당신의 오늘을 더 즐겁게 해줄 페이지를 찾아왔어요"
+        // 전체 글에서 즐거움과 관련된 감정의 글들을 불러옴
+    }
+    
+    @IBAction func sadButtonTapped(_ sender: UIButton) {
+        self.TodayEmotionTitle.text = "슬픈 하루를 보낸 당신을 위로해줄 글들을 찾아왔어요"
+        // 전체 글에서 위로 태그가 있는 글들을 불러옴
+    }
+    
+    @IBAction func rageButtonTapped(_ sender: UIButton) {
+        self.TodayEmotionTitle.text = "화나는 일이 있었던 당신을 위해 재밌는 북을 모아봤어요"
+        //
+    }
+    
+    
+    
     
     
     
 }
+ extension UIColor {
+     
+     convenience init(hexCode: String, alpha: CGFloat = 1.0) {
+         var hexFormatted: String = hexCode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+         
+         if hexFormatted.hasPrefix("#") {
+             hexFormatted = String(hexFormatted.dropFirst())
+         }
+         
+         assert(hexFormatted.count == 6, "Invalid hex code used.")
+         
+         var rgbValue: UInt64 = 0
+         Scanner(string: hexFormatted).scanHexInt64(&rgbValue)
+         
+         self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+                   green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                   blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+                   alpha: alpha)
+     }
+ }

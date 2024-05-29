@@ -8,4 +8,8 @@
 import UIKit
 
 class MypageViewController:UIViewController{
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+    }
 }

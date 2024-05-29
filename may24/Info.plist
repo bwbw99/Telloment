@@ -4,13 +4,13 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>BMDOHYEON_otf.otf</string>
-		<string>BMHANNA_11yrs_otf.otf</string>
 		<string>BMHANNAAir_otf.otf</string>
 		<string>BMHANNAProOTF.otf</string>
-		<string>BMJUA_otf.otf</string>
 		<string>BMKIRANGHAERANG-OTF.otf</string>
 		<string>BMYEONSUNG_otf.otf</string>
+		<string>BMJUA_otf.otf</string>
+		<string>BMDOHYEON_otf.otf</string>
+		<string>BMHANNA_11yrs_otf.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
