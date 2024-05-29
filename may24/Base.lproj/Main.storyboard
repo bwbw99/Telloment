@@ -1855,27 +1855,38 @@
             </objects>
             <point key="canvasLocation" x="4254" y="872"/>
         </scene>
-        <!--View Controller-->
+        <!--Temp View Controller-->
         <scene sceneID="jDY-84-2dQ">
             <objects>
-                <viewController id="ChO-eu-nBI" sceneMemberID="viewController">
+                <viewController id="ChO-eu-nBI" customClass="TempViewController" customModule="may24" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Klj-fP-qhi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이 탭은 필요 없을 것 같음. 삭제 예정" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9be-Yd-aZG">
-                                <rect key="frame" x="20" y="400.33333333333331" width="353" height="71.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euV-TG-0Eo">
+                                <rect key="frame" x="169.66666666666666" y="418.66666666666669" width="54" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="녹음"/>
+                                <connections>
+                                    <action selector="RecordButtonTapped:" destination="ChO-eu-nBI" eventType="touchUpInside" id="j6Z-fe-VTP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3w-48-YeN">
+                                <rect key="frame" x="152.66666666666666" y="503.66666666666674" width="88" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="녹음 중단"/>
+                                <connections>
+                                    <action selector="RecordStopButtonTapped:" destination="ChO-eu-nBI" eventType="touchUpInside" id="Dvv-8J-dJb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2Rj-IM-d7w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9be-Yd-aZG" firstAttribute="centerY" secondItem="2Rj-IM-d7w" secondAttribute="centerY" id="E02-kV-H6z"/>
-                            <constraint firstItem="9be-Yd-aZG" firstAttribute="leading" secondItem="2Rj-IM-d7w" secondAttribute="leading" constant="20" id="UPY-n2-Y17"/>
-                            <constraint firstAttribute="trailing" secondItem="9be-Yd-aZG" secondAttribute="trailing" constant="20" id="loR-V9-ekt"/>
+                            <constraint firstItem="p3w-48-YeN" firstAttribute="centerX" secondItem="euV-TG-0Eo" secondAttribute="centerX" id="0r1-HH-rFS"/>
+                            <constraint firstItem="euV-TG-0Eo" firstAttribute="centerX" secondItem="2Rj-IM-d7w" secondAttribute="centerX" id="Cab-dH-atf"/>
+                            <constraint firstItem="p3w-48-YeN" firstAttribute="top" secondItem="euV-TG-0Eo" secondAttribute="bottom" constant="50" id="TVc-84-m9a"/>
+                            <constraint firstItem="euV-TG-0Eo" firstAttribute="centerY" secondItem="2Rj-IM-d7w" secondAttribute="centerY" id="jHd-Lz-896"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SGw-rm-c6T"/>

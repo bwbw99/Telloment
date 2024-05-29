@@ -27,13 +27,14 @@
 		1339193B2C071316008EC0A0 /* 표지8.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919302C071316008EC0A0 /* 표지8.png */; };
 		1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */; };
 		1339193F2C071694008EC0A0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1339193E2C071694008EC0A0 /* SettingViewController.swift */; };
+		133919412C072907008EC0A0 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133919402C072907008EC0A0 /* TempViewController.swift */; };
+		133919432C0744B7008EC0A0 /* 유머.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919422C0744B7008EC0A0 /* 유머.png */; };
 		139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F6C572C0604DA0040185B /* CategoryViewController.swift */; };
 		139F6C692C0605270040185B /* 인문·철학.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5A2C0605270040185B /* 인문·철학.png */; };
 		139F6C6A2C0605270040185B /* 연애.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5B2C0605270040185B /* 연애.png */; };
 		139F6C6B2C0605270040185B /* IT·과학.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5C2C0605270040185B /* IT·과학.png */; };
 		139F6C6C2C0605270040185B /* 소설.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5D2C0605270040185B /* 소설.png */; };
 		139F6C6D2C0605270040185B /* 요리.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5E2C0605270040185B /* 요리.png */; };
-		139F6C6E2C0605270040185B /* 유머.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5F2C0605270040185B /* 유머.png */; };
 		139F6C6F2C0605270040185B /* 음악.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C602C0605270040185B /* 음악.png */; };
 		139F6C702C0605270040185B /* 결혼·육아.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C612C0605270040185B /* 결혼·육아.png */; };
 		139F6C712C0605270040185B /* 여행.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C622C0605270040185B /* 여행.png */; };
@@ -91,13 +92,14 @@
 		133919302C071316008EC0A0 /* 표지8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "표지8.png"; sourceTree = "<group>"; };
 		1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		1339193E2C071694008EC0A0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		133919402C072907008EC0A0 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
+		133919422C0744B7008EC0A0 /* 유머.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "유머.png"; path = "../../../카테고리_사진/유머.png"; sourceTree = "<group>"; };
 		139F6C572C0604DA0040185B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		139F6C5A2C0605270040185B /* 인문·철학.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "인문·철학.png"; sourceTree = "<group>"; };
 		139F6C5B2C0605270040185B /* 연애.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "연애.png"; sourceTree = "<group>"; };
 		139F6C5C2C0605270040185B /* IT·과학.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "IT·과학.png"; sourceTree = "<group>"; };
 		139F6C5D2C0605270040185B /* 소설.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "소설.png"; sourceTree = "<group>"; };
 		139F6C5E2C0605270040185B /* 요리.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "요리.png"; sourceTree = "<group>"; };
-		139F6C5F2C0605270040185B /* 유머.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "유머.png"; path = "../../../카테고리_사진/유머.png"; sourceTree = "<group>"; };
 		139F6C602C0605270040185B /* 음악.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "음악.png"; sourceTree = "<group>"; };
 		139F6C612C0605270040185B /* 결혼·육아.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "결혼·육아.png"; sourceTree = "<group>"; };
 		139F6C622C0605270040185B /* 여행.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "여행.png"; sourceTree = "<group>"; };
@@ -179,9 +181,9 @@
 				139F6C5D2C0605270040185B /* 소설.png */,
 				139F6C622C0605270040185B /* 여행.png */,
 				139F6C5B2C0605270040185B /* 연애.png */,
+				133919422C0744B7008EC0A0 /* 유머.png */,
 				139F6C672C0605270040185B /* 영화·드라마.png */,
 				139F6C5E2C0605270040185B /* 요리.png */,
-				139F6C5F2C0605270040185B /* 유머.png */,
 				139F6C602C0605270040185B /* 음악.png */,
 				139F6C5A2C0605270040185B /* 인문·철학.png */,
 				139F6C632C0605270040185B /* 자기계발.png */,
@@ -274,6 +276,7 @@
 				139F6C782C0606AD0040185B /* CategoryListViewController.swift */,
 				1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */,
 				1339193E2C071694008EC0A0 /* SettingViewController.swift */,
+				133919402C072907008EC0A0 /* TempViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -437,8 +440,8 @@
 				132240562C06FE1D000266D1 /* BMJUA_otf.otf in Resources */,
 				139F6C6D2C0605270040185B /* 요리.png in Resources */,
 				132240512C06FE1D000266D1 /* BMYEONSUNG_otf.otf in Resources */,
-				139F6C6E2C0605270040185B /* 유머.png in Resources */,
 				139F6C762C0605270040185B /* 영화·드라마.png in Resources */,
+				133919432C0744B7008EC0A0 /* 유머.png in Resources */,
 				133919352C071316008EC0A0 /* 표지11.png in Resources */,
 				139F6C6A2C0605270040185B /* 연애.png in Resources */,
 				133919372C071316008EC0A0 /* 표지9.png in Resources */,
@@ -518,6 +521,7 @@
 				13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */,
 				1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */,
 				733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */,
+				133919412C072907008EC0A0 /* TempViewController.swift in Sources */,
 				1339193F2C071694008EC0A0 /* SettingViewController.swift in Sources */,
 				733CAE7F2C03059C007A4568 /* LoginResponseDto.swift in Sources */,
 				733CAE742C030099007A4568 /* Authentication.swift in Sources */,
