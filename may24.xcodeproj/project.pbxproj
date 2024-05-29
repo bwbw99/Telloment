@@ -26,7 +26,6 @@
 		1339193A2C071316008EC0A0 /* 표지2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1339192F2C071316008EC0A0 /* 표지2.jpg */; };
 		1339193B2C071316008EC0A0 /* 표지8.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919302C071316008EC0A0 /* 표지8.png */; };
 		1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */; };
-		1339193F2C071694008EC0A0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1339193E2C071694008EC0A0 /* SettingViewController.swift */; };
 		133919412C072907008EC0A0 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133919402C072907008EC0A0 /* TempViewController.swift */; };
 		133919432C0744B7008EC0A0 /* 유머.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919422C0744B7008EC0A0 /* 유머.png */; };
 		139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F6C572C0604DA0040185B /* CategoryViewController.swift */; };
@@ -91,7 +90,6 @@
 		1339192F2C071316008EC0A0 /* 표지2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "표지2.jpg"; sourceTree = "<group>"; };
 		133919302C071316008EC0A0 /* 표지8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "표지8.png"; sourceTree = "<group>"; };
 		1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
-		1339193E2C071694008EC0A0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		133919402C072907008EC0A0 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		133919422C0744B7008EC0A0 /* 유머.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "유머.png"; path = "../../../카테고리_사진/유머.png"; sourceTree = "<group>"; };
 		139F6C572C0604DA0040185B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				139F6C572C0604DA0040185B /* CategoryViewController.swift */,
 				139F6C782C0606AD0040185B /* CategoryListViewController.swift */,
 				1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */,
-				1339193E2C071694008EC0A0 /* SettingViewController.swift */,
 				133919402C072907008EC0A0 /* TempViewController.swift */,
 			);
 			path = ViewControllers;
@@ -522,7 +519,6 @@
 				1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */,
 				733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */,
 				133919412C072907008EC0A0 /* TempViewController.swift in Sources */,
-				1339193F2C071694008EC0A0 /* SettingViewController.swift in Sources */,
 				733CAE7F2C03059C007A4568 /* LoginResponseDto.swift in Sources */,
 				733CAE742C030099007A4568 /* Authentication.swift in Sources */,
 			);
@@ -690,7 +686,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.may24;
+				PRODUCT_BUNDLE_IDENTIFIER = com.may24.Telloment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -719,7 +715,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.may24;
+				PRODUCT_BUNDLE_IDENTIFIER = com.may24.Telloment;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

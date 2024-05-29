@@ -99,18 +99,18 @@ class HomeViewController:UIViewController{
     }
     
     @IBAction func happyButtonTapped(_ sender: UIButton) {
-        self.TodayEmotionTitle.text = "행복한 당신의 오늘을 더 즐겁게 해줄 페이지를 찾아왔어요"
-        // 전체 글에서 즐거움과 관련된 감정의 글들을 불러옴
+        
+        // 전체 글에서 즐거움과 관련된 감정의 글(페이지)들을 불러옴
     }
     
     @IBAction func sadButtonTapped(_ sender: UIButton) {
-        self.TodayEmotionTitle.text = "슬픈 하루를 보낸 당신을 위로해줄 글들을 찾아왔어요"
-        // 전체 글에서 위로 태그가 있는 글들을 불러옴
+        
+        // 전체 글에서 위로 태그가 있는 글(페이지)들을 불러옴
     }
     
     @IBAction func rageButtonTapped(_ sender: UIButton) {
-        self.TodayEmotionTitle.text = "화나는 일이 있었던 당신을 위해 재밌는 북을 모아봤어요"
-        //
+        
+        // 유머 카테고리의 북을 불러옴
     }
     
     
