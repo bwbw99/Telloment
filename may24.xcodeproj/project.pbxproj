@@ -26,7 +26,6 @@
 		1339193A2C071316008EC0A0 /* 표지2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1339192F2C071316008EC0A0 /* 표지2.jpg */; };
 		1339193B2C071316008EC0A0 /* 표지8.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919302C071316008EC0A0 /* 표지8.png */; };
 		1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */; };
-		133919412C072907008EC0A0 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133919402C072907008EC0A0 /* TempViewController.swift */; };
 		133919432C0744B7008EC0A0 /* 유머.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919422C0744B7008EC0A0 /* 유머.png */; };
 		139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F6C572C0604DA0040185B /* CategoryViewController.swift */; };
 		139F6C692C0605270040185B /* 인문·철학.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5A2C0605270040185B /* 인문·철학.png */; };
@@ -59,6 +58,7 @@
 		13E7DEB22BF70A460093E643 /* HeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E7DEB12BF70A460093E643 /* HeartViewController.swift */; };
 		13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E7DEB32BF70A530093E643 /* MypageViewController.swift */; };
 		13E7DEC72BF7144B0093E643 /* voice-recognition.png in Resources */ = {isa = PBXBuildFile; fileRef = 13E7DEC62BF7144B0093E643 /* voice-recognition.png */; };
+		13F0C4AB2C07875A005FFC9D /* ScrabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F0C4AA2C07875A005FFC9D /* ScrabViewController.swift */; };
 		733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */; };
 		733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */; };
 		733CAE742C030099007A4568 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE732C030099007A4568 /* Authentication.swift */; };
@@ -90,7 +90,6 @@
 		1339192F2C071316008EC0A0 /* 표지2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "표지2.jpg"; sourceTree = "<group>"; };
 		133919302C071316008EC0A0 /* 표지8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "표지8.png"; sourceTree = "<group>"; };
 		1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
-		133919402C072907008EC0A0 /* TempViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
 		133919422C0744B7008EC0A0 /* 유머.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "유머.png"; path = "../../../카테고리_사진/유머.png"; sourceTree = "<group>"; };
 		139F6C572C0604DA0040185B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		139F6C5A2C0605270040185B /* 인문·철학.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "인문·철학.png"; sourceTree = "<group>"; };
@@ -125,6 +124,7 @@
 		13E7DEB12BF70A460093E643 /* HeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartViewController.swift; sourceTree = "<group>"; };
 		13E7DEB32BF70A530093E643 /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		13E7DEC62BF7144B0093E643 /* voice-recognition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "voice-recognition.png"; sourceTree = "<group>"; };
+		13F0C4AA2C07875A005FFC9D /* ScrabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrabViewController.swift; sourceTree = "<group>"; };
 		439FD1C7EE556BB11A8BE45B /* Pods-may24.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-may24.debug.xcconfig"; path = "Target Support Files/Pods-may24/Pods-may24.debug.xcconfig"; sourceTree = "<group>"; };
 		65B7E023F07AED3E694B6052 /* Pods-may24.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-may24.release.xcconfig"; path = "Target Support Files/Pods-may24/Pods-may24.release.xcconfig"; sourceTree = "<group>"; };
 		733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceApi.swift; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 				139F6C572C0604DA0040185B /* CategoryViewController.swift */,
 				139F6C782C0606AD0040185B /* CategoryListViewController.swift */,
 				1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */,
-				133919402C072907008EC0A0 /* TempViewController.swift */,
+				13F0C4AA2C07875A005FFC9D /* ScrabViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -517,8 +517,8 @@
 				13E7DEB22BF70A460093E643 /* HeartViewController.swift in Sources */,
 				13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */,
 				1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */,
+				13F0C4AB2C07875A005FFC9D /* ScrabViewController.swift in Sources */,
 				733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */,
-				133919412C072907008EC0A0 /* TempViewController.swift in Sources */,
 				733CAE7F2C03059C007A4568 /* LoginResponseDto.swift in Sources */,
 				733CAE742C030099007A4568 /* Authentication.swift in Sources */,
 			);
