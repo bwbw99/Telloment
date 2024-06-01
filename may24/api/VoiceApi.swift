@@ -45,5 +45,28 @@ public class VoiceApi {
             }
         }
     }
+    
+    
+    // Function to fetch the voice list
+    public func getScrappedVoiceList(completion: @escaping (Result<[VoiceResponseDto], Error>) -> Void) {
+        
+        AF.request(
+            baseUrl + "/user/scrap/all",
+            interceptor: AuthRequestInterceptor()
+            )
+            .responseDecodable(of : BaseResponse<[VoiceResponseDto]>.self) { response in
+                if let error = response.error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let v = response.value?.data else {
+                    completion(.failure(NSError(domain: "com.yourapp.error", code: -1, userInfo: ["message": "Data is empty"])))
+                    return
+                }
+                
+                completion(.success(v))
+            }
+    }
 }
 

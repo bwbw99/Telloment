@@ -66,7 +66,7 @@ class ScrabViewController:UIViewController{
     
     
     
-    
+
     @IBOutlet weak var ListHeight: NSLayoutConstraint!
     
     @IBOutlet var Trailings: [NSLayoutConstraint]!
@@ -93,19 +93,23 @@ class ScrabViewController:UIViewController{
         
         // 서버와 통신해서 스크랩 목록을 scrab 에 저장함
         // ex) scrabs = ["suzy", "abc", "은하수"]
-        scrabs = ["suzy", "abc", "은하수"]
         
-        
-        
-        
-        
-        
-        
-        // scrab 의 데이터를 화면에 표시
-        for _ in scrabs{
-            len_scrabs += 1
+        VoiceApi.shared.getScrappedVoiceList { result in
+            switch result {
+            case .failure(let error):
+                print(error) //todo: error handle
+            case .success(let list):
+                self.scrabs = list.map { dto in
+                    dto.userNickname
+                }
+                
+                // scrab 의 데이터를 화면에 표시
+                for _ in self.scrabs{
+                    self.len_scrabs += 1
+                }
+                self.loadVoiceList(len_scrabs: self.len_scrabs)
+            }
         }
-        loadVoiceList(len_scrabs: len_scrabs)
         
         
         

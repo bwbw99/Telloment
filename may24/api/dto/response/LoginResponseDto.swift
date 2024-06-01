@@ -8,7 +8,7 @@
 struct LoginResponseDto: Codable {
     var accessToken: String?
     var accessTokenExpiresIn : Int
-        var grantType: String?
+    var grantType: String?
     var refreshToken : String?
     
     enum CodingKeys: String, CodingKey {
