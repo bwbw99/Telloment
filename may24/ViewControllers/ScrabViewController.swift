@@ -30,8 +30,7 @@ class ScrabViewController:UIViewController{
     
     // 저장 보이스 관리
     @IBOutlet weak var ListOutlineView: UIView!
-    var scrabs:[String] = []
-    var len_scrabs:Int = 0
+    var scrapVoices:[VoiceResponseDto] = []
     
     @IBOutlet weak var EditLabel: UILabel!
     @IBOutlet weak var EditButton: UIButton!
@@ -91,6 +90,12 @@ class ScrabViewController:UIViewController{
         
         
         
+        
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
         // 서버와 통신해서 스크랩 목록을 scrab 에 저장함
         // ex) scrabs = ["suzy", "abc", "은하수"]
         
@@ -99,23 +104,12 @@ class ScrabViewController:UIViewController{
             case .failure(let error):
                 print(error) //todo: error handle
             case .success(let list):
-                self.scrabs = list.map { dto in
-                    dto.userNickname
-                }
-                
-                // scrab 의 데이터를 화면에 표시
-                for _ in self.scrabs{
-                    self.len_scrabs += 1
-                }
-                self.loadVoiceList(len_scrabs: self.len_scrabs)
+                self.scrapVoices = list
+            
+                self.loadVoiceList()
             }
         }
-        
-        
-        
     }
-    
-    
     
     
     
@@ -242,7 +236,9 @@ class ScrabViewController:UIViewController{
     
     
     
-    func loadVoiceList(len_scrabs: Int){
+    func loadVoiceList(){
+        
+        let len_scrabs = self.scrapVoices.count
         
         for i in VoiceViews{
             i.isHidden = true
@@ -254,31 +250,31 @@ class ScrabViewController:UIViewController{
         if (len_scrabs >= 1){
             Voice_1.isHidden = false
             play_1.isHidden = false
-            VoiceLabel_1.text = scrabs[0] + " 님의 목소리"
+            VoiceLabel_1.text = scrapVoices[0].userNickname + " 님의 목소리"
             ListHeight.constant = 100
         }
         if (len_scrabs >= 2){
             Voice_2.isHidden = false
             play_2.isHidden = false
-            VoiceLabel_2.text = scrabs[1] + " 님의 목소리"
+            VoiceLabel_2.text = scrapVoices[1].userNickname + " 님의 목소리"
             ListHeight.constant = 190
         }
         if (len_scrabs >= 3){
             Voice_3.isHidden = false
             play_3.isHidden = false
-            VoiceLabel_3.text = scrabs[2] + " 님의 목소리"
+            VoiceLabel_3.text = scrapVoices[2].userNickname + " 님의 목소리"
             ListHeight.constant = 280
         }
         if (len_scrabs >= 4){
             Voice_4.isHidden = false
             play_4.isHidden = false
-            VoiceLabel_4.text = scrabs[3] + " 님의 목소리"
+            VoiceLabel_4.text = scrapVoices[3].userNickname + " 님의 목소리"
             ListHeight.constant = 370
         }
         if (len_scrabs >= 5){
             Voice_5.isHidden = false
             play_5.isHidden = false
-            VoiceLabel_5.text = scrabs[4] + " 님의 목소리"
+            VoiceLabel_5.text = scrapVoices[4].userNickname + " 님의 목소리"
             ListHeight.constant = 460
         }
         
@@ -289,15 +285,23 @@ class ScrabViewController:UIViewController{
     
     
     func makeRemoveAlert(idx:Int){
-        let alert = UIAlertController(title:"아래의 보이스를 삭제할까요?",message: self.scrabs[idx]+" 님의 목소리",preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title:"아래의 보이스를 삭제할까요?",message: self.scrapVoices[idx].userNickname + " 님의 목소리",preferredStyle: UIAlertController.Style.alert)
         let alert_cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
         //확인 버튼 만들기
-        let alert_delete = UIAlertAction(title: "삭제", style: .destructive, handler: {
-            action in
+        let alert_delete = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
+            let voiceToRemove = self.scrapVoices[idx]
+            VoiceApi.shared.removeVoiceScrap(voiceId: voiceToRemove.id) { res in
+                switch res {
+                case .failure(let error):
+                    print(error)
+                    //todo: error handle
+                case .success():
+                    self.scrapVoices.remove(at: idx)
+                    self.loadVoiceList( )
+                }
+            }
             // 지우고 싶은 목소리를, 로컬의 스크랩 목록에서는 아래와 같이 클라이언트단에서 제거하고...
-            self.scrabs.remove(at: idx)
-            self.len_scrabs -= 1
-            self.loadVoiceList(len_scrabs: self.len_scrabs)
+            
             // 서버의 스크랩 목록에도 제거 요청
             
         })

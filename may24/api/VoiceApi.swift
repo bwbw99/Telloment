@@ -61,11 +61,32 @@ public class VoiceApi {
                 }
                 
                 guard let v = response.value?.data else {
-                    completion(.failure(NSError(domain: "com.yourapp.error", code: -1, userInfo: ["message": "Data is empty"])))
+                    completion(.failure(NSError(domain: "api.voice.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
                 
                 completion(.success(v))
+            }
+    }
+    
+    public func removeVoiceScrap(voiceId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+        AF.request(
+            baseUrl + "/\(voiceId)/scrap",
+            method: .delete,
+            interceptor: AuthRequestInterceptor()
+            )
+            .responseDecodable(of : BaseResponse<String>.self) { response in
+                if let error = response.error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let v = response.value else {
+                    completion(.failure(NSError(domain: "api.voice.error", code: -1, userInfo: ["message": "Data is empty"])))
+                    return
+                }
+                
+                completion(.success(()))
             }
     }
 }
