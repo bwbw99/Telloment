@@ -11,6 +11,7 @@
 // 4. Line 298에 스크랩 목록에서 보이스를 삭제하는 경우, 서버에서도 제거하는 코드 구현하기
 
 import UIKit
+import AVFoundation
 
 class ScrabViewController:UIViewController{
     
@@ -71,6 +72,10 @@ class ScrabViewController:UIViewController{
     @IBOutlet var Trailings: [NSLayoutConstraint]!
     
     
+    private var player :AVAudioPlayer?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.Outter_1.layer.cornerRadius = 5
@@ -88,9 +93,13 @@ class ScrabViewController:UIViewController{
             i.layer.borderColor = UIColor.black.cgColor
         }
         
-        
-        
-        
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default )
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                    
+        } catch {
+            print("error" )
+        }
         
     }
     
@@ -211,7 +220,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_1(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[0].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -224,7 +234,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_2(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[1].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -237,7 +248,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_3(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[2].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -250,7 +262,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_4(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[3].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -263,7 +276,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_5(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[4].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -351,9 +365,42 @@ class ScrabViewController:UIViewController{
         
     }
     
+    private func playVoiceTest(voiceId:Int) {
+        VoiceApi.shared.getAudibleTextData(
+            emotion: BackendEmotions.Neutral,
+            content: "안녕하세요. 만나서 반갑습니다",
+            intensity: 0,
+            voiceId: voiceId
+        ) { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+                
+            case .success(let data):
+                self.playAudioData(data: data)
+            }
+            
+        }
+    }
     
-    
-    
-    
+    private func playAudioData(data: Data) {
+        do {
+            player = try AVAudioPlayer(data: data)
+        } catch {
+            print("error on AVplayer")
+            return
+        }
+        
+        // Try to create an AVAudioPlayer object from the data
+        guard let audioPlayer = player else {
+            // If creating the player fails, it's likely not audio data
+            print("Error: Unable to create AVAudioPlayer from data")
+            return
+        }
+        
+        audioPlayer.volume = 0.5
+        audioPlayer.play()
+    }
 }
 

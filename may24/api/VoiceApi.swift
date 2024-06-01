@@ -49,6 +49,41 @@ public class VoiceApi {
         }
     }
     
+    public func getAudibleTextData(
+        emotion: BackendEmotions,
+        content: String,
+        intensity:Int,
+        voiceId: Int,
+        completion: @escaping (Result<Data, Error>) -> Void
+    ) {
+        let requestParams = [
+            "content": content,
+            "emotion": emotion.rawValue,
+            "intensity": intensity
+        ] as [String : Any] 
+        AF.request(
+            baseUrl + "/\(voiceId)/speech",
+            method: .get,
+            parameters: requestParams,
+            encoding: URLEncoding.default,
+            interceptor: AuthRequestInterceptor()
+        )
+//        .validate(statusCode: 200 ..< 300)
+            .responseData { response in
+                if let error = response.error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let v = response.data else {
+                    completion(.failure(NSError(domain: "api.voice.error", code: -1, userInfo: ["message": "Data is empty"])))
+                    return
+                }
+                
+                completion(.success(v))
+            }
+    }
+    
     
     // Function to fetch the voice list
     public func getScrappedVoiceList(completion: @escaping (Result<[VoiceResponseDto], Error>) -> Void) {

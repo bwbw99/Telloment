@@ -68,6 +68,7 @@
 		733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE822C045A71007A4568 /* BaseResponse.swift */; };
 		733CAE862C045D90007A4568 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE852C045D90007A4568 /* AudioRecorder.swift */; };
 		733CAEC42C0ADC01007A4568 /* VoiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAEC32C0ADC01007A4568 /* VoiceResponseDto.swift */; };
+		737EF8C52C0B133C00B8269F /* BackendEmotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EF8C42C0B133C00B8269F /* BackendEmotions.swift */; };
 		E4DCBA6BCE6C6A7D16108A19 /* Pods_may24.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C05CA1E589E7C2C0D7772 /* Pods_may24.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +138,7 @@
 		733CAE822C045A71007A4568 /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		733CAE852C045D90007A4568 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		733CAEC32C0ADC01007A4568 /* VoiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceResponseDto.swift; sourceTree = "<group>"; };
+		737EF8C42C0B133C00B8269F /* BackendEmotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackendEmotions.swift; path = may24/model/BackendEmotions.swift; sourceTree = SOURCE_ROOT; };
 		F97C05CA1E589E7C2C0D7772 /* Pods_may24.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_may24.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -238,6 +240,7 @@
 		13E7DE922BF5C1B60093E643 /* may24 */ = {
 			isa = PBXGroup;
 			children = (
+				737EF8C12C0B12CB00B8269F /* model */,
 				733CAE842C045D4F007A4568 /* features */,
 				733CAE692C02DB9C007A4568 /* api */,
 				13E7DECA2BF714810093E643 /* resources */,
@@ -330,6 +333,7 @@
 		733CAE7A2C0303A4007A4568 /* request */ = {
 			isa = PBXGroup;
 			children = (
+				737EF8C42C0B133C00B8269F /* BackendEmotions.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -350,6 +354,13 @@
 				733CAE852C045D90007A4568 /* AudioRecorder.swift */,
 			);
 			path = features;
+			sourceTree = "<group>";
+		};
+		737EF8C12C0B12CB00B8269F /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,6 +529,7 @@
 				13E7DE962BF5C1B60093E643 /* SceneDelegate.swift in Sources */,
 				13E7DEAC2BF6FB0F0093E643 /* HomeViewController.swift in Sources */,
 				733CAE862C045D90007A4568 /* AudioRecorder.swift in Sources */,
+				737EF8C52C0B133C00B8269F /* BackendEmotions.swift in Sources */,
 				13E7DEB22BF70A460093E643 /* HeartViewController.swift in Sources */,
 				13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */,
 				1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */,
