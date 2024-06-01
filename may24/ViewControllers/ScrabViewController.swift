@@ -99,6 +99,17 @@ class ScrabViewController:UIViewController{
         // 서버와 통신해서 스크랩 목록을 scrab 에 저장함
         // ex) scrabs = ["suzy", "abc", "은하수"]
         
+        AuthenticationApi.shared.getVoicePermission { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+                
+            case .success(let permitVoiceUse):
+                self.loadVoicePermissionSwitch(permit: permitVoiceUse)
+            }
+        }
+        
         VoiceApi.shared.getScrappedVoiceList { result in
             switch result {
             case .failure(let error):
@@ -114,23 +125,51 @@ class ScrabViewController:UIViewController{
     
     
     @IBAction func AcceptButtonTapped(_ sender: UIButton) {
-        self.AcceptLabel.textColor = UIColor.black
-        self.DeclineLabel.textColor = UIColor.lightGray
-        self.Outter_1.backgroundColor = UIColor.black
-        self.Outter_2.backgroundColor = UIColor.lightGray
-        self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용하는 것에 동의합니다."
+        
         // 동의한다는 요청을 서버로 전송
+        
+        AuthenticationApi.shared.updateVoicePermission(permit: true) { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+            case .success():
+                self.loadVoicePermissionSwitch(permit: true)
+            }
+        }
+        
     }
     
-    
+    private func loadVoicePermissionSwitch(permit: Bool) {
+        if permit {
+            self.AcceptLabel.textColor = UIColor.black
+            self.DeclineLabel.textColor = UIColor.lightGray
+            self.Outter_1.backgroundColor = UIColor.black
+            self.Outter_2.backgroundColor = UIColor.lightGray
+            self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용하는 것에 동의합니다."
+        }
+        else {
+            
+                self.AcceptLabel.textColor = UIColor.lightGray
+                self.DeclineLabel.textColor = UIColor.black
+                self.Outter_1.backgroundColor = UIColor.lightGray
+                self.Outter_2.backgroundColor = UIColor.black
+                self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용할 수 없습니다."
+        }
+    }
     
     @IBAction func DeclineButtonTapped(_ sender: UIButton) {
-        self.AcceptLabel.textColor = UIColor.lightGray
-        self.DeclineLabel.textColor = UIColor.black
-        self.Outter_1.backgroundColor = UIColor.lightGray
-        self.Outter_2.backgroundColor = UIColor.black
-        self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용할 수 없습니다."
         // 거부한다는 요청을 서버로 전송
+        AuthenticationApi.shared.updateVoicePermission(permit: false) { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+            case .success():
+                self.loadVoicePermissionSwitch(permit: false)
+            }
+        }
+
     }
     
     

@@ -27,7 +27,7 @@ class AuthRequestInterceptor: RequestInterceptor {
         guard request.retryCount < retryLimit else { return completion(.doNotRetryWithError(error)) }
         Task {      
             do {
-                var data = try await AuthenticationApi.shared.refreshToken()
+                let data = try await AuthenticationApi.shared.refreshToken()
                 Authentication.token = data.accessToken!
                 Authentication.refreshToken = data.refreshToken!
                 return completion(.retry)

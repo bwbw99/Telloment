@@ -34,7 +34,10 @@ public class VoiceApi {
             if let userData = userId.data(using: .utf8) {
                 multipartFormData.append(userData, withName: "user_id")
             }
-        }, to: "\(baseUrl)/clone", method: .post, headers: header)
+        }, to: "\(baseUrl)/clone", 
+                  method: .post,
+                  headers: header,
+                interceptor: AuthRequestInterceptor())
         .validate()
         .responseString { res in
             switch res.result {
