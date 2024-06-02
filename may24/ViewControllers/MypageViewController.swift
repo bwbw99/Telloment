@@ -9,7 +9,25 @@ import UIKit
 
 class MypageViewController:UIViewController{
     
-    override func viewWillAppear(_ animated: Bool) {
+    
+    @IBOutlet weak var LogoutView: UIView!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        LogoutView.layer.borderWidth = 2
+        LogoutView.layer.borderColor = UIColor.black.cgColor
+        LogoutView.layer.cornerRadius = 20
     }
+    
+    
+    @IBAction func LogoutButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
+    
+    
 }
