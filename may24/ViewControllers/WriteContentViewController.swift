@@ -10,13 +10,18 @@ import UIKit
 class WriteContentViewController:UIViewController,EmotionDelegate_1{
     func EVC_To_WCVC_Type(type: String) {
         self.EmotionTypeLabel.text = type
+        if(type == "중립"){
+            self.HideView.isHidden = false
+        }
+        else{
+            self.HideView.isHidden = true
+        }
     }
     
     func EVC_TO_WCVC_Level(level: String) {
         self.EmotionLevelLabel.text = level
     }
     
-    var emotionDelegate_2 : EmotionDelegate_2?
     
     
     @IBAction func BackButtonTapped(_ sender: UIButton) {
@@ -39,6 +44,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     @IBOutlet weak var EmotionTypeLabel: UILabel!
     @IBOutlet weak var EmotionLevelLabel: UILabel!
     
+    @IBOutlet weak var HideView: UIView!
     
     @IBOutlet weak var DoneView: UIView!
     
@@ -71,7 +77,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         DoneView.layer.borderColor = UIColor.black.cgColor
         DoneView.layer.borderWidth = 2
         
-        
+        HideView.isHidden = true
         
     }
     
@@ -80,6 +86,14 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         EditButton.isHidden = false
         EmotionButton.isHidden = true
         DualLabel.text = "직접 변경"
+        
+        // 감정 분석을 해서 label에 연결
+        
+        
+        if(EmotionTypeLabel.text == "중립"){
+            HideView.isHidden = false
+        }
+        
     }
     
     
@@ -87,35 +101,28 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         guard let evc = self.storyboard?.instantiateViewController(identifier: "EmotionVC") as? EmotionViewController else {return}
         evc.emotionDelegate_1 = self
         
-        if(EmotionTypeLabel.text == "행복" && EmotionLevelLabel.text == "낮음"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 1, level_num: 1)
+        if(EmotionTypeLabel.text == "행복"){
+            evc.Type_num = 1
         }
-        else if(EmotionTypeLabel.text == "행복" && EmotionLevelLabel.text == "보통"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 1, level_num: 2)
+        else if(EmotionTypeLabel.text == "슬픔"){
+            evc.Type_num = 2
         }
-        else if(EmotionTypeLabel.text == "행복" && EmotionLevelLabel.text == "높음"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 1, level_num: 3)
-        }
-        else if(EmotionTypeLabel.text == "슬픔" && EmotionLevelLabel.text == "낮음"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 2, level_num: 1)
-        }
-        else if(EmotionTypeLabel.text == "슬픔" && EmotionLevelLabel.text == "보통"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 2, level_num: 2)
-        }
-        else if(EmotionTypeLabel.text == "슬픔" && EmotionLevelLabel.text == "높음"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 2, level_num: 3)
-        }
-        else if(EmotionTypeLabel.text == "화남" && EmotionLevelLabel.text == "낮음"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 3, level_num: 1)
-        }
-        else if(EmotionTypeLabel.text == "화남" && EmotionLevelLabel.text == "보통"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 3, level_num: 2)
-        }
-        else if(EmotionTypeLabel.text == "화남" && EmotionLevelLabel.text == "높음"){
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 3, level_num: 3)
+        else if(EmotionTypeLabel.text == "화남"){
+            evc.Type_num = 3
         }
         else{
-            emotionDelegate_2?.WCVC_TO_EVC(type_num: 4, level_num: 2)
+            evc.Type_num = 4
+        }
+        
+        
+        if(EmotionLevelLabel.text == "낮음"){
+            evc.Level_num = 1
+        }
+        else if(EmotionLevelLabel.text == "보통"){
+            evc.Level_num = 2
+        }
+        else{
+            evc.Level_num = 3
         }
         
         
@@ -132,6 +139,4 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     
     
 }
-protocol EmotionDelegate_2 {
-    func WCVC_TO_EVC(type_num : Int, level_num : Int) -> Void
-}
+

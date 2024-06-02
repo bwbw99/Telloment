@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmotionViewController:UIViewController,EmotionDelegate_2{
+class EmotionViewController:UIViewController{
     func WCVC_TO_EVC(type_num: Int, level_num: Int) {
         self.Type_num = type_num
         self.Level_num = level_num
@@ -48,6 +48,7 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
     @IBOutlet weak var Button_1_3: UIButton!
     @IBOutlet weak var Button_1_4: UIButton!
     
+    @IBOutlet weak var MiddleLabel: UILabel!
     
     
     var Type_num : Int = 1
@@ -55,9 +56,6 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let wcvc = self.storyboard?.instantiateViewController(identifier: "WriteContentVC") as? WriteContentViewController else {return}
-        wcvc.emotionDelegate_2 = self
         
         SelectFourView.layer.cornerRadius = 5
         Outter_1_1.layer.cornerRadius = 5
@@ -89,19 +87,6 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         Inner_2_1.layer.cornerRadius = 4
         Inner_2_3.layer.cornerRadius = 4
         
-        if(Type_num == 1){
-            ButtonTapped_1(Button_1_1)
-        }
-        else if (Type_num == 2){
-            ButtonTapped_2(Button_1_2)
-        }
-        else if (Type_num == 2){
-            ButtonTapped_3(Button_1_3)
-        }
-        else{
-            ButtonTapped_4(Button_1_4)
-        }
-            
         if(Level_num == 1){
             ButtonTapped_2_1(Button_2_1!)
         }
@@ -111,6 +96,22 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         else{
             ButtonTapped_2_3(Button_2_3!)
         }
+        
+        
+        if(Type_num == 1){
+            ButtonTapped_1(Button_1_1)
+        }
+        else if (Type_num == 2){
+            ButtonTapped_2(Button_1_2)
+        }
+        else if (Type_num == 3){
+            ButtonTapped_3(Button_1_3)
+        }
+        else{
+            ButtonTapped_4(Button_1_4)
+        }
+            
+        
         
         
     }
@@ -137,7 +138,18 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         Horizontal_1_1.backgroundColor = UIColor.black
         Horizontal_1_2.backgroundColor = UIColor.lightGray
         
+        Label_1_1.textColor = UIColor.black
+        Label_1_2.textColor = UIColor.lightGray
+        Label_1_3.textColor = UIColor.lightGray
+        Label_1_4.textColor = UIColor.lightGray
+        
         emotionDelegate_1?.EVC_To_WCVC_Type(type: "행복")
+        
+        Button_2_1.isHidden = false
+        Button_2_2.isHidden = false
+        Button_2_3.isHidden = false
+        
+        MiddleLabel.isHidden = true
     }
     
     
@@ -153,7 +165,18 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         Horizontal_1_1.backgroundColor = UIColor.lightGray
         Horizontal_1_2.backgroundColor = UIColor.black
         
+        Label_1_1.textColor = UIColor.lightGray
+        Label_1_2.textColor = UIColor.black
+        Label_1_3.textColor = UIColor.lightGray
+        Label_1_4.textColor = UIColor.lightGray
+        
         emotionDelegate_1?.EVC_To_WCVC_Type(type: "슬픔")
+        
+        Button_2_1.isHidden = false
+        Button_2_2.isHidden = false
+        Button_2_3.isHidden = false
+        
+        MiddleLabel.isHidden = true
     }
     
     
@@ -171,7 +194,18 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         Horizontal_1_1.backgroundColor = UIColor.black
         Horizontal_1_2.backgroundColor = UIColor.lightGray
         
+        Label_1_1.textColor = UIColor.lightGray
+        Label_1_2.textColor = UIColor.lightGray
+        Label_1_3.textColor = UIColor.black
+        Label_1_4.textColor = UIColor.lightGray
+        
         emotionDelegate_1?.EVC_To_WCVC_Type(type: "화남")
+        
+        Button_2_1.isHidden = false
+        Button_2_2.isHidden = false
+        Button_2_3.isHidden = false
+        
+        MiddleLabel.isHidden = true
     }
     
     
@@ -188,7 +222,30 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         Horizontal_1_1.backgroundColor = UIColor.lightGray
         Horizontal_1_2.backgroundColor = UIColor.black
         
+        Label_1_1.textColor = UIColor.lightGray
+        Label_1_2.textColor = UIColor.lightGray
+        Label_1_3.textColor = UIColor.lightGray
+        Label_1_4.textColor = UIColor.black
+        
         emotionDelegate_1?.EVC_To_WCVC_Type(type: "중립")
+        
+        
+        Outter_2_1.backgroundColor = UIColor.lightGray
+        Outter_2_2.backgroundColor = UIColor.lightGray
+        Outter_2_3.backgroundColor = UIColor.lightGray
+        
+        Vertical_2_1.backgroundColor = UIColor.lightGray
+        Vertical_2_2.backgroundColor = UIColor.lightGray
+        
+        Label_2_1.textColor = UIColor.lightGray
+        Label_2_2.textColor = UIColor.lightGray
+        Label_2_3.textColor = UIColor.lightGray
+        
+        Button_2_1.isHidden = true
+        Button_2_2.isHidden = true
+        Button_2_3.isHidden = true
+        
+        MiddleLabel.isHidden = false
     }
     
     
@@ -209,6 +266,9 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
     @IBOutlet weak var Vertical_2_2: UIView!
     
     
+    @IBOutlet weak var Label_2_1: UILabel!
+    @IBOutlet weak var Label_2_2: UILabel!
+    @IBOutlet weak var Label_2_3: UILabel!
     
     
     
@@ -221,6 +281,10 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         Vertical_2_1.backgroundColor = UIColor.black
         Vertical_2_2.backgroundColor = UIColor.lightGray
         
+        Label_2_1.textColor = UIColor.black
+        Label_2_2.textColor = UIColor.lightGray
+        Label_2_3.textColor = UIColor.lightGray
+        
         emotionDelegate_1?.EVC_TO_WCVC_Level(level: "낮음")
     }
     
@@ -230,7 +294,11 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         Outter_2_3.backgroundColor = UIColor.lightGray
         
         Vertical_2_1.backgroundColor = UIColor.black
-        Vertical_2_2.backgroundColor = UIColor.lightGray
+        Vertical_2_2.backgroundColor = UIColor.black
+        
+        Label_2_1.textColor = UIColor.lightGray
+        Label_2_2.textColor = UIColor.black
+        Label_2_3.textColor = UIColor.lightGray
         
         emotionDelegate_1?.EVC_TO_WCVC_Level(level: "보통")
     }
@@ -244,6 +312,10 @@ class EmotionViewController:UIViewController,EmotionDelegate_2{
         
         Vertical_2_1.backgroundColor = UIColor.lightGray
         Vertical_2_2.backgroundColor = UIColor.black
+        
+        Label_2_1.textColor = UIColor.lightGray
+        Label_2_2.textColor = UIColor.lightGray
+        Label_2_3.textColor = UIColor.black
         
         emotionDelegate_1?.EVC_TO_WCVC_Level(level: "높음")
     }

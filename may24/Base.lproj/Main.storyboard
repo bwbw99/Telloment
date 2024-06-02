@@ -3000,6 +3000,13 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv8-Sk-hpJ" userLabel="HideView">
+                                                                <rect key="frame" x="183" y="0.0" width="210" height="48"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="210" id="XDf-ua-vmg"/>
+                                                                </constraints>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -3008,7 +3015,10 @@
                                                             <constraint firstItem="aBg-cK-Ssj" firstAttribute="centerY" secondItem="tD5-X4-k67" secondAttribute="centerY" id="Bkf-fZ-3kj"/>
                                                             <constraint firstItem="f4I-jH-u4U" firstAttribute="centerY" secondItem="tD5-X4-k67" secondAttribute="centerY" id="DRX-0p-EC6"/>
                                                             <constraint firstItem="Ifa-XE-xTN" firstAttribute="centerY" secondItem="tD5-X4-k67" secondAttribute="centerY" id="FOc-Kx-m5c"/>
+                                                            <constraint firstItem="hv8-Sk-hpJ" firstAttribute="top" secondItem="tD5-X4-k67" secondAttribute="top" id="GEI-5U-BNf"/>
                                                             <constraint firstItem="f4I-jH-u4U" firstAttribute="leading" secondItem="tD5-X4-k67" secondAttribute="leading" constant="30" id="HvX-Au-iMb"/>
+                                                            <constraint firstAttribute="bottom" secondItem="hv8-Sk-hpJ" secondAttribute="bottom" constant="2" id="YX5-Kg-kMz"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hv8-Sk-hpJ" secondAttribute="trailing" id="d7z-xZ-fBk"/>
                                                             <constraint firstAttribute="bottom" secondItem="fZb-HI-oYH" secondAttribute="bottom" id="iXj-9D-Zhe"/>
                                                             <constraint firstItem="XJW-zL-nDt" firstAttribute="leading" secondItem="dcF-0X-DAh" secondAttribute="trailing" constant="20" id="kex-CA-MXC"/>
                                                             <constraint firstItem="Ifa-XE-xTN" firstAttribute="leading" secondItem="XJW-zL-nDt" secondAttribute="trailing" constant="35" id="lzO-NO-cle"/>
@@ -3134,6 +3144,7 @@
                         <outlet property="EmotionLevelLabel" destination="Ifa-XE-xTN" id="y6S-fH-44o"/>
                         <outlet property="EmotionTypeLabel" destination="aBg-cK-Ssj" id="KsN-G1-B8O"/>
                         <outlet property="EmotionView" destination="b7D-oJ-S9O" id="oJY-eb-K7P"/>
+                        <outlet property="HideView" destination="hv8-Sk-hpJ" id="wdd-cj-uYK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XH8-NM-s8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3579,6 +3590,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="중립 감정에는 강도가 없습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRu-Q1-t2G">
+                                <rect key="frame" x="81.333333333333329" y="327" width="230.66666666666669" height="20"/>
+                                <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XHt-4w-RSf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3587,6 +3604,7 @@
                             <constraint firstItem="XHt-4w-RSf" firstAttribute="trailing" secondItem="fva-cK-eac" secondAttribute="trailing" constant="10" id="44U-YY-WjT"/>
                             <constraint firstItem="Et9-iS-tsI" firstAttribute="centerY" secondItem="ZZV-6p-P5T" secondAttribute="centerY" id="5vf-J8-vyz"/>
                             <constraint firstItem="RsB-2C-KKR" firstAttribute="leading" secondItem="XHt-4w-RSf" secondAttribute="leading" constant="134" id="AHO-x3-cIT"/>
+                            <constraint firstItem="iRu-Q1-t2G" firstAttribute="centerX" secondItem="XHt-4w-RSf" secondAttribute="centerX" id="Bkv-Rs-VqG"/>
                             <constraint firstItem="8Yc-iv-C4I" firstAttribute="centerX" secondItem="XHt-4w-RSf" secondAttribute="centerX" id="DCD-A0-r5q"/>
                             <constraint firstItem="ddK-25-HL2" firstAttribute="top" secondItem="y4L-jh-OEC" secondAttribute="bottom" id="EBf-UN-t8x"/>
                             <constraint firstItem="fva-cK-eac" firstAttribute="centerY" secondItem="8Yc-iv-C4I" secondAttribute="centerY" id="G5U-ze-nvG"/>
@@ -3594,6 +3612,7 @@
                             <constraint firstItem="RsB-2C-KKR" firstAttribute="leading" secondItem="Et9-iS-tsI" secondAttribute="trailing" id="HaV-gG-zEl"/>
                             <constraint firstItem="fva-cK-eac" firstAttribute="trailing" secondItem="HN0-ne-hwo" secondAttribute="trailing" constant="1" id="J9U-l4-LPy"/>
                             <constraint firstItem="XHt-4w-RSf" firstAttribute="trailing" secondItem="y29-8p-FIh" secondAttribute="trailing" id="Jcf-jx-7MZ"/>
+                            <constraint firstItem="iRu-Q1-t2G" firstAttribute="top" secondItem="ddK-25-HL2" secondAttribute="bottom" constant="15" id="Mp7-ta-dgG"/>
                             <constraint firstItem="igC-5L-A4J" firstAttribute="leading" secondItem="p7c-ed-VDC" secondAttribute="leading" id="N8U-1g-ISX"/>
                             <constraint firstItem="y29-8p-FIh" firstAttribute="leading" secondItem="XHt-4w-RSf" secondAttribute="leading" id="SzA-SS-A1E"/>
                             <constraint firstItem="igC-5L-A4J" firstAttribute="top" secondItem="XHt-4w-RSf" secondAttribute="top" id="YkJ-2f-fyT"/>
@@ -3636,6 +3655,10 @@
                         <outlet property="Label_1_2" destination="nMO-9l-IIU" id="yGB-C7-YT1"/>
                         <outlet property="Label_1_3" destination="OgB-4N-sBg" id="hmR-sj-CLr"/>
                         <outlet property="Label_1_4" destination="8Yw-8i-UNm" id="pxK-HK-sCq"/>
+                        <outlet property="Label_2_1" destination="Et9-iS-tsI" id="zKQ-x8-kUa"/>
+                        <outlet property="Label_2_2" destination="3iH-V9-1BX" id="3tR-af-DDw"/>
+                        <outlet property="Label_2_3" destination="HN0-ne-hwo" id="uUs-Pf-bwA"/>
+                        <outlet property="MiddleLabel" destination="iRu-Q1-t2G" id="J4g-I1-j8d"/>
                         <outlet property="Outter_1_1" destination="E1c-v3-eLN" id="23H-no-pWL"/>
                         <outlet property="Outter_1_2" destination="tki-tT-cE7" id="tun-zQ-Xtr"/>
                         <outlet property="Outter_1_3" destination="uKO-48-5m7" id="Z2Z-HE-gji"/>
