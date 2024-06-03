@@ -14,6 +14,9 @@
 		132240542C06FE1D000266D1 /* BMHANNAProOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1322404D2C06FE1D000266D1 /* BMHANNAProOTF.otf */; };
 		132240552C06FE1D000266D1 /* BMDOHYEON_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1322404E2C06FE1D000266D1 /* BMDOHYEON_otf.otf */; };
 		132240562C06FE1D000266D1 /* BMJUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1322404F2C06FE1D000266D1 /* BMJUA_otf.otf */; };
+		132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430D62C09A679006E00D6 /* AccountViewController.swift */; };
+		132430D92C09AF08006E00D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430D82C09AF08006E00D6 /* LoginViewController.swift */; };
+		132430DB2C09AF17006E00D6 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430DA2C09AF17006E00D6 /* MakeAccountViewController.swift */; };
 		133919312C071316008EC0A0 /* 표지1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 133919262C071316008EC0A0 /* 표지1.jpg */; };
 		133919322C071316008EC0A0 /* 표지4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 133919272C071316008EC0A0 /* 표지4.jpg */; };
 		133919332C071316008EC0A0 /* 표지10.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919282C071316008EC0A0 /* 표지10.png */; };
@@ -27,6 +30,10 @@
 		1339193B2C071316008EC0A0 /* 표지8.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919302C071316008EC0A0 /* 표지8.png */; };
 		1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */; };
 		133919432C0744B7008EC0A0 /* 유머.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919422C0744B7008EC0A0 /* 유머.png */; };
+		1360F9042C0AFCA500A4707C /* SelectBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1360F9032C0AFCA500A4707C /* SelectBookViewController.swift */; };
+		13837C1B2C0B1419001229C8 /* WriteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13837C1A2C0B1419001229C8 /* WriteContentViewController.swift */; };
+		13837C1E2C0B1A16001229C8 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 13837C1D2C0B1A16001229C8 /* microphone.png */; };
+		13837C202C0B3F00001229C8 /* EmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13837C1F2C0B3F00001229C8 /* EmotionViewController.swift */; };
 		139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F6C572C0604DA0040185B /* CategoryViewController.swift */; };
 		139F6C692C0605270040185B /* 인문·철학.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5A2C0605270040185B /* 인문·철학.png */; };
 		139F6C6A2C0605270040185B /* 연애.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5B2C0605270040185B /* 연애.png */; };
@@ -80,6 +87,9 @@
 		1322404D2C06FE1D000266D1 /* BMHANNAProOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMHANNAProOTF.otf; sourceTree = "<group>"; };
 		1322404E2C06FE1D000266D1 /* BMDOHYEON_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMDOHYEON_otf.otf; sourceTree = "<group>"; };
 		1322404F2C06FE1D000266D1 /* BMJUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMJUA_otf.otf; sourceTree = "<group>"; };
+		132430D62C09A679006E00D6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		132430D82C09AF08006E00D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		132430DA2C09AF17006E00D6 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
 		133919262C071316008EC0A0 /* 표지1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "표지1.jpg"; sourceTree = "<group>"; };
 		133919272C071316008EC0A0 /* 표지4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "표지4.jpg"; sourceTree = "<group>"; };
 		133919282C071316008EC0A0 /* 표지10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "표지10.png"; sourceTree = "<group>"; };
@@ -93,6 +103,10 @@
 		133919302C071316008EC0A0 /* 표지8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "표지8.png"; sourceTree = "<group>"; };
 		1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		133919422C0744B7008EC0A0 /* 유머.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "유머.png"; path = "may24/유머.png"; sourceTree = SOURCE_ROOT; };
+		1360F9032C0AFCA500A4707C /* SelectBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBookViewController.swift; sourceTree = "<group>"; };
+		13837C1A2C0B1419001229C8 /* WriteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteContentViewController.swift; sourceTree = "<group>"; };
+		13837C1D2C0B1A16001229C8 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
+		13837C1F2C0B3F00001229C8 /* EmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewController.swift; sourceTree = "<group>"; };
 		139F6C572C0604DA0040185B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		139F6C5A2C0605270040185B /* 인문·철학.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "인문·철학.png"; sourceTree = "<group>"; };
 		139F6C5B2C0605270040185B /* 연애.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "연애.png"; sourceTree = "<group>"; };
@@ -170,6 +184,15 @@
 				1339192A2C071316008EC0A0 /* 표지11.png */,
 			);
 			name = "표지";
+			sourceTree = "<group>";
+		};
+		13837C1C2C0B1A09001229C8 /* 기타 사진 */ = {
+			isa = PBXGroup;
+			children = (
+				13E7DEC62BF7144B0093E643 /* voice-recognition.png */,
+				13837C1D2C0B1A16001229C8 /* microphone.png */,
+			);
+			name = "기타 사진";
 			sourceTree = "<group>";
 		};
 		139F6C592C06051C0040185B /* 카테고리 */ = {
@@ -258,11 +281,11 @@
 		13E7DECA2BF714810093E643 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				13837C1C2C0B1A09001229C8 /* 기타 사진 */,
 				132240572C06FECD000266D1 /* 표지 */,
 				139F6C822C0609A80040185B /* emoji */,
 				139F6C7A2C06091F0040185B /* font */,
 				139F6C592C06051C0040185B /* 카테고리 */,
-				13E7DEC62BF7144B0093E643 /* voice-recognition.png */,
 			);
 			name = resources;
 			sourceTree = "<group>";
@@ -279,6 +302,12 @@
 				139F6C782C0606AD0040185B /* CategoryListViewController.swift */,
 				1339193C2C0715E1008EC0A0 /* BookDetailViewController.swift */,
 				13F0C4AA2C07875A005FFC9D /* ScrabViewController.swift */,
+				132430D62C09A679006E00D6 /* AccountViewController.swift */,
+				132430D82C09AF08006E00D6 /* LoginViewController.swift */,
+				132430DA2C09AF17006E00D6 /* MakeAccountViewController.swift */,
+				13837C1A2C0B1419001229C8 /* WriteContentViewController.swift */,
+				1360F9032C0AFCA500A4707C /* SelectBookViewController.swift */,
+				13837C1F2C0B3F00001229C8 /* EmotionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -432,6 +461,7 @@
 				139F6C712C0605270040185B /* 여행.png in Resources */,
 				139F6C892C0609D30040185B /* happy.png in Resources */,
 				139F6C6F2C0605270040185B /* 음악.png in Resources */,
+				13837C1E2C0B1A16001229C8 /* microphone.png in Resources */,
 				132240542C06FE1D000266D1 /* BMHANNAProOTF.otf in Resources */,
 				139F6C752C0605270040185B /* 건강·운동.png in Resources */,
 				133919332C071316008EC0A0 /* 표지10.png in Resources */,
@@ -516,12 +546,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13837C1B2C0B1419001229C8 /* WriteContentViewController.swift in Sources */,
+				132430D92C09AF08006E00D6 /* LoginViewController.swift in Sources */,
 				733CAE762C03019A007A4568 /* AuthenticationApi.swift in Sources */,
 				733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */,
 				13E7DEB02BF70A390093E643 /* WriteViewController.swift in Sources */,
+				132430DB2C09AF17006E00D6 /* MakeAccountViewController.swift in Sources */,
 				733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */,
 				139F6C792C0606AD0040185B /* CategoryListViewController.swift in Sources */,
 				139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */,
+				132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */,
 				733CAE792C0302B0007A4568 /* ApiVariables.swift in Sources */,
 				13E7DEAE2BF70A2F0093E643 /* SearchViewController.swift in Sources */,
 				13E7DE942BF5C1B60093E643 /* AppDelegate.swift in Sources */,
@@ -534,6 +568,8 @@
 				13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */,
 				1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */,
 				13F0C4AB2C07875A005FFC9D /* ScrabViewController.swift in Sources */,
+				13837C202C0B3F00001229C8 /* EmotionViewController.swift in Sources */,
+				1360F9042C0AFCA500A4707C /* SelectBookViewController.swift in Sources */,
 				733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */,
 				733CAE7F2C03059C007A4568 /* LoginResponseDto.swift in Sources */,
 				733CAE742C030099007A4568 /* Authentication.swift in Sources */,
