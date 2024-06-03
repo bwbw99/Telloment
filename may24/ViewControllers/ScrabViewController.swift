@@ -11,6 +11,7 @@
 // 4. Line 298에 스크랩 목록에서 보이스를 삭제하는 경우, 서버에서도 제거하는 코드 구현하기
 
 import UIKit
+import AVFoundation
 
 class ScrabViewController:UIViewController{
     
@@ -30,8 +31,7 @@ class ScrabViewController:UIViewController{
     
     // 저장 보이스 관리
     @IBOutlet weak var ListOutlineView: UIView!
-    var scrabs:[String] = []
-    var len_scrabs:Int = 0
+    var scrapVoices:[VoiceResponseDto] = []
     
     @IBOutlet weak var EditLabel: UILabel!
     @IBOutlet weak var EditButton: UIButton!
@@ -66,10 +66,14 @@ class ScrabViewController:UIViewController{
     
     
     
-    
+
     @IBOutlet weak var ListHeight: NSLayoutConstraint!
     
     @IBOutlet var Trailings: [NSLayoutConstraint]!
+    
+    
+    private var player :AVAudioPlayer?
+    
     
     
     override func viewDidLoad() {
@@ -89,50 +93,92 @@ class ScrabViewController:UIViewController{
             i.layer.borderColor = UIColor.black.cgColor
         }
         
-        
-        
-        // 서버와 통신해서 스크랩 목록을 scrab 에 저장함
-        // ex) scrabs = ["suzy", "abc", "은하수"]
-        scrabs = ["suzy", "abc", "은하수"]
-        
-        
-        
-        
-        
-        
-        
-        // scrab 의 데이터를 화면에 표시
-        for _ in scrabs{
-            len_scrabs += 1
+        do {
+            try AVAudioSession.sharedInstance().setMode(.default )
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                    
+        } catch {
+            print("error" )
         }
-        loadVoiceList(len_scrabs: len_scrabs)
-        
-        
         
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        // 서버와 통신해서 스크랩 목록을 scrab 에 저장함
+        // ex) scrabs = ["suzy", "abc", "은하수"]
+        
+        AuthenticationApi.shared.getVoicePermission { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+                
+            case .success(let permitVoiceUse):
+                self.loadVoicePermissionSwitch(permit: permitVoiceUse)
+            }
+        }
+        
+        VoiceApi.shared.getScrappedVoiceList { result in
+            switch result {
+            case .failure(let error):
+                print(error) //todo: error handle
+            case .success(let list):
+                self.scrapVoices = list
+            
+                self.loadVoiceList()
+            }
+        }
+    }
     
     
     
     @IBAction func AcceptButtonTapped(_ sender: UIButton) {
-        self.AcceptLabel.textColor = UIColor.black
-        self.DeclineLabel.textColor = UIColor.lightGray
-        self.Outter_1.backgroundColor = UIColor.black
-        self.Outter_2.backgroundColor = UIColor.lightGray
-        self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용하는 것에 동의합니다."
+        
         // 동의한다는 요청을 서버로 전송
+        
+        AuthenticationApi.shared.updateVoicePermission(permit: true) { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+            case .success():
+                self.loadVoicePermissionSwitch(permit: true)
+            }
+        }
+        
     }
     
-    
+    private func loadVoicePermissionSwitch(permit: Bool) {
+        if permit {
+            self.AcceptLabel.textColor = UIColor.black
+            self.DeclineLabel.textColor = UIColor.lightGray
+            self.Outter_1.backgroundColor = UIColor.black
+            self.Outter_2.backgroundColor = UIColor.lightGray
+            self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용하는 것에 동의합니다."
+        }
+        else {
+            
+                self.AcceptLabel.textColor = UIColor.lightGray
+                self.DeclineLabel.textColor = UIColor.black
+                self.Outter_1.backgroundColor = UIColor.lightGray
+                self.Outter_2.backgroundColor = UIColor.black
+                self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용할 수 없습니다."
+        }
+    }
     
     @IBAction func DeclineButtonTapped(_ sender: UIButton) {
-        self.AcceptLabel.textColor = UIColor.lightGray
-        self.DeclineLabel.textColor = UIColor.black
-        self.Outter_1.backgroundColor = UIColor.lightGray
-        self.Outter_2.backgroundColor = UIColor.black
-        self.NoticeLabel.text = "나의 목소리 모델을 다른 사람이 사용할 수 없습니다."
         // 거부한다는 요청을 서버로 전송
+        AuthenticationApi.shared.updateVoicePermission(permit: false) { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+            case .success():
+                self.loadVoicePermissionSwitch(permit: false)
+            }
+        }
+
     }
     
     
@@ -174,7 +220,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_1(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[0].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -187,7 +234,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_2(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[1].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -200,7 +248,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_3(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[2].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -213,7 +262,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_4(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[3].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -226,7 +276,8 @@ class ScrabViewController:UIViewController{
     @IBAction func PlayButtonTapped_5(_ sender: UIButton) {
         if(EditLabel.text == "편집"){
             // 재생기능
-            
+            let voiceId = scrapVoices[4].id
+            playVoiceTest(voiceId: voiceId)
         }
         else{
             // 삭제기능
@@ -238,7 +289,9 @@ class ScrabViewController:UIViewController{
     
     
     
-    func loadVoiceList(len_scrabs: Int){
+    func loadVoiceList(){
+        
+        let len_scrabs = self.scrapVoices.count
         
         for i in VoiceViews{
             i.isHidden = true
@@ -250,31 +303,31 @@ class ScrabViewController:UIViewController{
         if (len_scrabs >= 1){
             Voice_1.isHidden = false
             play_1.isHidden = false
-            VoiceLabel_1.text = scrabs[0] + " 님의 목소리"
+            VoiceLabel_1.text = scrapVoices[0].userNickname + " 님의 목소리"
             ListHeight.constant = 100
         }
         if (len_scrabs >= 2){
             Voice_2.isHidden = false
             play_2.isHidden = false
-            VoiceLabel_2.text = scrabs[1] + " 님의 목소리"
+            VoiceLabel_2.text = scrapVoices[1].userNickname + " 님의 목소리"
             ListHeight.constant = 190
         }
         if (len_scrabs >= 3){
             Voice_3.isHidden = false
             play_3.isHidden = false
-            VoiceLabel_3.text = scrabs[2] + " 님의 목소리"
+            VoiceLabel_3.text = scrapVoices[2].userNickname + " 님의 목소리"
             ListHeight.constant = 280
         }
         if (len_scrabs >= 4){
             Voice_4.isHidden = false
             play_4.isHidden = false
-            VoiceLabel_4.text = scrabs[3] + " 님의 목소리"
+            VoiceLabel_4.text = scrapVoices[3].userNickname + " 님의 목소리"
             ListHeight.constant = 370
         }
         if (len_scrabs >= 5){
             Voice_5.isHidden = false
             play_5.isHidden = false
-            VoiceLabel_5.text = scrabs[4] + " 님의 목소리"
+            VoiceLabel_5.text = scrapVoices[4].userNickname + " 님의 목소리"
             ListHeight.constant = 460
         }
         
@@ -285,15 +338,23 @@ class ScrabViewController:UIViewController{
     
     
     func makeRemoveAlert(idx:Int){
-        let alert = UIAlertController(title:"아래의 보이스를 삭제할까요?",message: self.scrabs[idx]+" 님의 목소리",preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title:"아래의 보이스를 삭제할까요?",message: self.scrapVoices[idx].userNickname + " 님의 목소리",preferredStyle: UIAlertController.Style.alert)
         let alert_cancel = UIAlertAction(title: "취소", style: .default, handler: nil)
         //확인 버튼 만들기
-        let alert_delete = UIAlertAction(title: "삭제", style: .destructive, handler: {
-            action in
+        let alert_delete = UIAlertAction(title: "삭제", style: .destructive, handler: { action in
+            let voiceToRemove = self.scrapVoices[idx]
+            VoiceApi.shared.removeVoiceScrap(voiceId: voiceToRemove.id) { res in
+                switch res {
+                case .failure(let error):
+                    print(error)
+                    //todo: error handle
+                case .success():
+                    self.scrapVoices.remove(at: idx)
+                    self.loadVoiceList( )
+                }
+            }
             // 지우고 싶은 목소리를, 로컬의 스크랩 목록에서는 아래와 같이 클라이언트단에서 제거하고...
-            self.scrabs.remove(at: idx)
-            self.len_scrabs -= 1
-            self.loadVoiceList(len_scrabs: self.len_scrabs)
+            
             // 서버의 스크랩 목록에도 제거 요청
             
         })
@@ -304,9 +365,42 @@ class ScrabViewController:UIViewController{
         
     }
     
+    private func playVoiceTest(voiceId:Int) {
+        VoiceApi.shared.getAudibleTextData(
+            emotion: BackendEmotions.Neutral,
+            content: "안녕하세요. 만나서 반갑습니다",
+            intensity: 0,
+            voiceId: voiceId
+        ) { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+                
+            case .success(let data):
+                self.playAudioData(data: data)
+            }
+            
+        }
+    }
     
-    
-    
-    
+    private func playAudioData(data: Data) {
+        do {
+            player = try AVAudioPlayer(data: data)
+        } catch {
+            print("error on AVplayer")
+            return
+        }
+        
+        // Try to create an AVAudioPlayer object from the data
+        guard let audioPlayer = player else {
+            // If creating the player fails, it's likely not audio data
+            print("Error: Unable to create AVAudioPlayer from data")
+            return
+        }
+        
+        audioPlayer.volume = 0.5
+        audioPlayer.play()
+    }
 }
 

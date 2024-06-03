@@ -34,7 +34,10 @@ public class VoiceApi {
             if let userData = userId.data(using: .utf8) {
                 multipartFormData.append(userData, withName: "user_id")
             }
-        }, to: "\(baseUrl)/clone", method: .post, headers: header)
+        }, to: "\(baseUrl)/clone", 
+                  method: .post,
+                  headers: header,
+                interceptor: AuthRequestInterceptor())
         .validate()
         .responseString { res in
             switch res.result {
@@ -44,6 +47,85 @@ public class VoiceApi {
                 completion(.failure(error))
             }
         }
+    }
+    
+    public func getAudibleTextData(
+        emotion: BackendEmotions,
+        content: String,
+        intensity:Int,
+        voiceId: Int,
+        completion: @escaping (Result<Data, Error>) -> Void
+    ) {
+        let requestParams = [
+            "content": content,
+            "emotion": emotion.rawValue,
+            "intensity": intensity
+        ] as [String : Any] 
+        AF.request(
+            baseUrl + "/\(voiceId)/speech",
+            method: .get,
+            parameters: requestParams,
+            encoding: URLEncoding.default,
+            interceptor: AuthRequestInterceptor()
+        )
+//        .validate(statusCode: 200 ..< 300)
+            .responseData { response in
+                if let error = response.error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let v = response.data else {
+                    completion(.failure(NSError(domain: "api.voice.error", code: -1, userInfo: ["message": "Data is empty"])))
+                    return
+                }
+                
+                completion(.success(v))
+            }
+    }
+    
+    
+    // Function to fetch the voice list
+    public func getScrappedVoiceList(completion: @escaping (Result<[VoiceResponseDto], Error>) -> Void) {
+        
+        AF.request(
+            baseUrl + "/user/scrap/all",
+            interceptor: AuthRequestInterceptor()
+            )
+            .responseDecodable(of : BaseResponse<[VoiceResponseDto]>.self) { response in
+                if let error = response.error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let v = response.value?.data else {
+                    completion(.failure(NSError(domain: "api.voice.error", code: -1, userInfo: ["message": "Data is empty"])))
+                    return
+                }
+                
+                completion(.success(v))
+            }
+    }
+    
+    public func removeVoiceScrap(voiceId: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+        AF.request(
+            baseUrl + "/\(voiceId)/scrap",
+            method: .delete,
+            interceptor: AuthRequestInterceptor()
+            )
+            .responseDecodable(of : BaseResponse<String>.self) { response in
+                if let error = response.error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                guard let v = response.value else {
+                    completion(.failure(NSError(domain: "api.voice.error", code: -1, userInfo: ["message": "Data is empty"])))
+                    return
+                }
+                
+                completion(.success(()))
+            }
     }
 }
 
