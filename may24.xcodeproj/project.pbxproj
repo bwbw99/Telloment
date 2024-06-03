@@ -17,6 +17,9 @@
 		132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430D62C09A679006E00D6 /* AccountViewController.swift */; };
 		132430D92C09AF08006E00D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430D82C09AF08006E00D6 /* LoginViewController.swift */; };
 		132430DB2C09AF17006E00D6 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430DA2C09AF17006E00D6 /* MakeAccountViewController.swift */; };
+		132D53022C0D91E400385603 /* SeePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D53012C0D91E400385603 /* SeePageViewController.swift */; };
+		132D53042C0D923400385603 /* SeeBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D53032C0D923400385603 /* SeeBookViewController.swift */; };
+		132D53062C0D925300385603 /* SeeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D53052C0D925300385603 /* SeeUserViewController.swift */; };
 		133919312C071316008EC0A0 /* 표지1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 133919262C071316008EC0A0 /* 표지1.jpg */; };
 		133919322C071316008EC0A0 /* 표지4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 133919272C071316008EC0A0 /* 표지4.jpg */; };
 		133919332C071316008EC0A0 /* 표지10.png in Resources */ = {isa = PBXBuildFile; fileRef = 133919282C071316008EC0A0 /* 표지10.png */; };
@@ -88,6 +91,9 @@
 		132430D62C09A679006E00D6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		132430D82C09AF08006E00D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		132430DA2C09AF17006E00D6 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
+		132D53012C0D91E400385603 /* SeePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeePageViewController.swift; sourceTree = "<group>"; };
+		132D53032C0D923400385603 /* SeeBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeBookViewController.swift; sourceTree = "<group>"; };
+		132D53052C0D925300385603 /* SeeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeUserViewController.swift; sourceTree = "<group>"; };
 		133919262C071316008EC0A0 /* 표지1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "표지1.jpg"; sourceTree = "<group>"; };
 		133919272C071316008EC0A0 /* 표지4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "표지4.jpg"; sourceTree = "<group>"; };
 		133919282C071316008EC0A0 /* 표지10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "표지10.png"; sourceTree = "<group>"; };
@@ -303,6 +309,9 @@
 				13837C1A2C0B1419001229C8 /* WriteContentViewController.swift */,
 				1360F9032C0AFCA500A4707C /* SelectBookViewController.swift */,
 				13837C1F2C0B3F00001229C8 /* EmotionViewController.swift */,
+				132D53012C0D91E400385603 /* SeePageViewController.swift */,
+				132D53032C0D923400385603 /* SeeBookViewController.swift */,
+				132D53052C0D925300385603 /* SeeUserViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -541,10 +550,13 @@
 				733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */,
 				139F6C792C0606AD0040185B /* CategoryListViewController.swift in Sources */,
 				139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */,
+				132D53062C0D925300385603 /* SeeUserViewController.swift in Sources */,
 				132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */,
 				733CAE792C0302B0007A4568 /* ApiVariables.swift in Sources */,
 				13E7DEAE2BF70A2F0093E643 /* SearchViewController.swift in Sources */,
 				13E7DE942BF5C1B60093E643 /* AppDelegate.swift in Sources */,
+				132D53042C0D923400385603 /* SeeBookViewController.swift in Sources */,
+				132D53022C0D91E400385603 /* SeePageViewController.swift in Sources */,
 				13E7DE962BF5C1B60093E643 /* SceneDelegate.swift in Sources */,
 				13E7DEAC2BF6FB0F0093E643 /* HomeViewController.swift in Sources */,
 				733CAE862C045D90007A4568 /* AudioRecorder.swift in Sources */,
