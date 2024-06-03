@@ -10,6 +10,7 @@ import DGCharts
 
 class HomeViewController:UIViewController{
     
+    // 관심 카테고리
     @IBOutlet weak var CategoryChart: PieChartView!
     @IBOutlet weak var normalButton: UIButton!
     @IBOutlet weak var happyButton: UIButton!
@@ -17,14 +18,43 @@ class HomeViewController:UIViewController{
     @IBOutlet weak var rageButton: UIButton!
     
     
+    // 감정별 컨텐츠 추천
     @IBOutlet weak var TodayEmotionTitle: UILabel!
-   
+
+    @IBOutlet weak var EmotionSelectView: UIView!
+    @IBOutlet weak var EmotionHappyView: UIView!
+    @IBOutlet weak var EmotionSadView: UIView!
+    @IBOutlet weak var EmotionRageView: UIView!
+    
+    @IBOutlet weak var EmotionSelectView_Height: NSLayoutConstraint!
+    @IBOutlet weak var EmotionHappyView_Height: NSLayoutConstraint!
+    @IBOutlet weak var EmotionSadView_Height: NSLayoutConstraint!
+    @IBOutlet weak var EmotionRageView_Height: NSLayoutConstraint!
     
     
+    // 작가 추천
+    @IBOutlet weak var User_Outter_1: UIView!
+    @IBOutlet weak var User_Outter_2: UIView!
     
     
+    @IBOutlet weak var User_Inner_1: UIView!
+    @IBOutlet weak var User_Inner_2: UIView!
     
     
+    @IBOutlet weak var User_Name_1: UILabel!
+    @IBOutlet weak var User_Name_2: UILabel!
+    
+    
+    @IBOutlet weak var User_Book_1: UILabel!
+    @IBOutlet weak var User_Book_2: UILabel!
+    
+    
+    @IBOutlet weak var User_Heart_1: UILabel!
+    @IBOutlet weak var User_Heart_2: UILabel!
+    
+    
+    @IBOutlet weak var User_Page_1: UILabel!
+    @IBOutlet weak var User_Page_2: UILabel!
     
     
     
@@ -37,6 +67,7 @@ class HomeViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 관심 카테고리 추천
         colorData.append(UIColor(hexCode: "A38DEF"))
         colorData.append(UIColor(hexCode: "7DB2EF"))
         colorData.append(UIColor(hexCode: "94EF7A"))
@@ -52,6 +83,21 @@ class HomeViewController:UIViewController{
         self.setPieData(pieChartView: self.CategoryChart, pieChartDataEntries: self.entryData(values: self.scoreData))
         
         self.setup(pieChartView: CategoryChart)
+        
+        
+        
+        // 감정 선택에 따른 추천 컨텐츠 제공
+        EmotionHappyView_Height.constant = 0
+        EmotionSadView_Height.constant = 0
+        EmotionRageView_Height.constant = 0
+        
+        
+        // 작가 추천
+        User_Outter_1.layer.cornerRadius = 12
+        User_Outter_2.layer.cornerRadius = 12
+        User_Inner_1.layer.cornerRadius = 10
+        User_Inner_2.layer.cornerRadius = 10
+        
     }
     
     // 데이터 적용하기
@@ -96,24 +142,39 @@ class HomeViewController:UIViewController{
     
     @IBAction func normalButtonTapped(_ sender: UIButton) {
         // 사실 아무것도 안함
+        EmotionSelectView.isHidden = true
+        EmotionSelectView_Height.constant = 0
     }
     
     @IBAction func happyButtonTapped(_ sender: UIButton) {
-        
         // 전체 글에서 즐거움과 관련된 감정의 글(페이지)들을 불러옴
+        EmotionSelectView.isHidden = true
+        EmotionSelectView_Height.constant = 0
+        EmotionHappyView_Height.constant = 300
     }
     
     @IBAction func sadButtonTapped(_ sender: UIButton) {
-        
         // 전체 글에서 위로 태그가 있는 글(페이지)들을 불러옴
+        EmotionSelectView.isHidden = true
+        EmotionSelectView_Height.constant = 0
+        EmotionSadView_Height.constant = 300
     }
     
     @IBAction func rageButtonTapped(_ sender: UIButton) {
-        
         // 유머 카테고리의 북을 불러옴
+        EmotionSelectView.isHidden = true
+        EmotionSelectView_Height.constant = 0
+        EmotionRageView_Height.constant = 300
     }
     
+    // 작가 추천
+    @IBAction func UserButton_1_Tapped(_ sender: UIButton) {
+        
+    }
     
+    @IBAction func UserButton_2_Tapped(_ sender: UIButton) {
+        
+    }
     
     
     
