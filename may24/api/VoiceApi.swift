@@ -150,7 +150,7 @@ public class VoiceApi {
     }
     
     
-    public func getEmotionFromContent(String content, completion: @escaping (Result<VoiceResponseDto, Error> -> Void)) {
+    public func getEmotionFromContent(content : String, completion: @escaping (Result<VoiceResponseDto, Error>) -> Void) {
         let param = ["content": content]
         AF.request(
             "\(baseUrl)/voice/emotion",

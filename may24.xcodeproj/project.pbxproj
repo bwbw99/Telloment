@@ -17,6 +17,7 @@
 		132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430D62C09A679006E00D6 /* AccountViewController.swift */; };
 		132430D92C09AF08006E00D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430D82C09AF08006E00D6 /* LoginViewController.swift */; };
 		132430DB2C09AF17006E00D6 /* MakeAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132430DA2C09AF17006E00D6 /* MakeAccountViewController.swift */; };
+		13297FE52C10507200492D67 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13297FE42C10507200492D67 /* MyTabBarController.swift */; };
 		132D53022C0D91E400385603 /* SeePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D53012C0D91E400385603 /* SeePageViewController.swift */; };
 		132D53042C0D923400385603 /* SeeBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D53032C0D923400385603 /* SeeBookViewController.swift */; };
 		132D53062C0D925300385603 /* SeeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132D53052C0D925300385603 /* SeeUserViewController.swift */; };
@@ -115,6 +116,7 @@
 		132430D62C09A679006E00D6 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		132430D82C09AF08006E00D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		132430DA2C09AF17006E00D6 /* MakeAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAccountViewController.swift; sourceTree = "<group>"; };
+		13297FE42C10507200492D67 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		132D53012C0D91E400385603 /* SeePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeePageViewController.swift; sourceTree = "<group>"; };
 		132D53032C0D923400385603 /* SeeBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeBookViewController.swift; sourceTree = "<group>"; };
 		132D53052C0D925300385603 /* SeeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeUserViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				13837C1F2C0B3F00001229C8 /* EmotionViewController.swift */,
 				132D53012C0D91E400385603 /* SeePageViewController.swift */,
 				132D53032C0D923400385603 /* SeeBookViewController.swift */,
+				13297FE42C10507200492D67 /* MyTabBarController.swift */,
 				132D53052C0D925300385603 /* SeeUserViewController.swift */,
 				13907FDB2C104A7B003B88FF /* AddBookViewController.swift */,
 			);
@@ -624,6 +627,7 @@
 				73118FD32C1033C20059E95F /* BookDto.swift in Sources */,
 				13837C1B2C0B1419001229C8 /* WriteContentViewController.swift in Sources */,
 				132430D92C09AF08006E00D6 /* LoginViewController.swift in Sources */,
+				13297FE52C10507200492D67 /* MyTabBarController.swift in Sources */,
 				733CAE762C03019A007A4568 /* AuthenticationApi.swift in Sources */,
 				73118FCB2C102CCC0059E95F /* PutLinkPagesRequestDto.swift in Sources */,
 				733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */,

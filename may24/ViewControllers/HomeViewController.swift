@@ -235,7 +235,24 @@ class HomeViewController:UIViewController{
         
         
         // 작가 추천 - API 관련
-        UserEmails = ["a","b","c","d","e"]
+        
+        // 유저 이메일 저장
+        SearchApi.shared.getTop10Users(){ res in
+            switch res{
+            case .success(let users):
+                self.UserEmails = users.map({user in user.userEmail})
+                print(self.UserEmails)
+                print("\n\n")
+                self.CheckByEmail(Emails: self.UserEmails)
+            case .failure(let err):
+                print(err)
+            }
+        }
+        
+        // 이메일로 다시 조회
+        
+        
+        
         
         User_Name_1.text = "뱅뱅123"
         User_Book_1.text = "3"
@@ -315,7 +332,7 @@ class HomeViewController:UIViewController{
         chartView.rotationEnabled = true
         chartView.highlightPerTapEnabled = false
         chartView.entryLabelFont = NSUIFont(name: "BMJUAOTF", size: 12.0)
-    }
+    } // end of ViewDidLoad
 
     
     @IBAction func normalButtonTapped(_ sender: UIButton) {
@@ -375,6 +392,63 @@ class HomeViewController:UIViewController{
         suvc.UserEmail = UserEmails[4]
         self.navigationController?.pushViewController(suvc, animated: true)
     }
+    
+    
+    
+    
+    func CheckByEmail(Emails:[String]){
+        var temp:Int = 0
+        
+        for i in Emails{
+            UserApi.shared.getUserByEmail(email: i){ res in
+                switch res{
+                case .success(let data):
+                    if(temp == 0){
+                        self.User_Name_1.text = data.name
+                        self.User_Book_1.text = String(data.bookCount)
+                        self.User_Heart_1.text = String(data.totalLikeCount)
+                        self.User_Page_1.text = String(data.pageCount)
+                    }
+                    if(temp == 1){
+                        self.User_Name_2.text = data.name
+                        self.User_Book_2.text = String(data.bookCount)
+                        self.User_Heart_2.text = String(data.totalLikeCount)
+                        self.User_Page_2.text = String(data.pageCount)
+                    }
+                    if(temp == 2){
+                        self.User_Name_3.text = data.name
+                        self.User_Book_3.text = String(data.bookCount)
+                        self.User_Heart_3.text = String(data.totalLikeCount)
+                        self.User_Page_3.text = String(data.pageCount)
+                    }
+                    if(temp == 3){
+                        self.User_Name_4.text = data.name
+                        self.User_Book_4.text = String(data.bookCount)
+                        self.User_Heart_4.text = String(data.totalLikeCount)
+                        self.User_Page_4.text = String(data.pageCount)
+                    }
+                    if(temp == 4){
+                        self.User_Name_5.text = data.name
+                        self.User_Book_5.text = String(data.bookCount)
+                        self.User_Heart_5.text = String(data.totalLikeCount)
+                        self.User_Page_5.text = String(data.pageCount)
+                    }
+                    temp += 1
+                    
+                    
+                    
+                case .failure(let err):
+                    print(err)
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    
     
     
     
