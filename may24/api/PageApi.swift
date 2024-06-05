@@ -13,7 +13,7 @@ class PageApi {
     private init() { }
     
     func getPageById(pageId: Int, completion: @escaping (Result<PageDto, Error>) -> Void) {
-        let url = "\(baseUrl)/page/\(pageId)"
+        let url = "\(baseUrl)/\(pageId)"
 
         AF.request(url,
                    method: .get,
@@ -36,7 +36,7 @@ class PageApi {
     }
     
     func getDefaultVoiceByPage(pageId: Int, completion: @escaping (Result<String, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/\(pageId)/default_voice"
+        let url = "\(baseUrl)/\(pageId)/default_voice"
 
         AF.request(url,
                    method: .get,
@@ -58,7 +58,7 @@ class PageApi {
     }
     
     func updateDefaultVoiceByPage(pageId: Int, email: String, completion: @escaping (Result<String, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/\(pageId)/default_voice"
+        let url = "\(baseUrl)/\(pageId)/default_voice"
         let parameters: [String: Any] = ["email": email]
 
         AF.request(url, method: .patch, parameters: parameters, interceptor: AuthRequestInterceptor())
@@ -79,7 +79,7 @@ class PageApi {
     }
     
     func getAllPageablePages(page: Int, size: Int, completion: @escaping (Result<BasePageableResponse<FullContextPageDto>, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/allpages"
+        let url = "\(baseUrl)/allpages"
         let parameters: [String: Any] = ["page": page, "size": size]
 
         AF.request(url, parameters: parameters, interceptor: AuthRequestInterceptor())
@@ -101,7 +101,7 @@ class PageApi {
     
     
     func getAllPageablePagesByEmotion(page: Int, size: Int, emotion: BackendEmotions, completion: @escaping (Result<BasePageableResponse<FullContextPageDto>, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/allpages/emotion"
+        let url = "\(baseUrl)/allpages/emotion"
         let parameters: [String: Any] = ["page": page, "size": size, "emotion": emotion.rawValue]
 
         AF.request(url, method: .get, parameters: parameters, interceptor: AuthRequestInterceptor())
@@ -122,7 +122,7 @@ class PageApi {
     }
     
     func deletePageById(pageId: Int, completion: @escaping (Result<BaseResponse<String>, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/delete/\(pageId)"
+        let url = "\(baseUrl)/delete/\(pageId)"
 
         AF.request(url, method: .delete, interceptor: AuthRequestInterceptor())
             .validate(statusCode: 200..<300)
@@ -142,7 +142,7 @@ class PageApi {
     }
 
     func dislikePageById(pageId: Int, completion: @escaping (Result<BaseResponse<String>, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/dislike"
+        let url = "\(baseUrl)/dislike"
         let requestBody = DeletePageLikeRequest(pageId: pageId)
 
         AF.request(url, method: .delete, parameters: requestBody, encoder: JSONParameterEncoder.default, interceptor: AuthRequestInterceptor())
@@ -163,7 +163,7 @@ class PageApi {
     }
 
     func likePage(pageId: Int, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/like"
+        let url = "\(baseUrl)/like"
         let requestBody = LikePageRequest(pageId: pageId)
 
         AF.request(url, method: .post, parameters: requestBody, encoder: JSONParameterEncoder.default, interceptor: AuthRequestInterceptor())
@@ -184,7 +184,7 @@ class PageApi {
     }
     
     func linkPages(nextPageId: Int, prevPageId: Int, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/link"
+        let url = "\(baseUrl)/link"
         let requestBody = PutLinkPagesRequest(nextPageId: nextPageId, prevPageId: prevPageId)
 
         AF.request(url, method: .put, parameters: requestBody, encoder: JSONParameterEncoder.default, interceptor: AuthRequestInterceptor())
@@ -205,7 +205,7 @@ class PageApi {
     }
     
     func getPageListOfCurrentUser(completion: @escaping (Result<[FullContextPageDto], Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/list"
+        let url = "\(baseUrl)/list"
 
         AF.request(url,
                    interceptor: AuthRequestInterceptor()
@@ -227,7 +227,7 @@ class PageApi {
     }
     
     func savePage(bookId: Int, content: String, emotionIntensity: Int, emotionType: String, hashtags: [String], title: String, completion: @escaping (Result<BaseResponse<FullContextPageDto>, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/save"
+        let url = "\(baseUrl)/save"
         let requestBody = SavePageRequest(bookId: bookId, content: content, emotionIntensity: emotionIntensity, emotionType: emotionType, hashtags: hashtags, title: title)
 
         AF.request(url, method: .post, parameters: requestBody, encoder: JSONParameterEncoder.default, interceptor: AuthRequestInterceptor())
@@ -248,7 +248,7 @@ class PageApi {
     }
     
     func updatePage(pageId: Int, content: String, title: String, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
-        let url = "\(baseUrl)/api/page/update"
+        let url = "\(baseUrl)/update"
         let requestBody = UpdatePageRequest(content: content, pageId: pageId, title: title)
 
         AF.request(url, method: .put, parameters: requestBody, encoder: JSONParameterEncoder.default, interceptor: AuthRequestInterceptor())
