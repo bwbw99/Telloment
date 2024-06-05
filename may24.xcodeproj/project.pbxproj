@@ -86,6 +86,7 @@
 		73118FDB2C1040F70059E95F /* SearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDA2C1040F70059E95F /* SearchApi.swift */; };
 		73118FDD2C1044770059E95F /* UserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDC2C1044770059E95F /* UserDto.swift */; };
 		73118FDF2C1044EA0059E95F /* RankedUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDE2C1044EA0059E95F /* RankedUserDto.swift */; };
+		73118FE12C1045E60059E95F /* RankingApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FE02C1045E60059E95F /* RankingApi.swift */; };
 		733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */; };
 		733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */; };
 		733CAE742C030099007A4568 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE732C030099007A4568 /* Authentication.swift */; };
@@ -183,6 +184,7 @@
 		73118FDA2C1040F70059E95F /* SearchApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApi.swift; sourceTree = "<group>"; };
 		73118FDC2C1044770059E95F /* UserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDto.swift; sourceTree = "<group>"; };
 		73118FDE2C1044EA0059E95F /* RankedUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedUserDto.swift; sourceTree = "<group>"; };
+		73118FE02C1045E60059E95F /* RankingApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingApi.swift; sourceTree = "<group>"; };
 		733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceApi.swift; sourceTree = "<group>"; };
 		733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestInterceptor.swift; sourceTree = "<group>"; };
 		733CAE732C030099007A4568 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				73118FBE2C1020FB0059E95F /* PageApi.swift */,
 				73118FD02C1032F10059E95F /* BookApi.swift */,
 				73118FDA2C1040F70059E95F /* SearchApi.swift */,
+				73118FE02C1045E60059E95F /* RankingApi.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				139F6C792C0606AD0040185B /* CategoryListViewController.swift in Sources */,
 				139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */,
 				73118FC72C102AE90059E95F /* DeleteLikeRequestDto.swift in Sources */,
+				73118FE12C1045E60059E95F /* RankingApi.swift in Sources */,
 				132D53062C0D925300385603 /* SeeUserViewController.swift in Sources */,
 				132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */,
 				733CAE792C0302B0007A4568 /* ApiVariables.swift in Sources */,
