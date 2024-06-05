@@ -196,7 +196,7 @@ class HomeViewController:UIViewController{
     
     
     // 작가 추천
-    var UserIds: [Int] = []
+    var UserEmails: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -235,7 +235,7 @@ class HomeViewController:UIViewController{
         
         
         // 작가 추천 - API 관련
-        UserIds = [101,102,103,104,105]
+        UserEmails = ["a","b","c","d","e"]
         
         User_Name_1.text = "뱅뱅123"
         User_Book_1.text = "3"
@@ -348,31 +348,31 @@ class HomeViewController:UIViewController{
     // 작가 추천
     @IBAction func UserButton_1_Tapped(_ sender: UIButton) {
         guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
-        suvc.UserId = UserIds[0]
+        suvc.UserEmail = UserEmails[0]
         self.navigationController?.pushViewController(suvc, animated: true)
     }
     
     @IBAction func UserButton_2_Tapped(_ sender: UIButton) {
         guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
-        suvc.UserId = UserIds[1]
+        suvc.UserEmail = UserEmails[1]
         self.navigationController?.pushViewController(suvc, animated: true)
     }
     
     @IBAction func UserButton_3_Tapped(_ sender: UIButton) {
         guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
-        suvc.UserId = UserIds[2]
+        suvc.UserEmail = UserEmails[2]
         self.navigationController?.pushViewController(suvc, animated: true)
     }
     
     @IBAction func UserButton_4_Tapped(_ sender: UIButton) {
         guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
-        suvc.UserId = UserIds[3]
+        suvc.UserEmail = UserEmails[3]
         self.navigationController?.pushViewController(suvc, animated: true)
     }
     
     @IBAction func UserButton_5_Tapped(_ sender: UIButton) {
         guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
-        suvc.UserId = UserIds[4]
+        suvc.UserEmail = UserEmails[4]
         self.navigationController?.pushViewController(suvc, animated: true)
     }
     

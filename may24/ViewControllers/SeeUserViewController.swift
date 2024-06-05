@@ -82,13 +82,13 @@ class SeeUserViewController:UIViewController{
     var BookHeart:[Int] = []
     var BookPage:[Int] = []
     var BookIds:[Int] = []
-    var UserId:Int = 0
+    var UserEmail:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(UserId)
+        print(UserEmail)
         
-        // 아래의 정보들을 API 통신으로 불러오는 형태로 수정해야함. (UserId 로 검색하기)
+        // 아래의 정보들을 API 통신으로 불러오는 형태로 수정해야함. (UserEmail 로 검색하기)
         UserName.text = "닉네임111"
         NumBook.text = "3"
         NumHeart.text = "152"
