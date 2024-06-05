@@ -84,6 +84,8 @@
 		73118FD72C103A060059E95F /* BookCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FD62C103A060059E95F /* BookCategoryDto.swift */; };
 		73118FD92C103ADE0059E95F /* CreateBookRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FD82C103ADE0059E95F /* CreateBookRequestDto.swift */; };
 		73118FDB2C1040F70059E95F /* SearchApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDA2C1040F70059E95F /* SearchApi.swift */; };
+		73118FDD2C1044770059E95F /* UserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDC2C1044770059E95F /* UserDto.swift */; };
+		73118FDF2C1044EA0059E95F /* RankedUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDE2C1044EA0059E95F /* RankedUserDto.swift */; };
 		733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */; };
 		733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */; };
 		733CAE742C030099007A4568 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE732C030099007A4568 /* Authentication.swift */; };
@@ -179,6 +181,8 @@
 		73118FD62C103A060059E95F /* BookCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCategoryDto.swift; path = may24/api/dto/response/BookCategoryDto.swift; sourceTree = SOURCE_ROOT; };
 		73118FD82C103ADE0059E95F /* CreateBookRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateBookRequestDto.swift; path = may24/api/dto/response/CreateBookRequestDto.swift; sourceTree = SOURCE_ROOT; };
 		73118FDA2C1040F70059E95F /* SearchApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApi.swift; sourceTree = "<group>"; };
+		73118FDC2C1044770059E95F /* UserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDto.swift; sourceTree = "<group>"; };
+		73118FDE2C1044EA0059E95F /* RankedUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedUserDto.swift; sourceTree = "<group>"; };
 		733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceApi.swift; sourceTree = "<group>"; };
 		733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestInterceptor.swift; sourceTree = "<group>"; };
 		733CAE732C030099007A4568 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -427,6 +431,8 @@
 				73118FC22C1026F80059E95F /* BasePageableResponse.swift */,
 				73118FC42C10280A0059E95F /* FullContextPageDto.swift */,
 				73118FD22C1033C20059E95F /* BookDto.swift */,
+				73118FDC2C1044770059E95F /* UserDto.swift */,
+				73118FDE2C1044EA0059E95F /* RankedUserDto.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -611,6 +617,7 @@
 				132430DB2C09AF17006E00D6 /* MakeAccountViewController.swift in Sources */,
 				733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */,
 				73118FDB2C1040F70059E95F /* SearchApi.swift in Sources */,
+				73118FDF2C1044EA0059E95F /* RankedUserDto.swift in Sources */,
 				139F6C792C0606AD0040185B /* CategoryListViewController.swift in Sources */,
 				139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */,
 				73118FC72C102AE90059E95F /* DeleteLikeRequestDto.swift in Sources */,
@@ -644,6 +651,7 @@
 				1360F9042C0AFCA500A4707C /* SelectBookViewController.swift in Sources */,
 				733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */,
 				733CAE7F2C03059C007A4568 /* LoginResponseDto.swift in Sources */,
+				73118FDD2C1044770059E95F /* UserDto.swift in Sources */,
 				733CAE742C030099007A4568 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
