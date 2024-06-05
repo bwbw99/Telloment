@@ -37,6 +37,7 @@
 		13837C1B2C0B1419001229C8 /* WriteContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13837C1A2C0B1419001229C8 /* WriteContentViewController.swift */; };
 		13837C1E2C0B1A16001229C8 /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 13837C1D2C0B1A16001229C8 /* microphone.png */; };
 		13837C202C0B3F00001229C8 /* EmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13837C1F2C0B3F00001229C8 /* EmotionViewController.swift */; };
+		13907FDC2C104A7B003B88FF /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13907FDB2C104A7B003B88FF /* AddBookViewController.swift */; };
 		139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F6C572C0604DA0040185B /* CategoryViewController.swift */; };
 		139F6C692C0605270040185B /* 인문·철학.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5A2C0605270040185B /* 인문·철학.png */; };
 		139F6C6A2C0605270040185B /* 연애.png in Resources */ = {isa = PBXBuildFile; fileRef = 139F6C5B2C0605270040185B /* 연애.png */; };
@@ -127,6 +128,7 @@
 		13837C1A2C0B1419001229C8 /* WriteContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteContentViewController.swift; sourceTree = "<group>"; };
 		13837C1D2C0B1A16001229C8 /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		13837C1F2C0B3F00001229C8 /* EmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewController.swift; sourceTree = "<group>"; };
+		13907FDB2C104A7B003B88FF /* AddBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		139F6C572C0604DA0040185B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		139F6C5A2C0605270040185B /* 인문·철학.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "인문·철학.png"; sourceTree = "<group>"; };
 		139F6C5B2C0605270040185B /* 연애.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "연애.png"; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				132D53012C0D91E400385603 /* SeePageViewController.swift */,
 				132D53032C0D923400385603 /* SeeBookViewController.swift */,
 				132D53052C0D925300385603 /* SeeUserViewController.swift */,
+				13907FDB2C104A7B003B88FF /* AddBookViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				132D53062C0D925300385603 /* SeeUserViewController.swift in Sources */,
 				132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */,
 				733CAE792C0302B0007A4568 /* ApiVariables.swift in Sources */,
+				13907FDC2C104A7B003B88FF /* AddBookViewController.swift in Sources */,
 				73118FD92C103ADE0059E95F /* CreateBookRequestDto.swift in Sources */,
 				73118FC12C1022E60059E95F /* PageDto.swift in Sources */,
 				13E7DEAE2BF70A2F0093E643 /* SearchViewController.swift in Sources */,

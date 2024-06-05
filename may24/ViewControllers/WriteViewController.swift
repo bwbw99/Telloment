@@ -7,12 +7,17 @@
 
 import UIKit
 
-class WriteViewController:UIViewController{
+class WriteViewController:UIViewController,SBVC_TO_WVC{
+    
+    func sendData(BookTitle: String) {
+        self.BookTitleLabel.text = BookTitle
+    }
+    @IBOutlet weak var BookTitleLabel: UILabel!
     
     @IBAction func SelectBookButtonTapped(_ sender: UIButton) {
         
         guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SelectBookVC") as? SelectBookViewController else { return }
-                
+        sbvc.sbvc_wvc_delegate = self
         self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
