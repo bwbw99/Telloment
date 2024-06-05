@@ -20,7 +20,7 @@ class HomeViewController:UIViewController{
     
     // 감정별 컨텐츠 추천
     @IBOutlet weak var TodayEmotionTitle: UILabel!
-
+    
     @IBOutlet weak var EmotionSelectView: UIView!
     @IBOutlet weak var EmotionHappyView: UIView!
     @IBOutlet weak var EmotionSadView: UIView!
@@ -306,7 +306,7 @@ class HomeViewController:UIViewController{
         // 데이터 출력
         pieChartView.data = pieChartData
     }
-
+    
     // entry 만들기
     func entryData(values: [Double]) -> [PieChartDataEntry] {
         // entry 담을 array
@@ -333,7 +333,7 @@ class HomeViewController:UIViewController{
         chartView.highlightPerTapEnabled = false
         chartView.entryLabelFont = NSUIFont(name: "BMJUAOTF", size: 12.0)
     } // end of ViewDidLoad
-
+    
     
     @IBAction func normalButtonTapped(_ sender: UIButton) {
         // 사실 아무것도 안함
@@ -392,85 +392,77 @@ class HomeViewController:UIViewController{
         suvc.UserEmail = UserEmails[4]
         self.navigationController?.pushViewController(suvc, animated: true)
     }
+
     
-    
-    
+    func drawRankedUserByIndex(email: String, temp: Int) {
+        UserApi.shared.getUserByEmail(email: email){ res in
+            switch res{
+            case .success(let data):
+                if(temp == 0){
+                    self.User_Name_1.text = data.name
+                    self.User_Book_1.text = String(data.bookCount)
+                    self.User_Heart_1.text = String(data.totalLikeCount)
+                    self.User_Page_1.text = String(data.pageCount)
+                }
+                if(temp == 1){
+                    self.User_Name_2.text = data.name
+                    self.User_Book_2.text = String(data.bookCount)
+                    self.User_Heart_2.text = String(data.totalLikeCount)
+                    self.User_Page_2.text = String(data.pageCount)
+                }
+                if(temp == 2){
+                    self.User_Name_3.text = data.name
+                    self.User_Book_3.text = String(data.bookCount)
+                    self.User_Heart_3.text = String(data.totalLikeCount)
+                    self.User_Page_3.text = String(data.pageCount)
+                }
+                if(temp == 3){
+                    self.User_Name_4.text = data.name
+                    self.User_Book_4.text = String(data.bookCount)
+                    self.User_Heart_4.text = String(data.totalLikeCount)
+                    self.User_Page_4.text = String(data.pageCount)
+                }
+                if(temp == 4){
+                    self.User_Name_5.text = data.name
+                    self.User_Book_5.text = String(data.bookCount)
+                    self.User_Heart_5.text = String(data.totalLikeCount)
+                    self.User_Page_5.text = String(data.pageCount)
+                }
+                
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+    }
     
     func CheckByEmail(Emails:[String]){
         var temp:Int = 0
         
         for i in Emails{
-            UserApi.shared.getUserByEmail(email: i){ res in
-                switch res{
-                case .success(let data):
-                    if(temp == 0){
-                        self.User_Name_1.text = data.name
-                        self.User_Book_1.text = String(data.bookCount)
-                        self.User_Heart_1.text = String(data.totalLikeCount)
-                        self.User_Page_1.text = String(data.pageCount)
-                    }
-                    if(temp == 1){
-                        self.User_Name_2.text = data.name
-                        self.User_Book_2.text = String(data.bookCount)
-                        self.User_Heart_2.text = String(data.totalLikeCount)
-                        self.User_Page_2.text = String(data.pageCount)
-                    }
-                    if(temp == 2){
-                        self.User_Name_3.text = data.name
-                        self.User_Book_3.text = String(data.bookCount)
-                        self.User_Heart_3.text = String(data.totalLikeCount)
-                        self.User_Page_3.text = String(data.pageCount)
-                    }
-                    if(temp == 3){
-                        self.User_Name_4.text = data.name
-                        self.User_Book_4.text = String(data.bookCount)
-                        self.User_Heart_4.text = String(data.totalLikeCount)
-                        self.User_Page_4.text = String(data.pageCount)
-                    }
-                    if(temp == 4){
-                        self.User_Name_5.text = data.name
-                        self.User_Book_5.text = String(data.bookCount)
-                        self.User_Heart_5.text = String(data.totalLikeCount)
-                        self.User_Page_5.text = String(data.pageCount)
-                    }
-                    temp += 1
-                    
-                    
-                    
-                case .failure(let err):
-                    print(err)
-                }
-                
-            }
-            
+            drawRankedUserByIndex(email: i, temp: temp)
+            temp += 1
+        }
+    }
+}
+
+extension UIColor {
+    
+    convenience init(hexCode: String, alpha: CGFloat = 1.0) {
+        var hexFormatted: String = hexCode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
+        
+        if hexFormatted.hasPrefix("#") {
+            hexFormatted = String(hexFormatted.dropFirst())
         }
         
+        assert(hexFormatted.count == 6, "Invalid hex code used.")
+        
+        var rgbValue: UInt64 = 0
+        Scanner(string: hexFormatted).scanHexInt64(&rgbValue)
+        
+        self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+                  green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+                  blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+                  alpha: alpha)
     }
-    
-    
-    
-    
-    
-    
-    
 }
- extension UIColor {
-     
-     convenience init(hexCode: String, alpha: CGFloat = 1.0) {
-         var hexFormatted: String = hexCode.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
-         
-         if hexFormatted.hasPrefix("#") {
-             hexFormatted = String(hexFormatted.dropFirst())
-         }
-         
-         assert(hexFormatted.count == 6, "Invalid hex code used.")
-         
-         var rgbValue: UInt64 = 0
-         Scanner(string: hexFormatted).scanHexInt64(&rgbValue)
-         
-         self.init(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-                   green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-                   blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-                   alpha: alpha)
-     }
- }
