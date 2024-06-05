@@ -19,13 +19,13 @@ class UserApi {
         
         AF.request(url, interceptor: AuthRequestInterceptor())
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: UserDto.self) { response in
+            .responseDecodable(of: BaseResponse<UserDto>.self) { response in
                 if let error = response.error {
                     completion(.failure(error))
                     return
                 }
                 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.user.get.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
@@ -39,13 +39,13 @@ class UserApi {
         
         AF.request(url, interceptor: AuthRequestInterceptor())
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: UserDto.self) { response in
+            .responseDecodable(of: BaseResponse<UserDto>.self) { response in
                 if let error = response.error {
                     completion(.failure(error))
                     return
                 }
                 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.user.get.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
