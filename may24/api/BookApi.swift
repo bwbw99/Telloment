@@ -17,7 +17,7 @@ class BookApi {
     
     
     func getBook(bookId: Int, completion: @escaping (Result<BookDto, Error>) -> Void) {
-        let url = "\(baseUrl)/api/book/\(bookId)"
+        let url = "\(baseUrl)/\(bookId)"
 
         AF.request(url,
         interceptor: AuthRequestInterceptor())
@@ -38,7 +38,7 @@ class BookApi {
     }
     
     func addPageToBook(bookId: Int, pageId: Int, authToken: String, completion: @escaping (Result<Int, Error>) -> Void) {
-        let url = "\(baseUrl)/api/book/addPage"
+        let url = "\(baseUrl)/addPage"
         let requestBody = AddPageToRequest(bookId: bookId, pageId: pageId)
 
         AF.request(url, method: .put, parameters: requestBody, encoder: JSONParameterEncoder.default, interceptor: AuthRequestInterceptor())
@@ -59,7 +59,7 @@ class BookApi {
     }
     
     func getAllBooks(page: Int, size: Int, authToken: String, completion: @escaping (Result<BasePageableResponse<BookDto>, Error>) -> Void) {
-        let url = "\(baseUrl)/api/book/allbooks"
+        let url = "\(baseUrl)/allbooks"
         let parameters = ["page": page, "size": size]
 
         AF.request(url, parameters: parameters, interceptor: AuthRequestInterceptor())
@@ -101,7 +101,7 @@ class BookApi {
     }
     
     func getAllBookCategories(authToken: String, completion: @escaping (Result<[BookCategoryDto], Error>) -> Void) {
-      let url = "\(baseUrl)/api/book/categories"
+      let url = "\(baseUrl)/categories"
 
       AF.request(url, interceptor: AuthRequestInterceptor())
           .validate(statusCode: 200..<300)
