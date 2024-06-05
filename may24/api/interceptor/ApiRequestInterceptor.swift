@@ -15,6 +15,7 @@ class AuthRequestInterceptor: RequestInterceptor {
         let token = Authentication.token
         if !token.isEmpty {
             urlRequest.headers.add(.authorization(bearerToken: token))
+            urlRequest.headers.add(name: "accessToken", value: token)
         }
         completion(.success(urlRequest))
     }
@@ -34,7 +35,6 @@ class AuthRequestInterceptor: RequestInterceptor {
             } catch {
                 return completion(.doNotRetryWithError(error))
             }
-            
         }
     }
 }
