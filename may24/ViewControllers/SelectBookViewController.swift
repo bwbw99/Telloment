@@ -13,6 +13,10 @@ class SelectBookViewController:UIViewController{
         
         
     }
+    @IBAction func BackButtonTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     @IBOutlet weak var BookAddView: UIView!
     

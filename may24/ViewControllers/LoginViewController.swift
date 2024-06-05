@@ -9,7 +9,13 @@ import UIKit
 
 class LoginViewController:UIViewController{
     
+    
     @IBOutlet weak var LoginButtonVIew: UIView!
+    
+    
+    @IBOutlet weak var IDTextField: UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var ErrorMessageLabel: UILabel!
     
     @IBAction func BackButtonTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -27,9 +33,16 @@ class LoginViewController:UIViewController{
     
     
     @IBAction func LoginButtonTapped(_ sender: UIButton) {
-        guard let mpvc = self.storyboard?.instantiateViewController(identifier: "MypageVC") as? MypageViewController else { return }
-                
-        self.navigationController?.pushViewController(mpvc, animated: true)
+        
+        AuthenticationApi.shared.login(email: IDTextField.text!, password: PasswordTextField.text!){ res in
+                    switch res {
+                    case .success(let str):
+                        guard let mpvc = self.storyboard?.instantiateViewController(identifier: "MypageVC") as? MypageViewController else { return }
+                        self.navigationController?.pushViewController(mpvc, animated: true)
+                    case .failure(let err):
+                        self.ErrorMessageLabel.text = "로그인 실패"
+                    }
+                }
         
         
     }

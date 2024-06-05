@@ -32,42 +32,180 @@ class HomeViewController:UIViewController{
     @IBOutlet weak var EmotionRageView_Height: NSLayoutConstraint!
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // 작가 추천
     @IBOutlet weak var User_Outter_1: UIView!
     @IBOutlet weak var User_Outter_2: UIView!
+    @IBOutlet weak var User_Outter_3: UIView!
+    @IBOutlet weak var User_Outter_4: UIView!
+    @IBOutlet weak var User_Outter_5: UIView!
     
     
     @IBOutlet weak var User_Inner_1: UIView!
     @IBOutlet weak var User_Inner_2: UIView!
+    @IBOutlet weak var User_Inner_3: UIView!
+    @IBOutlet weak var User_Inner_4: UIView!
+    @IBOutlet weak var User_Inner_5: UIView!
     
     
     @IBOutlet weak var User_Name_1: UILabel!
     @IBOutlet weak var User_Name_2: UILabel!
+    @IBOutlet weak var User_Name_3: UILabel!
+    @IBOutlet weak var User_Name_4: UILabel!
+    @IBOutlet weak var User_Name_5: UILabel!
     
     
     @IBOutlet weak var User_Book_1: UILabel!
     @IBOutlet weak var User_Book_2: UILabel!
+    @IBOutlet weak var User_Book_3: UILabel!
+    @IBOutlet weak var User_Book_4: UILabel!
+    @IBOutlet weak var User_Book_5: UILabel!
     
     
     @IBOutlet weak var User_Heart_1: UILabel!
     @IBOutlet weak var User_Heart_2: UILabel!
+    @IBOutlet weak var User_Heart_3: UILabel!
+    @IBOutlet weak var User_Heart_4: UILabel!
+    @IBOutlet weak var User_Heart_5: UILabel!
     
     
     @IBOutlet weak var User_Page_1: UILabel!
     @IBOutlet weak var User_Page_2: UILabel!
+    @IBOutlet weak var User_Page_3: UILabel!
+    @IBOutlet weak var User_Page_4: UILabel!
+    @IBOutlet weak var User_Page_5: UILabel!
     
     
     
     
-    
+    // 관심 카테고리
     var colorData = [UIColor]()
-    var nameData: [String] = ["여행", "음악", "자기계발", "유머", "기타"]
-    var scoreData: [Double]! = [453, 401, 229, 201, 30]
+    var nameData: [String] = []
+    var scoreData: [Double]! = []
+    
+    
+    // 감정별 추천
+    var EmotionIds: [Int] = [] // 페이지 아이디가 들어가거나, 북 아이디가 들어가거나.
+    
+    // 감정별 추천 - 행복
+    @IBOutlet weak var Happy_View_1: UIView!
+    @IBOutlet weak var Happy_View_2: UIView!
+    @IBOutlet weak var Happy_View_3: UIView!
+    @IBOutlet weak var Happy_View_4: UIView!
+    @IBOutlet weak var Happy_View_5: UIView!
+    
+    @IBOutlet weak var Happy_Title_1: UILabel!
+    @IBOutlet weak var Happy_Title_2: UILabel!
+    @IBOutlet weak var Happy_Title_3: UILabel!
+    @IBOutlet weak var Happy_Title_4: UILabel!
+    @IBOutlet weak var Happy_Title_5: UILabel!
+    
+    @IBOutlet weak var Happy_Content_1: UITextView!
+    @IBOutlet weak var Happy_Content_2: UITextView!
+    @IBOutlet weak var Happy_Content_3: UITextView!
+    @IBOutlet weak var Happy_Content_4: UITextView!
+    @IBOutlet weak var Happy_Content_5: UITextView!
+    
+    @IBOutlet weak var Happy_Heart_1: UILabel!
+    @IBOutlet weak var Happy_Heart_2: UILabel!
+    @IBOutlet weak var Happy_Heart_3: UILabel!
+    @IBOutlet weak var Happy_Heart_4: UILabel!
+    @IBOutlet weak var Happy_Heart_5: UILabel!
+    
+    @IBOutlet weak var Happy_Button_1: UIButton!
+    @IBOutlet weak var Happy_Button_2: UIButton!
+    @IBOutlet weak var Happy_Button_3: UIButton!
+    @IBOutlet weak var Happy_Button_4: UIButton!
+    @IBOutlet weak var Happy_Button_5: UIButton!
+    
+    
+    // 감정별 추천 - 슬픔
+    @IBOutlet weak var Sad_View_1: UIView!
+    @IBOutlet weak var Sad_View_2: UIView!
+    @IBOutlet weak var Sad_View_3: UIView!
+    @IBOutlet weak var Sad_View_4: UIView!
+    @IBOutlet weak var Sad_View_5: UIView!
+    
+    @IBOutlet weak var Sad_Title_1: UILabel!
+    @IBOutlet weak var Sad_Title_2: UILabel!
+    @IBOutlet weak var Sad_Title_3: UILabel!
+    @IBOutlet weak var Sad_Title_4: UILabel!
+    @IBOutlet weak var Sad_Title_5: UILabel!
+    
+    @IBOutlet weak var Sad_Content_1: UITextView!
+    @IBOutlet weak var Sad_Content_2: UITextView!
+    @IBOutlet weak var Sad_Content_3: UITextView!
+    @IBOutlet weak var Sad_Content_4: UITextView!
+    @IBOutlet weak var Sad_Content_5: UITextView!
+    
+    @IBOutlet weak var Sad_Heart_1: UILabel!
+    @IBOutlet weak var Sad_Heart_2: UILabel!
+    @IBOutlet weak var Sad_Heart_3: UILabel!
+    @IBOutlet weak var Sad_Heart_4: UILabel!
+    @IBOutlet weak var Sad_Heart_5: UILabel!
+    
+    @IBOutlet weak var Sad_Button_1: UIButton!
+    @IBOutlet weak var Sad_Button_2: UIButton!
+    @IBOutlet weak var Sad_Button_3: UIButton!
+    @IBOutlet weak var Sad_Button_4: UIButton!
+    @IBOutlet weak var Sad_Button_5: UIButton!
+    
+    
+    // 감정별 추천 - 화남
+    @IBOutlet weak var Rage_View_1: UIView!
+    @IBOutlet weak var Rage_View_2: UIView!
+    @IBOutlet weak var Rage_View_3: UIView!
+    @IBOutlet weak var Rage_View_4: UIView!
+    @IBOutlet weak var Rage_View_5: UIView!
+    
+    @IBOutlet weak var Rage_Title_1: UILabel!
+    @IBOutlet weak var Rage_Title_2: UILabel!
+    @IBOutlet weak var Rage_Title_3: UILabel!
+    @IBOutlet weak var Rage_Title_4: UILabel!
+    @IBOutlet weak var Rage_Title_5: UILabel!
+    
+    @IBOutlet weak var Rage_Heart_1: UILabel!
+    @IBOutlet weak var Rage_Heart_2: UILabel!
+    @IBOutlet weak var Rage_Heart_3: UILabel!
+    @IBOutlet weak var Rage_Heart_4: UILabel!
+    @IBOutlet weak var Rage_Heart_5: UILabel!
+    
+    @IBOutlet weak var Rage_Page_1: UILabel!
+    @IBOutlet weak var Rage_Page_2: UILabel!
+    @IBOutlet weak var Rage_Page_3: UILabel!
+    @IBOutlet weak var Rage_Page_4: UILabel!
+    @IBOutlet weak var Rage_Page_5: UILabel!
+    
+    @IBOutlet weak var Rage_Button_1: UIButton!
+    @IBOutlet weak var Rage_Button_2: UIButton!
+    @IBOutlet weak var Rage_Button_3: UIButton!
+    @IBOutlet weak var Rage_Button_4: UIButton!
+    @IBOutlet weak var Rage_Button_5: UIButton!
+    
+    
+    
+    
+    
+    // 작가 추천
+    var UserIds: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 관심 카테고리 추천
+        // 관심 카테고리 추천 - API 관련
+        nameData = ["여행", "음악", "자기계발", "유머", "기타"]
+        scoreData = [453, 401, 229, 201, 30]
+        
+        // 관심 카테고리 추천 - UI 관련
         colorData.append(UIColor(hexCode: "A38DEF"))
         colorData.append(UIColor(hexCode: "7DB2EF"))
         colorData.append(UIColor(hexCode: "94EF7A"))
@@ -86,17 +224,57 @@ class HomeViewController:UIViewController{
         
         
         
-        // 감정 선택에 따른 추천 컨텐츠 제공
+        // 감정 선택에 따른 추천 컨텐츠 제공 - API 관련
+        // -> line 300 쯤에 가서 구현 / happyButtonTapped, sadButtonTapped, rageButtonTapped
+        
+        
+        // 감정 선택에 따른 추천 컨텐츠 제공 - UI 관련
         EmotionHappyView_Height.constant = 0
         EmotionSadView_Height.constant = 0
         EmotionRageView_Height.constant = 0
         
         
-        // 작가 추천
+        // 작가 추천 - API 관련
+        UserIds = [101,102,103,104,105]
+        
+        User_Name_1.text = "뱅뱅123"
+        User_Book_1.text = "3"
+        User_Heart_1.text = "45"
+        User_Page_1.text = "4"
+        
+        User_Name_2.text = "닉네임2"
+        User_Book_2.text = "3"
+        User_Heart_2.text = "45"
+        User_Page_2.text = "4"
+        
+        User_Name_3.text = "닉네임3"
+        User_Book_3.text = "3"
+        User_Heart_3.text = "45"
+        User_Page_3.text = "4"
+        
+        User_Name_4.text = "닉네임4"
+        User_Book_4.text = "3"
+        User_Heart_4.text = "45"
+        User_Page_4.text = "4"
+        
+        User_Name_5.text = "닉네임5"
+        User_Book_5.text = "3"
+        User_Heart_5.text = "45"
+        User_Page_5.text = "4"
+        
+        
+        // 작가 추천 - UI 관련
         User_Outter_1.layer.cornerRadius = 12
         User_Outter_2.layer.cornerRadius = 12
+        User_Outter_3.layer.cornerRadius = 12
+        User_Outter_4.layer.cornerRadius = 12
+        User_Outter_5.layer.cornerRadius = 12
+        
         User_Inner_1.layer.cornerRadius = 10
         User_Inner_2.layer.cornerRadius = 10
+        User_Inner_3.layer.cornerRadius = 10
+        User_Inner_4.layer.cornerRadius = 10
+        User_Inner_5.layer.cornerRadius = 10
         
     }
     
@@ -169,11 +347,33 @@ class HomeViewController:UIViewController{
     
     // 작가 추천
     @IBAction func UserButton_1_Tapped(_ sender: UIButton) {
-        
+        guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
+        suvc.UserId = UserIds[0]
+        self.navigationController?.pushViewController(suvc, animated: true)
     }
     
     @IBAction func UserButton_2_Tapped(_ sender: UIButton) {
-        
+        guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
+        suvc.UserId = UserIds[1]
+        self.navigationController?.pushViewController(suvc, animated: true)
+    }
+    
+    @IBAction func UserButton_3_Tapped(_ sender: UIButton) {
+        guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
+        suvc.UserId = UserIds[2]
+        self.navigationController?.pushViewController(suvc, animated: true)
+    }
+    
+    @IBAction func UserButton_4_Tapped(_ sender: UIButton) {
+        guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
+        suvc.UserId = UserIds[3]
+        self.navigationController?.pushViewController(suvc, animated: true)
+    }
+    
+    @IBAction func UserButton_5_Tapped(_ sender: UIButton) {
+        guard let suvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeUserVC") as? SeeUserViewController else {return}
+        suvc.UserId = UserIds[4]
+        self.navigationController?.pushViewController(suvc, animated: true)
     }
     
     

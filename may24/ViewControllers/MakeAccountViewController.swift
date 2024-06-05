@@ -12,6 +12,24 @@ class MakeAccountViewController:UIViewController{
     @IBAction func BackButtonTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    @IBOutlet weak var NameTextField: UITextField!
+    @IBOutlet weak var EmailTextField: UITextField!
+    @IBOutlet weak var PasswordTextField: UITextField!
+    @IBOutlet weak var NicknameTextField: UITextField!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBOutlet weak var ButtonView: UIView!
     
     override func viewDidLoad() {
