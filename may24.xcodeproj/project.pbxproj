@@ -87,6 +87,7 @@
 		73118FDD2C1044770059E95F /* UserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDC2C1044770059E95F /* UserDto.swift */; };
 		73118FDF2C1044EA0059E95F /* RankedUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FDE2C1044EA0059E95F /* RankedUserDto.swift */; };
 		73118FE12C1045E60059E95F /* RankingApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FE02C1045E60059E95F /* RankingApi.swift */; };
+		73118FE32C1049E50059E95F /* EmotionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FE22C1049E50059E95F /* EmotionDto.swift */; };
 		733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */; };
 		733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */; };
 		733CAE742C030099007A4568 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE732C030099007A4568 /* Authentication.swift */; };
@@ -185,6 +186,7 @@
 		73118FDC2C1044770059E95F /* UserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDto.swift; sourceTree = "<group>"; };
 		73118FDE2C1044EA0059E95F /* RankedUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedUserDto.swift; sourceTree = "<group>"; };
 		73118FE02C1045E60059E95F /* RankingApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingApi.swift; sourceTree = "<group>"; };
+		73118FE22C1049E50059E95F /* EmotionDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionDto.swift; sourceTree = "<group>"; };
 		733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceApi.swift; sourceTree = "<group>"; };
 		733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestInterceptor.swift; sourceTree = "<group>"; };
 		733CAE732C030099007A4568 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				73118FD22C1033C20059E95F /* BookDto.swift */,
 				73118FDC2C1044770059E95F /* UserDto.swift */,
 				73118FDE2C1044EA0059E95F /* RankedUserDto.swift */,
+				73118FE22C1049E50059E95F /* EmotionDto.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				73118FCD2C102D950059E95F /* SavePageRequestDto.swift in Sources */,
 				73118FC52C10280A0059E95F /* FullContextPageDto.swift in Sources */,
 				733CAEC42C0ADC01007A4568 /* VoiceResponseDto.swift in Sources */,
+				73118FE32C1049E50059E95F /* EmotionDto.swift in Sources */,
 				132D53042C0D923400385603 /* SeeBookViewController.swift in Sources */,
 				73118FC32C1026F80059E95F /* BasePageableResponse.swift in Sources */,
 				132D53022C0D91E400385603 /* SeePageViewController.swift in Sources */,
