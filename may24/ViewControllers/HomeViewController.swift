@@ -200,6 +200,31 @@ class HomeViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        User_Name_1.text = "뱅뱅123"
+        User_Book_1.text = "3"
+        User_Heart_1.text = "45"
+        User_Page_1.text = "4"
+        
+        User_Name_2.text = "닉네임2"
+        User_Book_2.text = "3"
+        User_Heart_2.text = "45"
+        User_Page_2.text = "4"
+        
+        User_Name_3.text = "닉네임3"
+        User_Book_3.text = "3"
+        User_Heart_3.text = "45"
+        User_Page_3.text = "4"
+        
+        User_Name_4.text = "닉네임4"
+        User_Book_4.text = "3"
+        User_Heart_4.text = "45"
+        User_Page_4.text = "4"
+        
+        User_Name_5.text = "닉네임5"
+        User_Book_5.text = "3"
+        User_Heart_5.text = "45"
+        User_Page_5.text = "4"
+        
         
         // 관심 카테고리 추천 - API 관련
         nameData = ["여행", "음악", "자기계발", "유머", "기타"]
@@ -241,43 +266,15 @@ class HomeViewController:UIViewController{
             switch res{
             case .success(let users):
                 self.UserEmails = users.map({user in user.userEmail})
-                print(self.UserEmails)
-                print("\n\n")
                 self.CheckByEmail(Emails: self.UserEmails)
             case .failure(let err):
                 print(err)
             }
         }
         
-        // 이메일로 다시 조회
         
         
         
-        
-        User_Name_1.text = "뱅뱅123"
-        User_Book_1.text = "3"
-        User_Heart_1.text = "45"
-        User_Page_1.text = "4"
-        
-        User_Name_2.text = "닉네임2"
-        User_Book_2.text = "3"
-        User_Heart_2.text = "45"
-        User_Page_2.text = "4"
-        
-        User_Name_3.text = "닉네임3"
-        User_Book_3.text = "3"
-        User_Heart_3.text = "45"
-        User_Page_3.text = "4"
-        
-        User_Name_4.text = "닉네임4"
-        User_Book_4.text = "3"
-        User_Heart_4.text = "45"
-        User_Page_4.text = "4"
-        
-        User_Name_5.text = "닉네임5"
-        User_Book_5.text = "3"
-        User_Heart_5.text = "45"
-        User_Page_5.text = "4"
         
         
         // 작가 추천 - UI 관련
