@@ -78,6 +78,11 @@
 		73118FCB2C102CCC0059E95F /* PutLinkPagesRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FCA2C102CCC0059E95F /* PutLinkPagesRequestDto.swift */; };
 		73118FCD2C102D950059E95F /* SavePageRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FCC2C102D950059E95F /* SavePageRequestDto.swift */; };
 		73118FCF2C102DEC0059E95F /* UpdatePageRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FCE2C102DEC0059E95F /* UpdatePageRequestDto.swift */; };
+		73118FD12C1032F10059E95F /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FD02C1032F10059E95F /* BookApi.swift */; };
+		73118FD32C1033C20059E95F /* BookDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FD22C1033C20059E95F /* BookDto.swift */; };
+		73118FD52C10354B0059E95F /* AddPageToBookRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FD42C10354B0059E95F /* AddPageToBookRequestDto.swift */; };
+		73118FD72C103A060059E95F /* BookCategoryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FD62C103A060059E95F /* BookCategoryDto.swift */; };
+		73118FD92C103ADE0059E95F /* CreateBookRequestDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73118FD82C103ADE0059E95F /* CreateBookRequestDto.swift */; };
 		733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */; };
 		733CAE702C02FF85007A4568 /* ApiRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */; };
 		733CAE742C030099007A4568 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE732C030099007A4568 /* Authentication.swift */; };
@@ -167,6 +172,11 @@
 		73118FCA2C102CCC0059E95F /* PutLinkPagesRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PutLinkPagesRequestDto.swift; path = may24/api/dto/response/PutLinkPagesRequestDto.swift; sourceTree = SOURCE_ROOT; };
 		73118FCC2C102D950059E95F /* SavePageRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavePageRequestDto.swift; path = may24/api/dto/response/SavePageRequestDto.swift; sourceTree = SOURCE_ROOT; };
 		73118FCE2C102DEC0059E95F /* UpdatePageRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpdatePageRequestDto.swift; path = may24/api/dto/response/UpdatePageRequestDto.swift; sourceTree = SOURCE_ROOT; };
+		73118FD02C1032F10059E95F /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
+		73118FD22C1033C20059E95F /* BookDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDto.swift; sourceTree = "<group>"; };
+		73118FD42C10354B0059E95F /* AddPageToBookRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddPageToBookRequestDto.swift; path = may24/api/dto/response/AddPageToBookRequestDto.swift; sourceTree = SOURCE_ROOT; };
+		73118FD62C103A060059E95F /* BookCategoryDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BookCategoryDto.swift; path = may24/api/dto/response/BookCategoryDto.swift; sourceTree = SOURCE_ROOT; };
+		73118FD82C103ADE0059E95F /* CreateBookRequestDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateBookRequestDto.swift; path = may24/api/dto/response/CreateBookRequestDto.swift; sourceTree = SOURCE_ROOT; };
 		733CAE6B2C02FAC8007A4568 /* VoiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceApi.swift; sourceTree = "<group>"; };
 		733CAE6F2C02FF85007A4568 /* ApiRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestInterceptor.swift; sourceTree = "<group>"; };
 		733CAE732C030099007A4568 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -365,6 +375,7 @@
 				733CAE752C03019A007A4568 /* AuthenticationApi.swift */,
 				733CAE782C0302B0007A4568 /* ApiVariables.swift */,
 				73118FBE2C1020FB0059E95F /* PageApi.swift */,
+				73118FD02C1032F10059E95F /* BookApi.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -396,6 +407,8 @@
 				73118FCA2C102CCC0059E95F /* PutLinkPagesRequestDto.swift */,
 				73118FCC2C102D950059E95F /* SavePageRequestDto.swift */,
 				73118FCE2C102DEC0059E95F /* UpdatePageRequestDto.swift */,
+				73118FD42C10354B0059E95F /* AddPageToBookRequestDto.swift */,
+				73118FD82C103ADE0059E95F /* CreateBookRequestDto.swift */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -403,12 +416,14 @@
 		733CAE7B2C0303AA007A4568 /* response */ = {
 			isa = PBXGroup;
 			children = (
+				73118FD62C103A060059E95F /* BookCategoryDto.swift */,
 				733CAE7E2C03059C007A4568 /* LoginResponseDto.swift */,
 				733CAE822C045A71007A4568 /* BaseResponse.swift */,
 				733CAEC32C0ADC01007A4568 /* VoiceResponseDto.swift */,
 				73118FC02C1022E60059E95F /* PageDto.swift */,
 				73118FC22C1026F80059E95F /* BasePageableResponse.swift */,
 				73118FC42C10280A0059E95F /* FullContextPageDto.swift */,
+				73118FD22C1033C20059E95F /* BookDto.swift */,
 			);
 			path = response;
 			sourceTree = "<group>";
@@ -582,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73118FD32C1033C20059E95F /* BookDto.swift in Sources */,
 				13837C1B2C0B1419001229C8 /* WriteContentViewController.swift in Sources */,
 				132430D92C09AF08006E00D6 /* LoginViewController.swift in Sources */,
 				733CAE762C03019A007A4568 /* AuthenticationApi.swift in Sources */,
@@ -597,6 +613,7 @@
 				132D53062C0D925300385603 /* SeeUserViewController.swift in Sources */,
 				132430D72C09A679006E00D6 /* AccountViewController.swift in Sources */,
 				733CAE792C0302B0007A4568 /* ApiVariables.swift in Sources */,
+				73118FD92C103ADE0059E95F /* CreateBookRequestDto.swift in Sources */,
 				73118FC12C1022E60059E95F /* PageDto.swift in Sources */,
 				13E7DEAE2BF70A2F0093E643 /* SearchViewController.swift in Sources */,
 				13E7DE942BF5C1B60093E643 /* AppDelegate.swift in Sources */,
@@ -611,11 +628,14 @@
 				733CAE862C045D90007A4568 /* AudioRecorder.swift in Sources */,
 				737EF8C52C0B133C00B8269F /* BackendEmotions.swift in Sources */,
 				13E7DEB22BF70A460093E643 /* HeartViewController.swift in Sources */,
+				73118FD12C1032F10059E95F /* BookApi.swift in Sources */,
 				73118FC92C102C5D0059E95F /* PostLikeRequestDto.swift in Sources */,
 				73118FBF2C1020FB0059E95F /* PageApi.swift in Sources */,
 				13E7DEB42BF70A530093E643 /* MypageViewController.swift in Sources */,
 				1339193D2C0715E1008EC0A0 /* BookDetailViewController.swift in Sources */,
 				13F0C4AB2C07875A005FFC9D /* ScrabViewController.swift in Sources */,
+				73118FD72C103A060059E95F /* BookCategoryDto.swift in Sources */,
+				73118FD52C10354B0059E95F /* AddPageToBookRequestDto.swift in Sources */,
 				13837C202C0B3F00001229C8 /* EmotionViewController.swift in Sources */,
 				1360F9042C0AFCA500A4707C /* SelectBookViewController.swift in Sources */,
 				733CAE832C045A71007A4568 /* BaseResponse.swift in Sources */,

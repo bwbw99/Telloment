@@ -57,7 +57,7 @@ class PageApi {
             }
     }
     
-    func updateDefaultVoiceByPage(pageId: Int, email: String, completion: @escaping (Result<BaseResponse<String>, Error>) -> Void) {
+    func updateDefaultVoiceByPage(pageId: Int, email: String, completion: @escaping (Result<String, Error>) -> Void) {
         let url = "\(baseUrl)/api/page/\(pageId)/default_voice"
         let parameters: [String: Any] = ["email": email]
 
@@ -69,7 +69,7 @@ class PageApi {
                     return
                 }
 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.page.default_voice.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
@@ -162,7 +162,7 @@ class PageApi {
             }
     }
 
-    func likePage(pageId: Int, completion: @escaping (Result<BaseResponse<FullContextPageDto>, Error>) -> Void) {
+    func likePage(pageId: Int, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
         let url = "\(baseUrl)/api/page/like"
         let requestBody = LikePageRequest(pageId: pageId)
 
@@ -174,7 +174,7 @@ class PageApi {
                     return
                 }
 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.page.like.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
@@ -183,7 +183,7 @@ class PageApi {
             }
     }
     
-    func linkPages(nextPageId: Int, prevPageId: Int, completion: @escaping (Result<BaseResponse<FullContextPageDto>, Error>) -> Void) {
+    func linkPages(nextPageId: Int, prevPageId: Int, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
         let url = "\(baseUrl)/api/page/link"
         let requestBody = PutLinkPagesRequest(nextPageId: nextPageId, prevPageId: prevPageId)
 
@@ -195,7 +195,7 @@ class PageApi {
                     return
                 }
 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.page.link.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
@@ -204,7 +204,7 @@ class PageApi {
             }
     }
     
-    func getPageListOfCurrentUser(completion: @escaping (Result<BaseResponse<[FullContextPageDto]>, Error>) -> Void) {
+    func getPageListOfCurrentUser(completion: @escaping (Result<[FullContextPageDto], Error>) -> Void) {
         let url = "\(baseUrl)/api/page/list"
 
         AF.request(url,
@@ -217,7 +217,7 @@ class PageApi {
                     return
                 }
 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.page.list.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
@@ -247,7 +247,7 @@ class PageApi {
             }
     }
     
-    func updatePage(pageId: Int, content: String, title: String, completion: @escaping (Result<BaseResponse<FullContextPageDto>, Error>) -> Void) {
+    func updatePage(pageId: Int, content: String, title: String, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
         let url = "\(baseUrl)/api/page/update"
         let requestBody = UpdatePageRequest(content: content, pageId: pageId, title: title)
 
@@ -259,7 +259,7 @@ class PageApi {
                     return
                 }
 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.page.update.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }
