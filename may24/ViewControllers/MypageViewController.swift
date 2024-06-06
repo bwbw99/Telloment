@@ -238,35 +238,51 @@ class MypageViewController:UIViewController{
     }
     
     @IBAction func BookButtonTapped_2(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[1]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     @IBAction func BookButtonTapped_3(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[2]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     @IBAction func BookButtonTapped_4(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[3]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     @IBAction func BookButtonTapped_5(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[4]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     @IBAction func BookButtonTapped_6(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[5]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     @IBAction func BookButtonTapped_7(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[6]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     @IBAction func BookButtonTapped_8(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[7]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     @IBAction func BookButtonTapped_9(_ sender: UIButton) {
-        
+        guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[8]
+        self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
     
