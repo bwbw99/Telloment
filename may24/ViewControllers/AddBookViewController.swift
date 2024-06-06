@@ -56,9 +56,15 @@ class AddBookViewController:UIViewController, SendDataDelegate{
             TagArr.append(String(i.suffix(i.count - 1)))
         }
         // 여기에 API 통신 연결하기
-        print(BookTitle.text)
-        print(categoryCode(name: CategoryLabel.text!))
-        print(TagArr)
+        BookApi.shared.createBook(bookName: BookTitle.text!, categoryCode: categoryCode(name: CategoryLabel.text!), hashtags: TagArr, authToken: Authentication.token){ res in
+            switch res{
+            case .success(let data):
+                print("success")
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
         
         
         

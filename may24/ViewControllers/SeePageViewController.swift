@@ -34,9 +34,6 @@ class SeePageViewController:UIViewController{
     @IBOutlet weak var EmotionLevel: UILabel!
     @IBOutlet weak var HidingView: UIView!
     
-    @IBOutlet weak var ChangeVoiceView: UIView!
-    
-    
     @IBOutlet weak var TotalHeight: NSLayoutConstraint!
     
     
@@ -61,10 +58,6 @@ class SeePageViewController:UIViewController{
         Heart.text = ""
         EmotionType.text = ""
         EmotionLevel.text = ""
-        
-        ChangeVoiceView.layer.cornerRadius = 20
-        ChangeVoiceView.layer.borderColor = UIColor.black.cgColor
-        ChangeVoiceView.layer.borderWidth = 2
 
         
         
@@ -82,7 +75,7 @@ class SeePageViewController:UIViewController{
                 attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
                 self.ContentTextView.attributedText = attrString
                 self.ContentTextView.font = UIFont(name: "BMHANNAAirOTF", size: 20)
-                self.TotalHeight.constant = self.ContentTextView.frame.size.height + 800
+                self.TotalHeight.constant = self.ContentTextView.frame.size.height + 1000
                 
                 self.Heart.text = String(data.likeCount)
                 self.EmotionType.text = data.emotionType

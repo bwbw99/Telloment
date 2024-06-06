@@ -88,7 +88,6 @@ class SeeBookViewController:UIViewController{
         PageView8.isHidden = true
         
         
-        print(BookId)
         // 아래의 정보들을 API 통신으로 불러오는 형태로 수정해야함. (BookId 로 조회하기)
         
         BookApi.shared.getBook(bookId: BookId){ res in
@@ -116,7 +115,6 @@ class SeeBookViewController:UIViewController{
                 }
                 var temp = 0
                 for j in self.PageIDs{
-                    print(j)
                     self.loadPage(pageId: j, temp: temp)
                     temp += 1
                 }// end of for-loop
@@ -203,11 +201,9 @@ class SeeBookViewController:UIViewController{
     
     private func loadPage(pageId: Int,temp: Int) {
         PageApi.shared.getPageById(pageId: pageId){ res in
-            print(res)
             switch res{
             case .success(let data):
                 if(temp == 0){
-                    print(data)
                     self.Content1.text = data.content
                     self.Heart1.text = String(data.likeCount)
                 }

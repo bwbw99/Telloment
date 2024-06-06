@@ -203,6 +203,28 @@ class HomeViewController:UIViewController{
     // 작가 추천
     var UserEmails: [String] = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UserApi.shared.getUserCategoryScores(){ res in
+            switch res{
+            case .success(let data):
+                for i in 0...4{
+                    self.nameData[i] = self.categoryEnglishToKorean(category: data[i].category)
+                    self.scoreData[i] = data[i].score
+                }
+                self.setPieData(pieChartView: self.CategoryChart, pieChartDataEntries: self.entryData(values: self.scoreData))
+                
+                self.setup(pieChartView: self.CategoryChart)
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -223,22 +245,7 @@ class HomeViewController:UIViewController{
         self.CategoryChart.noDataTextColor = .lightGray
         self.CategoryChart.backgroundColor = .white
         
-        UserApi.shared.getUserCategoryScores(){ res in
-            switch res{
-            case .success(let data):
-                print(data)
-                for i in 0...4{
-                    self.nameData[i] = self.categoryEnglishToKorean(category: data[i].category)
-                    self.scoreData[i] = data[i].score
-                }
-                self.setPieData(pieChartView: self.CategoryChart, pieChartDataEntries: self.entryData(values: self.scoreData))
-                
-                self.setup(pieChartView: self.CategoryChart)
-            case .failure(let err):
-                print(err)
-            }
-            
-        }
+        
         
         
         

@@ -22,14 +22,6 @@ class MakeAccountViewController:UIViewController{
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     @IBOutlet weak var ButtonView: UIView!
     
     override func viewDidLoad() {
