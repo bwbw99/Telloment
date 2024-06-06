@@ -232,12 +232,8 @@ class MypageViewController:UIViewController{
     
     
     @IBAction func BookButtonTapped_1(_ sender: UIButton) {
-        // param : BookID[0] , 토큰
-        
-        
-        
-        
         guard let sbvc = self.storyboard?.instantiateViewController(identifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookID[0]
         self.navigationController?.pushViewController(sbvc, animated: true)
     }
     
