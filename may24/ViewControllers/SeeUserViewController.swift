@@ -87,6 +87,10 @@ class SeeUserViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(UserEmail)
+        UserName.text = ""
+        NumBook.text = "0"
+        NumHeart.text = "0"
+        NumPage.text = "0"
         
         // 아래의 정보들을 API 통신으로 불러오는 형태로 수정해야함. (UserEmail 로 검색하기)
         UserApi.shared.getUserByEmail(email: UserEmail){ res in
@@ -96,22 +100,85 @@ class SeeUserViewController:UIViewController{
                 self.NumBook.text = String(data.bookCount)
                 self.NumHeart.text = String(data.totalLikeCount)
                 self.NumPage.text = String(data.pageCount)
+                // 이메일로
             case .failure(let err):
                 print(err)
             }
         }
         
-        print(NumBook.text!)
         
         // 아래 수정해야함. 아래의 api는 현재 로그인된 사용자를 조회하는거임. 의도는 useremail을 가지고 해야함.
-        BookApi.shared.getAllBookOfCurrentUser(authToken: Authentication.token){ res in
+        BookApi.shared.getAllBookOfOtherUser(email: UserEmail){ res in
             switch res{
             case .success(let books):
-                print(books)
                 self.BookName = books.map({book in book.bookName})
                 self.BookHeart = books.map({book in book.totalLikeCount})
                 self.BookPage = books.map({book in book.totalPageCount})
                 self.BookIds = books.map({book in book.bookId})
+                if(self.BookIds.count > 0){
+                    self.BookView1.isHidden = false
+                    self.BookButton1.isHidden = false
+                    self.BookName1.text = self.BookName[0]
+                    self.BookHeart1.text = String(self.BookHeart[0])
+                    self.BookPage1.text = String(self.BookPage[0])
+                }
+                if(self.BookIds.count > 1){
+                    self.BookView2.isHidden = false
+                    self.BookButton2.isHidden = false
+                    self.BookName2.text = self.BookName[1]
+                    self.BookHeart2.text = String(self.BookHeart[1])
+                    self.BookPage2.text = String(self.BookPage[1])
+                }
+                if(self.BookIds.count > 2){
+                    self.BookView3.isHidden = false
+                    self.BookButton3.isHidden = false
+                    self.BookName3.text = self.BookName[2]
+                    self.BookHeart3.text = String(self.BookHeart[2])
+                    self.BookPage3.text = String(self.BookPage[2])
+                }
+                if(self.BookIds.count > 3){
+                    self.BookView4.isHidden = false
+                    self.BookButton4.isHidden = false
+                    self.BookName4.text = self.BookName[3]
+                    self.BookHeart4.text = String(self.BookHeart[3])
+                    self.BookPage4.text = String(self.BookPage[3])
+                }
+                if(self.BookIds.count > 4){
+                    self.BookView5.isHidden = false
+                    self.BookButton5.isHidden = false
+                    self.BookName5.text = self.BookName[4]
+                    self.BookHeart5.text = String(self.BookHeart[4])
+                    self.BookPage5.text = String(self.BookPage[4])
+                }
+                if(self.BookIds.count > 5){
+                    self.BookView6.isHidden = false
+                    self.BookButton6.isHidden = false
+                    self.BookName6.text = self.BookName[5]
+                    self.BookHeart6.text = String(self.BookHeart[5])
+                    self.BookPage6.text = String(self.BookPage[5])
+                }
+                if(self.BookIds.count > 6){
+                    self.BookView7.isHidden = false
+                    self.BookButton7.isHidden = false
+                    self.BookName7.text = self.BookName[6]
+                    self.BookHeart7.text = String(self.BookHeart[6])
+                    self.BookPage7.text = String(self.BookPage[6])
+                }
+                if(self.BookIds.count > 7){
+                    self.BookView8.isHidden = false
+                    self.BookButton8.isHidden = false
+                    self.BookName8.text = self.BookName[7]
+                    self.BookHeart8.text = String(self.BookHeart[7])
+                    self.BookPage8.text = String(self.BookPage[7])
+                }
+                if(self.BookIds.count > 8){
+                    self.BookView9.isHidden = false
+                    self.BookButton9.isHidden = false
+                    self.BookName9.text = self.BookName[8]
+                    self.BookHeart9.text = String(self.BookHeart[8])
+                    self.BookPage9.text = String(self.BookPage[8])
+                }
+                
             case .failure(let err):
                 print(err)
             }
@@ -145,69 +212,7 @@ class SeeUserViewController:UIViewController{
         BookButton9.isHidden = true
         
         
-        if(Int(NumBook.text!)! > 0){
-            BookView1.isHidden = false
-            BookButton1.isHidden = false
-            BookName1.text = BookName[0]
-            BookHeart1.text = String(BookHeart[0])
-            BookPage1.text = String(BookPage[0])
-        }
-        if(Int(NumBook.text!)! > 1){
-            BookView2.isHidden = false
-            BookButton2.isHidden = false
-            BookName2.text = BookName[1]
-            BookHeart2.text = String(BookHeart[1])
-            BookPage2.text = String(BookPage[1])
-        }
-        if(Int(NumBook.text!)! > 2){
-            BookView3.isHidden = false
-            BookButton3.isHidden = false
-            BookName3.text = BookName[2]
-            BookHeart3.text = String(BookHeart[2])
-            BookPage3.text = String(BookPage[2])
-        }
-        if(Int(NumBook.text!)! > 3){
-            BookView4.isHidden = false
-            BookButton4.isHidden = false
-            BookName4.text = BookName[3]
-            BookHeart4.text = String(BookHeart[3])
-            BookPage4.text = String(BookPage[3])
-        }
-        if(Int(NumBook.text!)! > 4){
-            BookView5.isHidden = false
-            BookButton5.isHidden = false
-            BookName5.text = BookName[4]
-            BookHeart5.text = String(BookHeart[4])
-            BookPage5.text = String(BookPage[4])
-        }
-        if(Int(NumBook.text!)! > 5){
-            BookView6.isHidden = false
-            BookButton6.isHidden = false
-            BookName6.text = BookName[5]
-            BookHeart6.text = String(BookHeart[5])
-            BookPage6.text = String(BookPage[5])
-        }
-        if(Int(NumBook.text!)! > 6){
-            BookView7.isHidden = false
-            BookButton7.isHidden = false
-            BookName7.text = BookName[6]
-            BookHeart7.text = String(BookHeart[6])
-            BookPage7.text = String(BookPage[6])
-        }
-        if(Int(NumBook.text!)! > 7){
-            BookView8.isHidden = false
-            BookButton8.isHidden = false
-            BookName8.text = BookName[7]
-            BookHeart8.text = String(BookHeart[7])
-            BookPage8.text = String(BookPage[7])
-        }
-        if(Int(NumBook.text!)! > 8){
-            BookView9.isHidden = false
-            BookButton9.isHidden = false
-            BookName9.text = BookName[8]
-            BookHeart9.text = String(BookHeart[8])
-            BookPage9.text = String(BookPage[8])
-        }
+        sleep(1)
         
         
     }

@@ -9,8 +9,8 @@ import Foundation
 
 struct FullContextPageDto: Codable {
     let content: String
-    let createdAt: Date
-    let defaultVoiceUserMail: String
+    let createdAt: String
+    let defaultVoiceUserMail: String?
     let emotionIntensity: Int
     let emotionType: String
     let hashtags: [String]

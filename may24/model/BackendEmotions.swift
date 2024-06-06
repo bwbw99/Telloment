@@ -7,8 +7,8 @@
 
 public enum BackendEmotions: String {
     
-    case Neutral = "중립"
-    case Happy = "행복"
-    case Sad = "슬픔"
-    case Angry = "화남"
+    case Neutral = "Neutral"
+    case Happy = "Happiness"
+    case Sad = "Sadness"
+    case Angry = "Angry"
 }

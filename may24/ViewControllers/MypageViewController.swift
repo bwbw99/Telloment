@@ -219,7 +219,7 @@ class MypageViewController:UIViewController{
             }
         }
         
-        sleep(2)
+        sleep(3)
         
         
     }

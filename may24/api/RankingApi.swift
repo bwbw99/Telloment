@@ -59,14 +59,14 @@ class RankingApi {
             }
     }
     
-    func getTopLikedPagesInEmotion(emotion: BackendEmotions, top: Int, completion: @escaping (Result<[PageDto], Error>) -> Void) {
+    func getTopLikedPagesInEmotion(emotion: BackendEmotions, top: Int, completion: @escaping (Result<[FullContextPageDto], Error>) -> Void) {
         let url = "\(baseUrl)/page/emotion/topliked"
         var parameters = ["emotion": emotion.rawValue, "top": top] as [String : Any]
         
         
         AF.request(url, parameters: parameters, interceptor: AuthRequestInterceptor())
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: BaseResponse<[PageDto]>.self) { response in
+            .responseDecodable(of: BaseResponse<[FullContextPageDto]>.self) { response in
                 if let error = response.error {
                     completion(.failure(error))
                     return

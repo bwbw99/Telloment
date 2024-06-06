@@ -32,6 +32,7 @@ class SeePageViewController:UIViewController{
     
     @IBOutlet weak var EmotionType: UILabel!
     @IBOutlet weak var EmotionLevel: UILabel!
+    @IBOutlet weak var HidingView: UIView!
     
     @IBOutlet weak var ChangeVoiceView: UIView!
     
@@ -46,11 +47,13 @@ class SeePageViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        TotalHeight.constant = ContentTextView.frame.size.height + 400
+        
         
         Tag_1.isHidden = true
         Tag_2.isHidden = true
         Tag_3.isHidden = true
+        HidingView.isHidden = true
+        
         
         PageTitle.text = ""
         Tags = []
@@ -69,15 +72,21 @@ class SeePageViewController:UIViewController{
         PageApi.shared.getPageById(pageId: PageId){ res in
             switch res{
             case .success(let data):
-                self.PageTitle.text = ""//data.title
+                self.PageTitle.text = data.title
                 self.Tags = data.hashtags
                 self.ContentTextView.text = data.content
-                self.Heart.text = ""//String(data.likecount)
+                // 줄간격 설정하기
+                let attrString = NSMutableAttributedString(string: self.ContentTextView.text!)
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 15
+                attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+                self.ContentTextView.attributedText = attrString
+                self.ContentTextView.font = UIFont(name: "BMHANNAAirOTF", size: 20)
+                self.TotalHeight.constant = self.ContentTextView.frame.size.height + 800
                 
-                if(data.emotionType == "ANGER"){ self.EmotionType.text = "화남" }
-                if(data.emotionType == "SADNESS"){ self.EmotionType.text = "슬픔" }
-                if(data.emotionType == "HAPPINESS"){ self.EmotionType.text = "행복" }
-                if(data.emotionType == "NEUTRAL"){ self.EmotionType.text = "중립" }
+                self.Heart.text = String(data.likeCount)
+                self.EmotionType.text = data.emotionType
+                if(data.emotionType == "중립") { self.HidingView.isHidden = false}
                 
                 if(data.emotionIntensity == 0){ self.EmotionLevel.text = "낮음" }
                 if(data.emotionIntensity == 1){ self.EmotionLevel.text = "보통" }

@@ -95,6 +95,11 @@ class HomeViewController:UIViewController{
     
     // 감정별 추천
     var EmotionIds: [Int] = [] // 페이지 아이디가 들어가거나, 북 아이디가 들어가거나.
+    var Emotion_Id_1 : Int = 0
+    var Emotion_Id_2 : Int = 0
+    var Emotion_Id_3 : Int = 0
+    var Emotion_Id_4 : Int = 0
+    var Emotion_Id_5 : Int = 0
     
     // 감정별 추천 - 행복
     @IBOutlet weak var Happy_View_1: UIView!
@@ -200,35 +205,24 @@ class HomeViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        User_Name_1.text = "뱅뱅123"
-        User_Book_1.text = "3"
-        User_Heart_1.text = "45"
-        User_Page_1.text = "4"
-        
-        User_Name_2.text = "닉네임2"
-        User_Book_2.text = "3"
-        User_Heart_2.text = "45"
-        User_Page_2.text = "4"
-        
-        User_Name_3.text = "닉네임3"
-        User_Book_3.text = "3"
-        User_Heart_3.text = "45"
-        User_Page_3.text = "4"
-        
-        User_Name_4.text = "닉네임4"
-        User_Book_4.text = "3"
-        User_Heart_4.text = "45"
-        User_Page_4.text = "4"
-        
-        User_Name_5.text = "닉네임5"
-        User_Book_5.text = "3"
-        User_Heart_5.text = "45"
-        User_Page_5.text = "4"
         
         
         // 관심 카테고리 추천 - API 관련
         nameData = ["여행", "음악", "자기계발", "유머", "기타"]
         scoreData = [453, 401, 229, 201, 30]
+        
+        UserApi.shared.getUserCategoryScores(){ res in
+            switch res{
+            case .success(let data):
+                print("flag_00")
+                print(data)
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+        
+        
         
         // 관심 카테고리 추천 - UI 관련
         colorData.append(UIColor(hexCode: "A38DEF"))
@@ -340,6 +334,39 @@ class HomeViewController:UIViewController{
     
     @IBAction func happyButtonTapped(_ sender: UIButton) {
         // 전체 글에서 즐거움과 관련된 감정의 글(페이지)들을 불러옴
+        RankingApi.shared.getTopLikedPagesInEmotion(emotion: .Happy, top: 5) { res in
+            switch res{
+            case .success(let datas):
+                self.Happy_Title_1.text = datas[0].title
+                self.Happy_Title_2.text = datas[1].title
+                self.Happy_Title_3.text = datas[2].title
+                self.Happy_Title_4.text = datas[3].title
+                self.Happy_Title_5.text = datas[4].title
+                
+                self.Happy_Content_1.text = datas[0].content
+                self.Happy_Content_2.text = datas[1].content
+                self.Happy_Content_3.text = datas[2].content
+                self.Happy_Content_4.text = datas[3].content
+                self.Happy_Content_5.text = datas[4].content
+                
+                self.Happy_Heart_1.text = String(datas[0].likeCount)
+                self.Happy_Heart_2.text = String(datas[1].likeCount)
+                self.Happy_Heart_3.text = String(datas[2].likeCount)
+                self.Happy_Heart_4.text = String(datas[3].likeCount)
+                self.Happy_Heart_5.text = String(datas[4].likeCount)
+                
+                self.Emotion_Id_1 = datas[0].pageId
+                self.Emotion_Id_2 = datas[1].pageId
+                self.Emotion_Id_3 = datas[2].pageId
+                self.Emotion_Id_4 = datas[3].pageId
+                self.Emotion_Id_5 = datas[4].pageId
+                
+                
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
         EmotionSelectView.isHidden = true
         EmotionSelectView_Height.constant = 0
         EmotionHappyView_Height.constant = 300
@@ -358,6 +385,44 @@ class HomeViewController:UIViewController{
         EmotionSelectView_Height.constant = 0
         EmotionRageView_Height.constant = 300
     }
+    
+    @IBAction func HappyButtonTapped_1(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else {return}
+        spvc.PageId = Emotion_Id_1
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func HappyButtonTapped_2(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else {return}
+        spvc.PageId = Emotion_Id_2
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func HappyButtonTapped_3(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else {return}
+        spvc.PageId = Emotion_Id_3
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func HappyButtonTapped_4(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else {return}
+        spvc.PageId = Emotion_Id_4
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func HappyButtonTapped_5(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else {return}
+        spvc.PageId = Emotion_Id_5
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
     // 작가 추천
     @IBAction func UserButton_1_Tapped(_ sender: UIButton) {

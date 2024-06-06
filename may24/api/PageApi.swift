@@ -12,7 +12,7 @@ class PageApi {
     public static let shared = PageApi()
     private init() { }
     
-    func getPageById(pageId: Int, completion: @escaping (Result<PageDto, Error>) -> Void) {
+    func getPageById(pageId: Int, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
         let url = "\(baseUrl)/\(pageId)"
 
         AF.request(url,
@@ -20,7 +20,7 @@ class PageApi {
                    interceptor: AuthRequestInterceptor()
         )
             .validate(statusCode: 200..<300)
-            .responseDecodable(of: BaseResponse<PageDto>.self) { response in
+            .responseDecodable(of: BaseResponse<FullContextPageDto>.self) { response in
                 if let error = response.error {
                     completion(.failure(error))
                     return

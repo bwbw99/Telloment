@@ -57,9 +57,21 @@ class SeeBookViewController:UIViewController{
     var Hearts:[Int] = []
     var PageIDs:[Int] = []
     var BookId:Int = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TitleLabel.text = ""
+        
+        Content1.text = ""
+        Content2.text = ""
+        Content3.text = ""
+        Content4.text = ""
+        Content5.text = ""
+        Content6.text = ""
+        Content7.text = ""
+        Content8.text = ""
+        
         
         Tag_1.isHidden = true
         Tag_2.isHidden = true
@@ -103,58 +115,20 @@ class SeeBookViewController:UIViewController{
                     i += 1
                 }
                 var temp = 0
-                print("flag_01")
                 for j in self.PageIDs{
-                    PageApi.shared.getPageById(pageId: j){ res in
-                        switch res{
-                        case .success(let data):
-                            print("flag_02")
-                            if(temp == 0){
-                                self.PageView1.isHidden = false
-                                self.Content1.text = data.content
-                                self.Heart1.text = "" //String(data.likecount)
-                            }
-                            else if(temp == 1){
-                                self.PageView2.isHidden = false
-                                self.Content2.text = data.content
-                                self.Heart2.text = "" //String(data.likecount)
-                            }
-                            else if(temp == 2){
-                                self.PageView1.isHidden = false
-                                self.Content3.text = data.content
-                                self.Heart3.text = "" //String(data.likecount)
-                            }
-                            else if(temp == 3){
-                                self.PageView4.isHidden = false
-                                self.Content4.text = data.content
-                                self.Heart4.text = "" //String(data.likecount)
-                            }
-                            else if(temp == 4){
-                                self.PageView5.isHidden = false
-                                self.Content5.text = data.content
-                                self.Heart5.text = "" //String(data.likecount)
-                            }
-                            else if(temp == 5){
-                                self.PageView6.isHidden = false
-                                self.Content6.text = data.content
-                                self.Heart6.text = "" //String(data.likecount)
-                            }
-                            else if(temp == 6){
-                                self.PageView7.isHidden = false
-                                self.Content7.text = data.content
-                                self.Heart7.text = "" //String(data.likecount)
-                            }
-                            else{
-                                self.PageView8.isHidden = false
-                                self.Content8.text = data.content
-                                self.Heart8.text = "" //String(data.likecount)
-                            }
-                        case .failure(let err):
-                            print(err)
-                        } // end of switch
-                    }
+                    print(j)
+                    self.loadPage(pageId: j, temp: temp)
                     temp += 1
                 }// end of for-loop
+                if(temp > 0) { self.PageView1.isHidden = false }
+                if(temp > 1) { self.PageView2.isHidden = false }
+                if(temp > 2) { self.PageView3.isHidden = false }
+                if(temp > 3) { self.PageView4.isHidden = false }
+                if(temp > 4) { self.PageView5.isHidden = false }
+                if(temp > 5) { self.PageView6.isHidden = false }
+                if(temp > 6) { self.PageView7.isHidden = false }
+                if(temp > 7) { self.PageView8.isHidden = false }
+                
             case .failure(let err):
                 print(err)
             }
@@ -227,6 +201,48 @@ class SeeBookViewController:UIViewController{
     
     
     
-    
+    private func loadPage(pageId: Int,temp: Int) {
+        PageApi.shared.getPageById(pageId: pageId){ res in
+            print(res)
+            switch res{
+            case .success(let data):
+                if(temp == 0){
+                    print(data)
+                    self.Content1.text = data.content
+                    self.Heart1.text = String(data.likeCount)
+                }
+                else if(temp == 1){
+                    self.Content2.text = data.content
+                    self.Heart2.text = String(data.likeCount)
+                }
+                else if(temp == 2){
+                    self.Content3.text = data.content
+                    self.Heart3.text = String(data.likeCount)
+                }
+                else if(temp == 3){
+                    self.Content4.text = data.content
+                    self.Heart4.text = String(data.likeCount)
+                }
+                else if(temp == 4){
+                    self.Content5.text = data.content
+                    self.Heart5.text = String(data.likeCount)
+                }
+                else if(temp == 5){
+                    self.Content6.text = data.content
+                    self.Heart6.text = String(data.likeCount)
+                }
+                else if(temp == 6){
+                    self.Content7.text = data.content
+                    self.Heart7.text = String(data.likeCount)
+                }
+                else{
+                    self.Content8.text = data.content
+                    self.Heart8.text = String(data.likeCount)
+                }
+            case .failure(let err):
+                print(err)
+            } // end of switch
+        }
+    }
     
 }

@@ -37,6 +37,8 @@ class BookApi {
             }
     }
     
+    
+    
     func addPageToBook(bookId: Int, pageId: Int, authToken: String, completion: @escaping (Result<Int, Error>) -> Void) {
         let url = "\(baseUrl)/addPage"
         let requestBody = AddPageToRequest(bookId: bookId, pageId: pageId)
@@ -186,6 +188,25 @@ class BookApi {
           }
     }
     
+    func getAllBookOfOtherUser(email: String, completion: @escaping (Result<[BookDto], Error>) -> Void) {
+      let url = "\(baseUrl)/user/" + email
+
+      AF.request(url, interceptor: AuthRequestInterceptor())
+          .validate(statusCode: 200..<300)
+          .responseDecodable(of: BaseResponse<[BookDto]>.self) { response in
+              if let error = response.error {
+                  completion(.failure(error))
+                  return
+              }
+
+              guard let value = response.value?.data else {
+                  completion(.failure(NSError(domain: "api.book.user.error", code: -1, userInfo: ["message": "Data is empty"])))
+                  return
+              }
+
+              completion(.success(value))
+          }
+    }
     
     
 }
