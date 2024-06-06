@@ -10,6 +10,7 @@ import UIKit
 class CategoryViewController:UIViewController,SendDataDelegate{
     func recieveData(response: String,categoryCode: String) {
         self.CategoryLabel.text = response
+        self.categoryCode = categoryCode
         self.CategoryImage.image = UIImage(named: response)
     }
     
@@ -82,6 +83,9 @@ class CategoryViewController:UIViewController,SendDataDelegate{
         self.CategorySearchBar.searchTextField.font = UIFont(name: "BMJUAOTF", size: 15)
         self.CategorySearchBar.searchTextField.textColor = UIColor.darkGray
         hideKeyboard()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         loadBooks()
     }
     
