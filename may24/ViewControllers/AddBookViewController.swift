@@ -8,7 +8,7 @@
 import UIKit
 
 class AddBookViewController:UIViewController, SendDataDelegate{
-    func recieveData(response: String) {
+    func recieveData(response: String, categoryCode: String) {
         self.CategoryLabel.text = response
         self.CategoryImage.image = UIImage(named: response)
     }
@@ -46,9 +46,6 @@ class AddBookViewController:UIViewController, SendDataDelegate{
         AddView.layer.cornerRadius = 20
         AddView.layer.borderColor = UIColor.black.cgColor
         AddView.layer.borderWidth = 2
-        
-        
-        
     }
     
     
