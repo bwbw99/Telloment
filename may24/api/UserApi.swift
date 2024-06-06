@@ -56,7 +56,7 @@ class UserApi {
     func getUserCategoryScores(completion: @escaping (Result<[CategoryScoreDto], Error>) -> Void) {
       let url = "\(baseUrl)/score"
 
-      AF.request(url)
+      AF.request(url, interceptor: AuthRequestInterceptor())
           .validate(statusCode: 200..<300)
           .responseDecodable(of: BaseResponse<[CategoryScoreDto]>.self) { response in
               if let error = response.error {
