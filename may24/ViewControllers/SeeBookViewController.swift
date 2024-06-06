@@ -85,6 +85,76 @@ class SeeBookViewController:UIViewController{
                 self.TitleLabel.text = book.bookName
                 self.Tags = book.hashtags
                 self.PageIDs = book.pageIds
+                
+                var i:Int = 0
+                if(self.Tags.count > i){
+                    self.Tag_1.isHidden = false
+                    self.Tag_1.text = "#" + self.Tags[i]
+                    i += 1
+                }
+                if(self.Tags.count > i){
+                    self.Tag_2.isHidden = false
+                    self.Tag_2.text = "#" + self.Tags[i]
+                    i += 1
+                }
+                if(self.Tags.count > i){
+                    self.Tag_3.isHidden = false
+                    self.Tag_3.text = "#" + self.Tags[i]
+                    i += 1
+                }
+                var temp = 0
+                print("flag_01")
+                for j in self.PageIDs{
+                    PageApi.shared.getPageById(pageId: j){ res in
+                        switch res{
+                        case .success(let data):
+                            print("flag_02")
+                            if(temp == 0){
+                                self.PageView1.isHidden = false
+                                self.Content1.text = data.content
+                                self.Heart1.text = "" //String(data.likecount)
+                            }
+                            else if(temp == 1){
+                                self.PageView2.isHidden = false
+                                self.Content2.text = data.content
+                                self.Heart2.text = "" //String(data.likecount)
+                            }
+                            else if(temp == 2){
+                                self.PageView1.isHidden = false
+                                self.Content3.text = data.content
+                                self.Heart3.text = "" //String(data.likecount)
+                            }
+                            else if(temp == 3){
+                                self.PageView4.isHidden = false
+                                self.Content4.text = data.content
+                                self.Heart4.text = "" //String(data.likecount)
+                            }
+                            else if(temp == 4){
+                                self.PageView5.isHidden = false
+                                self.Content5.text = data.content
+                                self.Heart5.text = "" //String(data.likecount)
+                            }
+                            else if(temp == 5){
+                                self.PageView6.isHidden = false
+                                self.Content6.text = data.content
+                                self.Heart6.text = "" //String(data.likecount)
+                            }
+                            else if(temp == 6){
+                                self.PageView7.isHidden = false
+                                self.Content7.text = data.content
+                                self.Heart7.text = "" //String(data.likecount)
+                            }
+                            else{
+                                self.PageView8.isHidden = false
+                                self.Content8.text = data.content
+                                self.Heart8.text = "" //String(data.likecount)
+                            }
+                        case .failure(let err):
+                            print(err)
+                        } // end of switch
+                    }
+                    temp += 1
+                }// end of for-loop
             case .failure(let err):
                 print(err)
             }
@@ -94,82 +164,10 @@ class SeeBookViewController:UIViewController{
         //TitleLabel.text = "나홀로 여행기"
         //Tags = ["여행","혼자"]
         //PageIDs = [1238, 1239]
-        Contents = ["가나다라마바사아자차카타파하", "ㅇㅇㅇㅇㄱㄱㄱㄱㄱㅇㅇㅇㅇㅇㄴㄴㄴㄴㄹㅁㄹㄷㅁㄹㅁ"]
-        Hearts = [122,3]
+        //Contents = ["가나다라마바사아자차카타파하", "ㅇㅇㅇㅇㄱㄱㄱㄱㄱㅇㅇㅇㅇㅇㄴㄴㄴㄴㄹㅁㄹㄷㅁㄹㅁ"]
+        //Hearts = [122,3]
         
-        
-        // 위에서 저장한 정보를 바탕으로 화면 출력. 아래는 수정할 필요 없음.
-        let len_Tags:Int = Tags.count
-        var i:Int = 0
-        
-        if(len_Tags > i){
-            Tag_1.isHidden = false
-            Tag_1.text = "#"+Tags[i]
-            i += 1
-        }
-        if(len_Tags > i){
-            Tag_2.isHidden = false
-            Tag_2.text = "#"+Tags[i]
-            i += 1
-        }
-        if(len_Tags > i){
-            Tag_3.isHidden = false
-            Tag_3.text = "#"+Tags[i]
-            i += 1
-        }
-        
-        
-        let len_Pages:Int = Contents.count
-        i = 0
-        
-        if(len_Pages > i){
-            PageView1.isHidden = false
-            Content1.text = Contents[i]
-            Heart1.text = String(Hearts[i])
-            i += 1
-        }
-        if(len_Pages > i){
-            PageView2.isHidden = false
-            Content2.text = Contents[i]
-            Heart2.text = String(Hearts[i])
-            i += 1
-        }
-        if(len_Pages > i){
-            PageView3.isHidden = false
-            Content3.text = Contents[i]
-            Heart3.text = String(Hearts[i])
-            i += 1
-        }
-        if(len_Pages > i){
-            PageView4.isHidden = false
-            Content4.text = Contents[i]
-            Heart4.text = String(Hearts[i])
-            i += 1
-        }
-        if(len_Pages > i){
-            PageView5.isHidden = false
-            Content5.text = Contents[i]
-            Heart5.text = String(Hearts[i])
-            i += 1
-        }
-        if(len_Pages > i){
-            PageView6.isHidden = false
-            Content6.text = Contents[i]
-            Heart6.text = String(Hearts[i])
-            i += 1
-        }
-        if(len_Pages > i){
-            PageView7.isHidden = false
-            Content7.text = Contents[i]
-            Heart7.text = String(Hearts[i])
-            i += 1
-        }
-        if(len_Pages > i){
-            PageView8.isHidden = false
-            Content8.text = Contents[i]
-            Heart8.text = String(Hearts[i])
-            i += 1
-        }
+       
         
         
         
