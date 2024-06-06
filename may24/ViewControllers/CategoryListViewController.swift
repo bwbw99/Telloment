@@ -34,77 +34,77 @@ class CategoryListViewController:UIViewController{
     }
     
     @IBAction func Change_Tapped_1(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "여행")
+        dataDelegate?.recieveData(response: "여행", categoryCode: "TRIP")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_2(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "IT·과학")
+        dataDelegate?.recieveData(response: "IT·과학", categoryCode: "ITNSCI")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_3(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "영화·드라마")
+        dataDelegate?.recieveData(response: "영화·드라마", categoryCode: "MVD")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_4(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "유머")
+        dataDelegate?.recieveData(response: "유머", categoryCode: "HUMR")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_5(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "음악")
+        dataDelegate?.recieveData(response: "음악", categoryCode: "MUS")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_6(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "결혼·육아")
+        dataDelegate?.recieveData(response: "결혼·육아", categoryCode: "MRG")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_7(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "연애")
+        dataDelegate?.recieveData(response: "연애", categoryCode: "ROM")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_8(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "요리")
+        dataDelegate?.recieveData(response: "요리", categoryCode: "COK")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_9(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "건강·운동")
+        dataDelegate?.recieveData(response: "건강·운동", categoryCode: "HLTH")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_10(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "자기계발")
+        dataDelegate?.recieveData(response: "자기계발", categoryCode: "STD")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_11(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "문화·예술")
+        dataDelegate?.recieveData(response: "문화·예술", categoryCode: "ART")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_12(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "동물")
+        dataDelegate?.recieveData(response: "동물", categoryCode: "ANML")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_13(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "인문·철학")
+        dataDelegate?.recieveData(response: "인문·철학", categoryCode: "HUMN")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_14(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "소설")
+        dataDelegate?.recieveData(response: "소설", categoryCode: "LIT")
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func Change_Tapped_15(_ sender: UIButton) {
-        dataDelegate?.recieveData(response: "부동산·주식")
+        dataDelegate?.recieveData(response: "부동산·주식", categoryCode: "FIN")
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -116,5 +116,5 @@ class CategoryListViewController:UIViewController{
     
 }
 protocol SendDataDelegate {
-    func recieveData(response : String) -> Void
+    func recieveData(response : String, categoryCode: String) -> Void
 }

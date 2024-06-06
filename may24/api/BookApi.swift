@@ -81,7 +81,7 @@ class BookApi {
             }
     }
     
-    func getAllBooksByCategory(category: String, page: Int, size: Int, authToken: String, completion: @escaping (Result<BasePageableResponse<BookDto>, Error>) -> Void) {
+    func getAllBooksByCategory(category: String, page: Int, size: Int, completion: @escaping (Result<BasePageableResponse<BookDto>, Error>) -> Void) {
         let url = "\(baseUrl)/allbooks/category"
         let parameters = ["category": category, "page": page, "size": size] as [String : Any]
 
