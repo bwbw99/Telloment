@@ -5972,7 +5972,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="80"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카테고리 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHg-i0-oY7" userLabel="카테고리 선택">
-                                                        <rect key="frame" x="20" y="16" width="244" height="48"/>
+                                                        <rect key="frame" x="20.000000000000014" y="16" width="243.33333333333337" height="48"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -9297,7 +9297,7 @@
                                         <rect key="frame" x="101.66666666666669" y="150" width="150" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그아웃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cx-XR-9zH">
-                                                <rect key="frame" x="42.333333333333329" y="10" width="65.000000000000014" height="20"/>
+                                                <rect key="frame" x="42.333333333333329" y="10" width="65" height="20"/>
                                                 <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9389,7 +9389,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="터키 여행기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htq-nT-79H">
-                                                <rect key="frame" x="5" y="3.6666666666666856" width="77" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666856" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9400,6 +9400,7 @@
                                             <constraint firstItem="htq-nT-79H" firstAttribute="centerY" secondItem="qNK-Ti-kTI" secondAttribute="centerY" id="UzC-E4-AJ8"/>
                                             <constraint firstItem="htq-nT-79H" firstAttribute="leading" secondItem="qNK-Ti-kTI" secondAttribute="leading" constant="5" id="WAY-kG-A32"/>
                                             <constraint firstAttribute="height" constant="25" id="WcV-TR-LN0"/>
+                                            <constraint firstAttribute="trailing" secondItem="htq-nT-79H" secondAttribute="trailing" constant="5" id="ahp-d7-I7X"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -9465,7 +9466,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="안될과학" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRn-oQ-4lC">
-                                                <rect key="frame" x="4.9999999999999964" y="3.6666666666666856" width="57.666666666666657" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666856" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9476,6 +9477,7 @@
                                             <constraint firstItem="LRn-oQ-4lC" firstAttribute="centerY" secondItem="Lob-cJ-aBC" secondAttribute="centerY" id="GxR-P3-0RH"/>
                                             <constraint firstAttribute="height" constant="25" id="Jd1-5C-bJV"/>
                                             <constraint firstItem="LRn-oQ-4lC" firstAttribute="leading" secondItem="Lob-cJ-aBC" secondAttribute="leading" constant="5" id="aIY-Jy-dBL"/>
+                                            <constraint firstAttribute="trailing" secondItem="LRn-oQ-4lC" secondAttribute="trailing" constant="5" id="uS9-l7-R97"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -9541,7 +9543,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영화리뷰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkO-zI-N4v">
-                                                <rect key="frame" x="4.9999999999999964" y="3.6666666666666856" width="57.666666666666657" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666856" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9550,6 +9552,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="tkO-zI-N4v" firstAttribute="leading" secondItem="0O0-7D-Lqk" secondAttribute="leading" constant="5" id="QP7-Pe-Zwn"/>
+                                            <constraint firstAttribute="trailing" secondItem="tkO-zI-N4v" secondAttribute="trailing" constant="5" id="XsV-ge-SSL"/>
                                             <constraint firstItem="tkO-zI-N4v" firstAttribute="centerY" secondItem="0O0-7D-Lqk" secondAttribute="centerY" id="oAS-4a-6xK"/>
                                             <constraint firstAttribute="height" constant="25" id="yxt-Oe-yEb"/>
                                         </constraints>
@@ -9617,7 +9620,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSK-rf-OTF">
-                                                <rect key="frame" x="5" y="3.6666666666666288" width="48" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666288" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9628,6 +9631,7 @@
                                             <constraint firstItem="iSK-rf-OTF" firstAttribute="centerY" secondItem="nhn-1h-YRQ" secondAttribute="centerY" id="37G-eI-Srr"/>
                                             <constraint firstAttribute="height" constant="25" id="EiX-Xs-eeF"/>
                                             <constraint firstItem="iSK-rf-OTF" firstAttribute="leading" secondItem="nhn-1h-YRQ" secondAttribute="leading" constant="5" id="W0G-R2-6iH"/>
+                                            <constraint firstAttribute="trailing" secondItem="iSK-rf-OTF" secondAttribute="trailing" constant="5" id="nqC-CN-Utx"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -9693,7 +9697,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTr-Y4-gXd">
-                                                <rect key="frame" x="5" y="3.6666666666666288" width="48" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666288" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9701,6 +9705,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="DTr-Y4-gXd" secondAttribute="trailing" constant="5" id="9xM-pF-hqJ"/>
                                             <constraint firstItem="DTr-Y4-gXd" firstAttribute="centerY" secondItem="CxB-wE-cdd" secondAttribute="centerY" id="K0p-zf-HhT"/>
                                             <constraint firstAttribute="height" constant="25" id="bkJ-sZ-qLC"/>
                                             <constraint firstItem="DTr-Y4-gXd" firstAttribute="leading" secondItem="CxB-wE-cdd" secondAttribute="leading" constant="5" id="emX-Sc-oa4"/>
@@ -9769,7 +9774,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKS-Rf-nTt">
-                                                <rect key="frame" x="5" y="3.6666666666666288" width="48" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666288" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9779,6 +9784,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="KKI-MB-5lI"/>
                                             <constraint firstItem="HKS-Rf-nTt" firstAttribute="leading" secondItem="9Ft-MK-7Ap" secondAttribute="leading" constant="5" id="Otp-uw-WOr"/>
+                                            <constraint firstAttribute="trailing" secondItem="HKS-Rf-nTt" secondAttribute="trailing" constant="5" id="RdI-RN-JWS"/>
                                             <constraint firstItem="HKS-Rf-nTt" firstAttribute="centerY" secondItem="9Ft-MK-7Ap" secondAttribute="centerY" id="a3o-Bn-gTk"/>
                                         </constraints>
                                     </view>
@@ -9817,7 +9823,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTB-Od-WmT">
-                                                <rect key="frame" x="5" y="3.6666666666666288" width="48" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666288" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9825,6 +9831,7 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="MTB-Od-WmT" secondAttribute="trailing" constant="5" id="N0a-4r-Sc9"/>
                                             <constraint firstAttribute="height" constant="25" id="V1Q-uz-TMp"/>
                                             <constraint firstItem="MTB-Od-WmT" firstAttribute="centerY" secondItem="Qwn-hh-Oeq" secondAttribute="centerY" id="bgi-Eq-par"/>
                                             <constraint firstItem="MTB-Od-WmT" firstAttribute="leading" secondItem="Qwn-hh-Oeq" secondAttribute="leading" constant="5" id="fcD-Eu-1Cv"/>
@@ -9893,7 +9900,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0L-oS-A3h">
-                                                <rect key="frame" x="5" y="3.6666666666666288" width="48" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666288" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9904,6 +9911,7 @@
                                             <constraint firstItem="o0L-oS-A3h" firstAttribute="centerY" secondItem="2Kh-Jp-6xb" secondAttribute="centerY" id="Im3-eK-azL"/>
                                             <constraint firstItem="o0L-oS-A3h" firstAttribute="leading" secondItem="2Kh-Jp-6xb" secondAttribute="leading" constant="5" id="KQt-vB-IcH"/>
                                             <constraint firstAttribute="height" constant="25" id="WOu-DM-DoW"/>
+                                            <constraint firstAttribute="trailing" secondItem="o0L-oS-A3h" secondAttribute="trailing" constant="5" id="fra-3k-kU4"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7vd-Ul-Gbq">
@@ -9969,7 +9977,7 @@
                                         <rect key="frame" x="0.0" y="105" width="110" height="25"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="북 제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-9n-c8G">
-                                                <rect key="frame" x="5" y="3.6666666666666288" width="48" height="18"/>
+                                                <rect key="frame" x="5" y="3.6666666666666288" width="100" height="18"/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -9978,6 +9986,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="ggQ-9n-c8G" firstAttribute="leading" secondItem="igd-X0-XIh" secondAttribute="leading" constant="5" id="Cu1-og-jqZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="ggQ-9n-c8G" secondAttribute="trailing" constant="5" id="KNc-fK-88c"/>
                                             <constraint firstItem="ggQ-9n-c8G" firstAttribute="centerY" secondItem="igd-X0-XIh" secondAttribute="centerY" id="aOs-lG-2Pj"/>
                                             <constraint firstAttribute="height" constant="25" id="e8L-Se-bh2"/>
                                         </constraints>

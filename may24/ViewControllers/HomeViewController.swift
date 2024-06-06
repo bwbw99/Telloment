@@ -396,31 +396,31 @@ class HomeViewController:UIViewController{
             switch res{
             case .success(let data):
                 if(temp == 0){
-                    self.User_Name_1.text = data.name
+                    self.User_Name_1.text = data.nickname
                     self.User_Book_1.text = String(data.bookCount)
                     self.User_Heart_1.text = String(data.totalLikeCount)
                     self.User_Page_1.text = String(data.pageCount)
                 }
                 if(temp == 1){
-                    self.User_Name_2.text = data.name
+                    self.User_Name_2.text = data.nickname
                     self.User_Book_2.text = String(data.bookCount)
                     self.User_Heart_2.text = String(data.totalLikeCount)
                     self.User_Page_2.text = String(data.pageCount)
                 }
                 if(temp == 2){
-                    self.User_Name_3.text = data.name
+                    self.User_Name_3.text = data.nickname
                     self.User_Book_3.text = String(data.bookCount)
                     self.User_Heart_3.text = String(data.totalLikeCount)
                     self.User_Page_3.text = String(data.pageCount)
                 }
                 if(temp == 3){
-                    self.User_Name_4.text = data.name
+                    self.User_Name_4.text = data.nickname
                     self.User_Book_4.text = String(data.bookCount)
                     self.User_Heart_4.text = String(data.totalLikeCount)
                     self.User_Page_4.text = String(data.pageCount)
                 }
                 if(temp == 4){
-                    self.User_Name_5.text = data.name
+                    self.User_Name_5.text = data.nickname
                     self.User_Book_5.text = String(data.bookCount)
                     self.User_Heart_5.text = String(data.totalLikeCount)
                     self.User_Page_5.text = String(data.pageCount)

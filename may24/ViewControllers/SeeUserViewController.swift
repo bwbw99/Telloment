@@ -89,15 +89,39 @@ class SeeUserViewController:UIViewController{
         print(UserEmail)
         
         // 아래의 정보들을 API 통신으로 불러오는 형태로 수정해야함. (UserEmail 로 검색하기)
-        UserName.text = "닉네임111"
-        NumBook.text = "3"
-        NumHeart.text = "152"
-        NumPage.text = "24"
+        UserApi.shared.getUserByEmail(email: UserEmail){ res in
+            switch res{
+            case .success(let data):
+                self.UserName.text = data.nickname
+                self.NumBook.text = String(data.bookCount)
+                self.NumHeart.text = String(data.totalLikeCount)
+                self.NumPage.text = String(data.pageCount)
+            case .failure(let err):
+                print(err)
+            }
+        }
         
-        BookName = ["터키여행기", "안될과학", "유머모음집"]
-        BookHeart = [123,22,7]
-        BookPage = [13,9,2]
-        BookIds = [1001,1002,1003]
+        print(NumBook.text!)
+        
+        // 아래 수정해야함. 아래의 api는 현재 로그인된 사용자를 조회하는거임. 의도는 useremail을 가지고 해야함.
+        BookApi.shared.getAllBookOfCurrentUser(authToken: Authentication.token){ res in
+            switch res{
+            case .success(let books):
+                print(books)
+                self.BookName = books.map({book in book.bookName})
+                self.BookHeart = books.map({book in book.totalLikeCount})
+                self.BookPage = books.map({book in book.totalPageCount})
+                self.BookIds = books.map({book in book.bookId})
+            case .failure(let err):
+                print(err)
+            }
+        }
+        
+        //BookName = []
+        //BookHeart = []
+        //BookPage = []
+        //BookIds = []
+        
         
         // 이 아래는 수정 필요 없음
         BookView1.isHidden = true

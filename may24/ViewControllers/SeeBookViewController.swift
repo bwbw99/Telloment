@@ -78,9 +78,22 @@ class SeeBookViewController:UIViewController{
         
         print(BookId)
         // 아래의 정보들을 API 통신으로 불러오는 형태로 수정해야함. (BookId 로 조회하기)
-        TitleLabel.text = "나홀로 여행기"
-        Tags = ["여행","혼자"]
-        PageIDs = [1238, 1239]
+        
+        BookApi.shared.getBook(bookId: BookId){ res in
+            switch res{
+            case .success(let book):
+                self.TitleLabel.text = book.bookName
+                self.Tags = book.hashtags
+                self.PageIDs = book.pageIds
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+        
+        //TitleLabel.text = "나홀로 여행기"
+        //Tags = ["여행","혼자"]
+        //PageIDs = [1238, 1239]
         Contents = ["가나다라마바사아자차카타파하", "ㅇㅇㅇㅇㄱㄱㄱㄱㄱㅇㅇㅇㅇㅇㄴㄴㄴㄴㄹㅁㄹㄷㅁㄹㅁ"]
         Hearts = [122,3]
         

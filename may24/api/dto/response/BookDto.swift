@@ -8,9 +8,15 @@
 import Foundation
 
 struct BookDto: Codable {
-  let bookId: Int
-  let bookName: String
-  let categoryCode: String
-  let totalLikeCount: Int
-  let totalViewCount: Int
+    let bookId: Int
+    let bookName: String
+    let categoryCode: String
+    let hashtags: [String]
+    let pageIds: [Int]
+    let totalLikeCount: Int
+    let totalPageCount: Int
+    let totalViewCount: Int
+    let userId: Int
+    let userNickname: String
+    
 }
