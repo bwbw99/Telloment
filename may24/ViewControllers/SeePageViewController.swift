@@ -36,6 +36,18 @@ class SeePageViewController:UIViewController{
     
     @IBOutlet weak var TotalHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var VoiceView_1: UIView!
+    @IBOutlet weak var VoiceView_2: UIView!
+    @IBOutlet weak var VoiceView_3: UIView!
+    
+    
+    
+    @IBOutlet weak var VoiceLabel_1: UILabel!
+    @IBOutlet weak var VoiceLabel_2: UILabel!
+    @IBOutlet weak var VoiceLabel_3: UILabel!
+    
+    
+    
     
     var Tags:[String] = []
     
@@ -58,6 +70,19 @@ class SeePageViewController:UIViewController{
         Heart.text = ""
         EmotionType.text = ""
         EmotionLevel.text = ""
+        
+        VoiceView_1.layer.cornerRadius = 20
+        VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_1.layer.borderWidth = 2
+        
+        VoiceView_2.layer.cornerRadius = 20
+        VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_2.layer.borderWidth = 2
+        
+        VoiceView_3.layer.cornerRadius = 20
+        VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_3.layer.borderWidth = 2
+        
 
         
         
@@ -125,7 +150,35 @@ class SeePageViewController:UIViewController{
         PauseButton.isHidden = true
     }
     
-    @IBAction func ChangeVoiceButtonTapped(_ sender: UIButton) {
+    @IBAction func VoiceTapped_1(_ sender: UIButton) {
+        VoiceView_1.layer.borderColor = UIColor.black.cgColor
+        VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
+        
+        VoiceLabel_1.textColor = UIColor.black
+        VoiceLabel_2.textColor = UIColor.lightGray
+        VoiceLabel_3.textColor = UIColor.lightGray
     }
+    
+    @IBAction func VoiceTapped_2(_ sender: UIButton) {
+        VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_2.layer.borderColor = UIColor.black.cgColor
+        VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
+        
+        VoiceLabel_1.textColor = UIColor.lightGray
+        VoiceLabel_2.textColor = UIColor.black
+        VoiceLabel_3.textColor = UIColor.lightGray
+    }
+    
+    @IBAction func VoiceTapped_3(_ sender: UIButton) {
+        VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_3.layer.borderColor = UIColor.black.cgColor
+        
+        VoiceLabel_1.textColor = UIColor.lightGray
+        VoiceLabel_2.textColor = UIColor.lightGray
+        VoiceLabel_3.textColor = UIColor.black
+    }
+    
     
 }

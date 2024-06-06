@@ -8107,7 +8107,7 @@
                                                 <rect key="frame" x="96.666666666666686" y="842" width="200" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감정 분석" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPB-GA-u0w">
-                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333314" height="24"/>
+                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333286" height="24"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -8298,7 +8298,7 @@
                                                                 <rect key="frame" x="30" y="248" width="283" height="80"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="윤석열 님의 목소리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ME-CO-7Ft">
-                                                                        <rect key="frame" x="20" y="25" width="205.66666666666666" height="30"/>
+                                                                        <rect key="frame" x="20" y="25" width="205.66666666666663" height="30"/>
                                                                         <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -8420,7 +8420,7 @@
                                                                 <rect key="frame" x="96.666666666666686" y="35" width="200" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSZ-qi-9IY">
-                                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333314" height="24"/>
+                                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333286" height="24"/>
                                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -10092,6 +10092,7 @@
                                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                                 <connections>
                                                                     <action selector="VoiceTapped_1:" destination="yZr-bP-pbT" eventType="touchUpInside" id="PEs-1z-HkM"/>
+                                                                    <action selector="VoiceTapped_1:" destination="3dI-Yv-RMA" eventType="touchUpInside" id="jYh-a2-02M"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -10110,7 +10111,7 @@
                                                         <rect key="frame" x="30" y="247.99999999999994" width="333" height="80"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="윤석열 님의 목소리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8rW-uK-IxJ">
-                                                                <rect key="frame" x="20" y="25" width="205.66666666666666" height="30"/>
+                                                                <rect key="frame" x="20" y="25" width="205.66666666666663" height="30"/>
                                                                 <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="30"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -10121,6 +10122,7 @@
                                                                 <buttonConfiguration key="configuration" style="plain"/>
                                                                 <connections>
                                                                     <action selector="PlayButtonTapped_2:" destination="yZr-bP-pbT" eventType="touchUpInside" id="veF-wF-fNR"/>
+                                                                    <action selector="VoiceTapped_2:" destination="3dI-Yv-RMA" eventType="touchUpInside" id="nsa-cP-yZX"/>
                                                                     <action selector="VoiceTapped_2:" destination="yZr-bP-pbT" eventType="touchUpInside" id="oBz-tB-IGh"/>
                                                                 </connections>
                                                             </button>
@@ -10152,6 +10154,7 @@
                                                                 <connections>
                                                                     <action selector="PlayButtonTapped_3:" destination="yZr-bP-pbT" eventType="touchUpInside" id="SRa-YE-mya"/>
                                                                     <action selector="VoiceTapped_3:" destination="yZr-bP-pbT" eventType="touchUpInside" id="Jce-BY-CFl"/>
+                                                                    <action selector="VoiceTapped_3:" destination="3dI-Yv-RMA" eventType="touchUpInside" id="prY-gt-odP"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -10245,6 +10248,12 @@
                         <outlet property="Tag_2" destination="vuk-ob-a3P" id="UO3-ZZ-Psy"/>
                         <outlet property="Tag_3" destination="wIk-zs-eNh" id="9ky-H3-QcC"/>
                         <outlet property="TotalHeight" destination="tn2-YR-LPH" id="V8R-PM-Nzt"/>
+                        <outlet property="VoiceLabel_1" destination="kFP-p8-HKV" id="OUA-6d-mdF"/>
+                        <outlet property="VoiceLabel_2" destination="8rW-uK-IxJ" id="jKF-rY-ooc"/>
+                        <outlet property="VoiceLabel_3" destination="7EK-02-Fwc" id="rMp-qd-1v4"/>
+                        <outlet property="VoiceView_1" destination="735-OV-tE3" id="Nyu-YR-9AA"/>
+                        <outlet property="VoiceView_2" destination="S7m-KV-zH5" id="pg9-17-PYi"/>
+                        <outlet property="VoiceView_3" destination="6Ku-OK-Guy" id="n3r-qG-Nzb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gX2-10-V11" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
