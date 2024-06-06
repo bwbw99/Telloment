@@ -50,7 +50,7 @@ public class VoiceApi {
     }
     
     public func getAudibleTextData(
-        emotion: BackendEmotions,
+        emotion: String, //중립 , 화남, 슬픔, 행복
         content: String,
         intensity:Int,
         voiceId: Int,
@@ -58,7 +58,7 @@ public class VoiceApi {
     ) {
         let requestParams = [
             "content": content,
-            "emotion": emotion.rawValue,
+            "emotion": emotion,
             "intensity": intensity
         ] as [String : Any]
         AF.request(
