@@ -367,7 +367,7 @@ class ScrabViewController:UIViewController{
     
     private func playVoiceTest(voiceId:Int) {
         VoiceApi.shared.getAudibleTextData(
-            emotion: BackendEmotions.Neutral,
+            emotion: "중립",
             content: "안녕하세요. 만나서 반갑습니다",
             intensity: 0,
             voiceId: voiceId
