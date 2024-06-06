@@ -90,7 +90,7 @@ class HomeViewController:UIViewController{
     // 관심 카테고리
     var colorData = [UIColor]()
     var nameData: [String] = []
-    var scoreData: [Double]! = []
+    var scoreData: [Int]! = []
     
     
     // 감정별 추천
@@ -211,20 +211,6 @@ class HomeViewController:UIViewController{
         nameData = ["여행", "음악", "자기계발", "유머", "기타"]
         scoreData = [453, 401, 229, 201, 30]
         
-        UserApi.shared.getUserCategoryScores(){ res in
-            switch res{
-            case .success(let data):
-                print("flag_00")
-                print(data)
-            case .failure(let err):
-                print(err)
-            }
-            
-        }
-        
-        
-        
-        // 관심 카테고리 추천 - UI 관련
         colorData.append(UIColor(hexCode: "A38DEF"))
         colorData.append(UIColor(hexCode: "7DB2EF"))
         colorData.append(UIColor(hexCode: "94EF7A"))
@@ -237,9 +223,28 @@ class HomeViewController:UIViewController{
         self.CategoryChart.noDataTextColor = .lightGray
         self.CategoryChart.backgroundColor = .white
         
-        self.setPieData(pieChartView: self.CategoryChart, pieChartDataEntries: self.entryData(values: self.scoreData))
+        UserApi.shared.getUserCategoryScores(){ res in
+            switch res{
+            case .success(let data):
+                print(data)
+                for i in 0...4{
+                    self.nameData[i] = self.categoryEnglishToKorean(category: data[i].category)
+                    self.scoreData[i] = data[i].score
+                }
+                self.setPieData(pieChartView: self.CategoryChart, pieChartDataEntries: self.entryData(values: self.scoreData))
+                
+                self.setup(pieChartView: self.CategoryChart)
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
         
-        self.setup(pieChartView: CategoryChart)
+        
+        
+        
+        
+        
         
         
         
@@ -299,12 +304,12 @@ class HomeViewController:UIViewController{
     }
     
     // entry 만들기
-    func entryData(values: [Double]) -> [PieChartDataEntry] {
+    func entryData(values: [Int]) -> [PieChartDataEntry] {
         // entry 담을 array
         var pieDataEntries: [PieChartDataEntry] = []
         // 담기
         for i in 0 ..< values.count {
-            let pieDataEntry = PieChartDataEntry(value: values[i], label: nameData[i])
+            let pieDataEntry = PieChartDataEntry(value: Double(values[i]), label: nameData[i])
             
             pieDataEntries.append(pieDataEntry)
         }
@@ -506,6 +511,56 @@ class HomeViewController:UIViewController{
             temp += 1
         }
     }
+    
+    func categoryEnglishToKorean(category:String) -> String{
+        if(category == "COOKING"){
+            return "요리"
+        }
+        else if(category == "HUMOR"){
+            return "유머"
+        }
+        else if(category == "ITNSCIENCE"){
+            return "IT·과학"
+        }
+        else if(category == "STUDYING"){
+            return "자기계발"
+        }
+        else if(category == "LITERATURE"){
+            return "소설"
+        }
+        else if(category == "ANIMAL"){
+            return "동물"
+        }
+        else if(category == "ROMANCE"){
+            return "연애"
+        }
+        else if(category == "HEALTH"){
+            return "건강·운동"
+        }
+        else if(category == "MARRIAGE"){
+            return "결혼·육아"
+        }
+        else if(category == "MUSIC"){
+            return "음악"
+        }
+        else if(category == "TRIP"){
+            return "여행"
+        }
+        else if(category == "MOVIEDRAMA"){
+            return "영화·드라마"
+        }
+        else if(category == "ART"){
+            return "문화·예술"
+        }
+        else if(category == "HUMANITY"){
+            return "인문·철학"
+        }
+        else{
+            return "부동산·주식"
+        }
+    }
+    
+    
 }
 
 extension UIColor {
