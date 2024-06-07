@@ -60,6 +60,10 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     @IBOutlet weak var VoiceLabel_2: UILabel!
     @IBOutlet weak var VoiceLabel_3: UILabel!
     
+    
+    
+    @IBOutlet weak var RecordImage: UIImageView!
+    
     @IBOutlet weak var DoneView: UIView!
     
     var BookId:Int = 0
@@ -69,6 +73,8 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
+        
+        RecordImage.image = UIImage(named: "microphone.png")
         
         CircleView.layer.cornerRadius = 35
         CircleView.layer.borderColor = UIColor.black.cgColor
@@ -118,7 +124,48 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     
     @IBAction func STTButtonTapped(_ sender: UIButton) {
         
+        
+        if(RecordImage.image == UIImage(named: "microphone.png")){
+            // 자신의 이미지를 pause 로 바꾸고
+            RecordImage.image = UIImage(named: "pause.png")
+            // 녹음 시작
+            print("녹음 시작")
+            
+        }
+        else{
+            // 자신의 이미지를 microphone 으로 바꾸고
+            RecordImage.image = UIImage(named: "microphone.png")
+            // 녹음 중단
+            print("녹음 중단")
+            
+            
+            // 위에서 나오는 데이터를 CLOVA에 전달
+            let url = URL(string: "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor")!
+            let headers = [
+                "Content-Type": "application/octet-stream",
+                "X-NCP-APIGW-API-KEY-ID": "4k0u4eeqjb",
+                "X-NCP-APIGW-API-KEY": "6UCOsnQ7DgDuPP7sGKNvNnYOfUusxbftQ3Pw1MUR"
+            ]
+            
+            // data 에 녹음 파일 전달
+            let data = NSMutableData(data: "speaker=".data(using: .utf8)!)
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.allHTTPHeaderFields = headers
+            request.httpBody = data as Data
+            
+            
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print(error)
+                } else if let data = data {
+                    print(data)
+                    
+                }
+            }
+        }
     }
+    
     
     
     private func startRecord() {
@@ -159,9 +206,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
                 print(data)
             }
         }
-        task.resume()
     }
-    
     
     
     
@@ -235,7 +280,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_1.textColor = UIColor.lightGray
         VoiceLabel_2.textColor = UIColor.black
         VoiceLabel_3.textColor = UIColor.lightGray
-            
+        
         defaultVoice = ""
     }
     
@@ -273,7 +318,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             TagArr.append(String(i.suffix(i.count - 1)))
         }
         
-       
+        
         var emo_type:String = ""
         if (EmotionTypeLabel.text == "화남") { emo_type = "ANGER" }
         if (EmotionTypeLabel.text == "슬픔") { emo_type = "SADNESS" }

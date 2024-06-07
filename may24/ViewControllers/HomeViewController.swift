@@ -212,6 +212,7 @@ class HomeViewController:UIViewController{
                 for i in 0...4{
                     self.nameData[i] = self.categoryEnglishToKorean(category: data[i].category)
                     self.scoreData[i] = data[i].score
+                    // here
                 }
                 self.setPieData(pieChartView: self.CategoryChart, pieChartDataEntries: self.entryData(values: self.scoreData))
                 
@@ -222,6 +223,79 @@ class HomeViewController:UIViewController{
             
         }
     }
+    
+    // 카테고리 추천(1)
+    var CategoryIds_1:[Int] = [0,0,0,0,0]
+    var CategoryIds_2:[Int] = [0,0,0,0,0]
+    
+    @IBOutlet weak var CategoryView_1_1: UIView!
+    @IBOutlet weak var CategoryView_1_2: UIView!
+    @IBOutlet weak var CategoryView_1_3: UIView!
+    @IBOutlet weak var CategoryView_1_4: UIView!
+    @IBOutlet weak var CategoryView_1_5: UIView!
+    
+    @IBOutlet weak var CategoryHeart_1_1: UILabel!
+    @IBOutlet weak var CategoryHeart_1_2: UILabel!
+    @IBOutlet weak var CategoryHeart_1_3: UILabel!
+    @IBOutlet weak var CategoryHeart_1_4: UILabel!
+    @IBOutlet weak var CategoryHeart_1_5: UILabel!
+    
+    @IBOutlet weak var CategoryPage_1_1: UILabel!
+    @IBOutlet weak var CategoryPage_1_2: UILabel!
+    @IBOutlet weak var CategoryPage_1_3: UILabel!
+    @IBOutlet weak var CategoryPage_1_4: UILabel!
+    @IBOutlet weak var CategoryPage_1_5: UILabel!
+    
+    @IBOutlet weak var CategoryTitle_1_1: UILabel!
+    @IBOutlet weak var CategoryTitle_1_2: UILabel!
+    @IBOutlet weak var CategoryTitle_1_3: UILabel!
+    @IBOutlet weak var CategoryTitle_1_4: UILabel!
+    @IBOutlet weak var CategoryTitle_1_5: UILabel!
+    
+    
+    @IBOutlet weak var CategoryButton_1_1: UIButton!
+    @IBOutlet weak var CategoryButton_1_2: UIButton!
+    @IBOutlet weak var CategoryButton_1_3: UIButton!
+    @IBOutlet weak var CategoryButton_1_4: UIButton!
+    @IBOutlet weak var CategoryButton_1_5: UIButton!
+    
+    
+    
+    
+    @IBOutlet weak var CategoryView_2_1: UIView!
+    @IBOutlet weak var CategoryView_2_2: UIView!
+    @IBOutlet weak var CategoryView_2_3: UIView!
+    @IBOutlet weak var CategoryView_2_4: UIView!
+    @IBOutlet weak var CategoryView_2_5: UIView!
+    
+    @IBOutlet weak var CategoryHeart_2_1: UILabel!
+    @IBOutlet weak var CategoryHeart_2_2: UILabel!
+    @IBOutlet weak var CategoryHeart_2_3: UILabel!
+    @IBOutlet weak var CategoryHeart_2_4: UILabel!
+    @IBOutlet weak var CategoryHeart_2_5: UILabel!
+    
+    @IBOutlet weak var CategoryPage_2_1: UILabel!
+    @IBOutlet weak var CategoryPage_2_2: UILabel!
+    @IBOutlet weak var CategoryPage_2_3: UILabel!
+    @IBOutlet weak var CategoryPage_2_4: UILabel!
+    @IBOutlet weak var CategoryPage_2_5: UILabel!
+    
+    @IBOutlet weak var CategoryTitle_2_1: UILabel!
+    @IBOutlet weak var CategoryTitle_2_2: UILabel!
+    @IBOutlet weak var CategoryTitle_2_3: UILabel!
+    @IBOutlet weak var CategoryTitle_2_4: UILabel!
+    @IBOutlet weak var CategoryTitle_2_5: UILabel!
+    
+    
+    @IBOutlet weak var CategoryButton_2_1: UIButton!
+    @IBOutlet weak var CategoryButton_2_2: UIButton!
+    @IBOutlet weak var CategoryButton_2_3: UIButton!
+    @IBOutlet weak var CategoryButton_2_4: UIButton!
+    @IBOutlet weak var CategoryButton_2_5: UIButton!
+    
+    
+    
+    
     
     
     
@@ -566,6 +640,73 @@ class HomeViewController:UIViewController{
             return "부동산·주식"
         }
     }
+    
+    
+    // 카테고리로 추천
+    @IBAction func CategoryButtonTapped_1_1(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_1[0]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_1_2(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_1[1]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_1_3(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_1[2]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_1_4(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_1[3]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_1_5(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_1[4]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    
+    
+    
+    @IBAction func CategoryButtonTapped_2_1(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_2[0]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_2_2(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_2[1]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_2_3(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_2[2]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_2_4(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_2[3]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func CategoryButtonTapped_2_5(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
+        sbvc.BookId = CategoryIds_2[4]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    
     
     
 }
