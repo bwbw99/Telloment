@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import AVFAudio
 
 class WriteContentViewController:UIViewController,EmotionDelegate_1{
     
     private let ar = AudioRecorder()
-    
+    private var player :AVAudioPlayer?
+
     func EVC_To_WCVC_Type(type: String) {
         self.EmotionTypeLabel.text = type
         if(type == "중립"){
@@ -224,14 +226,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             self.EmotionButton.isHidden = true
             self.DualLabel.text = "직접 변경"
             self.EmotionTypeLabel.text = emotion
-<<<<<<< development
             self.EmotionLevelLabel.text = strength
-=======
-            if(strength == 0) { self.EmotionLevelLabel.text = "낮음" }
-            if(strength == 1) { self.EmotionLevelLabel.text = "보통" }
-            if(strength == 2) { self.EmotionLevelLabel.text = "높음" }
-            
->>>>>>> main
             if(self.EmotionTypeLabel.text == "중립"){
                 self.HideView.isHidden = false
             }
@@ -324,13 +319,19 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     }
     
     @IBAction func PlayButtonTapped_1(_ sender: UIButton) {
+        print("hello")
+        playDefault()
     }
     
     
     @IBAction func PlayButtonTapped_2(_ sender: UIButton) {
+        print("2")
+        playVoiceTest(voiceId: scrapVoiceList[0].id)
     }
     
     @IBAction func PlayButtonTapped_3(_ sender: UIButton) {
+        print("3")
+        playVoiceTest(voiceId: scrapVoiceList[1].id)
     }
     
     
@@ -425,6 +426,145 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             }
         }
         
+    }
+    private func playVoiceTest(voiceId:Int) {
+        VoiceApi.shared.getAudibleTextData(
+            emotion: "중립",
+            content: self.ContentTextField.text ?? "입력 안됨",
+            intensity: 0,
+            voiceId: voiceId
+        ) { res in
+            switch res {
+            case .failure(let error):
+                print(error)
+                //todo: error handle
+                
+            case .success(let data):
+                self.playAudioData(data: data)
+            }
+            
+        }
+    }
+    private func playAudioData(data: Data) {
+        do {
+            player = try AVAudioPlayer(data: data)
+        } catch {
+            print("error on AVplayer")
+            return
+        }
+        
+        // Try to create an AVAudioPlayer object from the data
+        guard let audioPlayer = player else {
+            // If creating the player fails, it's likely not audio data
+            print("Error: Unable to create AVAudioPlayer from data")
+            return
+        }
+        
+        audioPlayer.volume = 0.5
+        audioPlayer.play()
+    }
+    
+    private func playDefault() {
+        // CLOVA로 TTS
+        var tts_speaker:String = "nara"
+        var tts_text:String = "문장이 입력되지 않았습니다"
+        var tts_volume:Int = 0
+        var tts_speed:Int = 0
+        var tts_pitch:Int = 0
+        var tts_emotion: Int = 0
+        let voice_name = defaultVoice
+        var tts_emotion_strength = 0
+        if(voice_name == "CLOVA_simple"){
+            tts_speaker = "nara"
+            tts_emotion = 0
+        }
+        if(voice_name == "CLOVA_sad_0"){
+            tts_speaker = "ngoeun"
+            tts_emotion = 1
+            tts_emotion_strength = 0
+        }
+        if(voice_name == "CLOVA_sad_1"){
+            tts_speaker = "ngoeun"
+            tts_emotion = 1
+            tts_emotion_strength = 1
+        }
+        if(voice_name == "CLOVA_sad_2"){
+            tts_speaker = "ngoeun"
+            tts_emotion = 1
+            tts_emotion_strength = 2
+        }
+        if(voice_name == "CLOVA_happy_0"){
+            tts_speaker = "ndonghyun"
+            tts_emotion = 2
+            tts_emotion_strength = 0
+        }
+        if(voice_name == "CLOVA_happy_1"){
+            tts_speaker = "ndonghyun"
+            tts_emotion = 2
+            tts_emotion_strength = 1
+        }
+        if(voice_name == "CLOVA_happy_2"){
+            tts_speaker = "ndonghyun"
+            tts_emotion = 2
+            tts_emotion_strength = 2
+        }
+        if(voice_name == "CLOVA_rage_0"){
+            tts_speaker = "ndonghyun"
+            tts_emotion = 3
+            tts_emotion_strength = 0
+        }
+        if(voice_name == "CLOVA_rage_1"){
+            tts_speaker = "ndonghyun"
+            tts_emotion = 3
+            tts_emotion_strength = 1
+        }
+        if(voice_name == "CLOVA_rage_2"){
+            tts_speaker = "ndonghyun"
+            tts_emotion = 3
+            tts_emotion_strength = 2
+        }
+        
+        
+        let session = AVAudioSession.sharedInstance()
+        
+        try? session.setCategory(.playAndRecord, options: [.allowAirPlay,.allowBluetooth,.defaultToSpeaker])
+        try? session.setActive(true)
+        
+        tts_text = self.ContentTextField.text!
+        
+        let data = NSMutableData(data: "speaker=\(tts_speaker)".data(using: .utf8)!)
+        data.append("&text=\(tts_text)".data(using: .utf8)!)
+        data.append("&volume=\(tts_volume)".data(using: .utf8)!)
+        data.append("&speed=\(tts_speed)".data(using: .utf8)!)
+        data.append("&pitch=\(tts_pitch)".data(using: .utf8)!)
+        //data.append("&emotion=\(tts_emotion)".data(using: .utf8)!)
+        //data.append("&emotion-strength=\(tts_emotion_strength)".data(using: .utf8)!)
+        
+        let url = URL(string: "https://naveropenapi.apigw.ntruss.com/tts-premium/v1/tts")!
+        let headers = [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-NCP-APIGW-API-KEY-ID": "4k0u4eeqjb",
+            "X-NCP-APIGW-API-KEY": "6UCOsnQ7DgDuPP7sGKNvNnYOfUusxbftQ3Pw1MUR"
+        ]
+        
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = data as Data
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print(error)
+            } else if let data = data {
+                self.player = try? AVAudioPlayer(data: data)
+                self.player?.prepareToPlay()
+                self.player?.play()
+            }
+        }
+        
+        task.resume()
     }
 }
 
