@@ -33,7 +33,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     }
     @IBOutlet weak var CircleView: UIView!
     
-    @IBOutlet weak var ContentTextField: UITextField!
+    @IBOutlet weak var ContentTextField: UITextView!
     
     @IBOutlet weak var TagTextField: UITextField!
     
@@ -88,6 +88,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         paragraphStyle.alignment = .natural
         attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
         ContentTextField.attributedText = attrString
+        ContentTextField.font = UIFont(name: "BMHANNAAirOTF", size: 20)
         
         EditButton.isHidden = true
         EmotionView.isHidden = true
@@ -223,7 +224,14 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             self.EmotionButton.isHidden = true
             self.DualLabel.text = "직접 변경"
             self.EmotionTypeLabel.text = emotion
+<<<<<<< development
             self.EmotionLevelLabel.text = strength
+=======
+            if(strength == 0) { self.EmotionLevelLabel.text = "낮음" }
+            if(strength == 1) { self.EmotionLevelLabel.text = "보통" }
+            if(strength == 2) { self.EmotionLevelLabel.text = "높음" }
+            
+>>>>>>> main
             if(self.EmotionTypeLabel.text == "중립"){
                 self.HideView.isHidden = false
             }

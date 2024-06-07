@@ -97,5 +97,10 @@ class SearchViewController:UIViewController{
         self.PageLabel.textColor = UIColor.lightGray
         self.UserLabel.textColor = UIColor.black
     }
+    
+    
+    
+    
+    
 }
 
