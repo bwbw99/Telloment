@@ -103,6 +103,7 @@
 		733CAE862C045D90007A4568 /* AudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAE852C045D90007A4568 /* AudioRecorder.swift */; };
 		733CAEC42C0ADC01007A4568 /* VoiceResponseDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 733CAEC32C0ADC01007A4568 /* VoiceResponseDto.swift */; };
 		737EF8C52C0B133C00B8269F /* BackendEmotions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737EF8C42C0B133C00B8269F /* BackendEmotions.swift */; };
+		73B380CB2C12AF0800D65C63 /* EmotionBasedDefaultVoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B380CA2C12AF0800D65C63 /* EmotionBasedDefaultVoices.swift */; };
 		E4DCBA6BCE6C6A7D16108A19 /* Pods_may24.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F97C05CA1E589E7C2C0D7772 /* Pods_may24.framework */; };
 /* End PBXBuildFile section */
 
@@ -207,6 +208,7 @@
 		733CAE852C045D90007A4568 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		733CAEC32C0ADC01007A4568 /* VoiceResponseDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceResponseDto.swift; sourceTree = "<group>"; };
 		737EF8C42C0B133C00B8269F /* BackendEmotions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BackendEmotions.swift; path = may24/model/BackendEmotions.swift; sourceTree = SOURCE_ROOT; };
+		73B380CA2C12AF0800D65C63 /* EmotionBasedDefaultVoices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionBasedDefaultVoices.swift; sourceTree = "<group>"; };
 		F97C05CA1E589E7C2C0D7772 /* Pods_may24.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_may24.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -462,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				733CAE852C045D90007A4568 /* AudioRecorder.swift */,
+				73B380CA2C12AF0800D65C63 /* EmotionBasedDefaultVoices.swift */,
 			);
 			path = features;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				73118FDB2C1040F70059E95F /* SearchApi.swift in Sources */,
 				73118FE52C104ADA0059E95F /* UserApi.swift in Sources */,
 				73118FDF2C1044EA0059E95F /* RankedUserDto.swift in Sources */,
+				73B380CB2C12AF0800D65C63 /* EmotionBasedDefaultVoices.swift in Sources */,
 				139F6C792C0606AD0040185B /* CategoryListViewController.swift in Sources */,
 				139F6C582C0604DA0040185B /* CategoryViewController.swift in Sources */,
 				73118FC72C102AE90059E95F /* DeleteLikeRequestDto.swift in Sources */,

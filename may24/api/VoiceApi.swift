@@ -150,14 +150,17 @@ public class VoiceApi {
     }
     
     
-    public func getEmotionFromContent(content : String, completion: @escaping (Result<VoiceResponseDto, Error>) -> Void) {
+    public func 
+    getEmotionFromContent(content : String, completion: @escaping (Result<EmotionDto, Error>) -> Void) {
         let param = ["content": content]
         AF.request(
-            "\(baseUrl)/voice/emotion",
+            "\(baseUrl)/emotion",
             method: .get,
+            parameters: param,
+            encoder: URLEncodedFormParameterEncoder.default,
             interceptor: AuthRequestInterceptor()
         )
-        .responseDecodable(of: BaseResponse<VoiceResponseDto>.self) { res in
+        .responseDecodable(of: BaseResponse<EmotionDto>.self) { res in
             if let error = res.error {
                 completion(.failure(error))
                 return

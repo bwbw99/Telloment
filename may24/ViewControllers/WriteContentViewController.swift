@@ -69,6 +69,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     var BookId:Int = 0
     var PageTitle:String = ""
     var defaultVoice:String = ""
+    var scrapVoiceList : [VoiceResponseDto] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,18 +106,22 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceView_1.layer.cornerRadius = 20
         VoiceView_1.layer.borderWidth = 2
         VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_1.isHidden = true
         
         VoiceView_2.layer.cornerRadius = 20
         VoiceView_2.layer.borderWidth = 2
         VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_2.isHidden = true
         
         VoiceView_3.layer.cornerRadius = 20
         VoiceView_3.layer.borderWidth = 2
         VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_3.isHidden = true
         
         VoiceLabel_1.textColor = UIColor.lightGray
         VoiceLabel_2.textColor = UIColor.lightGray
         VoiceLabel_3.textColor = UIColor.lightGray
+        
         
         ar.requestAudioPermission()
     }
@@ -184,11 +189,11 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
                     do {
                         // JSON 데이터를 Dictionary로 변환
                         if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                            guard let text = jsonObject["text"] as? String else {
+                                return
+                            }
                             DispatchQueue.main.async {
-                                guard let text = jsonObject["text"] else {
-                                    return
-                                }
-                                self.ContentTextField.text = "\(text)"
+                                self.ContentTextField.text = text
                             }
                         }
                     } catch {
@@ -203,18 +208,26 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     }
     
     
-    
-    
     @IBAction func EmotionButtonTapped(_ sender: UIButton) {
-        EmotionView.isHidden = false
-        EditButton.isHidden = false
-        EmotionButton.isHidden = true
-        DualLabel.text = "직접 변경"
-        
-        // 감정 분석을 해서 label에 연결
-        
-        if(EmotionTypeLabel.text == "중립"){
-            HideView.isHidden = false
+        guard let x = self.ContentTextField.text else {
+            return
+        }
+        loadEmotionByContents(text: x)
+        loadVoiceList()
+    }
+    
+    private func showEmotionView(emotion: String, strength: Int) {
+        DispatchQueue.main.async {
+            self.EmotionView.isHidden = false
+            self.EditButton.isHidden = false
+            self.EmotionButton.isHidden = true
+            self.DualLabel.text = "직접 변경"
+            self.EmotionTypeLabel.text = emotion
+            self.EmotionLevelLabel.text = "\(strength)"
+            if(self.EmotionTypeLabel.text == "중립"){
+                self.HideView.isHidden = false
+            }
+            
         }
     }
     
@@ -261,7 +274,12 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_2.textColor = UIColor.lightGray
         VoiceLabel_3.textColor = UIColor.lightGray
         
-        defaultVoice = ""
+        guard let t = self.EmotionLevelLabel.text else {
+            return
+        }
+        let it : Int = Int(t)!
+        
+        defaultVoice = EmotionBasedDefaultVoices.extractFrom(emotion: self.EmotionTypeLabel.text!, strength: it).rawValue
     }
     
     
@@ -275,7 +293,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_2.textColor = UIColor.black
         VoiceLabel_3.textColor = UIColor.lightGray
         
-        defaultVoice = ""
+        defaultVoice = scrapVoiceList[0].userEmail
     }
     
     
@@ -289,7 +307,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_2.textColor = UIColor.lightGray
         VoiceLabel_3.textColor = UIColor.black
         
-        defaultVoice = ""
+        defaultVoice = scrapVoiceList[1].userEmail
     }
     
     @IBAction func PlayButtonTapped_1(_ sender: UIButton) {
@@ -325,6 +343,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         if (EmotionLevelLabel.text == "보통") { emo_intensity = 1 }
         if (EmotionLevelLabel.text == "높음") { emo_intensity = 2 }
         
+        var voiceUserMail = defaultVoice
         
         // 아래 api 에 defaultVoice 를 넣을 수 있게 수정 필요한것 같음
         PageApi.shared.savePage(bookId: BookId, content: ContentTextField.text!, emotionIntensity: emo_intensity, emotionType: emo_type, hashtags: TagArr, title: PageTitle){ res in
@@ -332,10 +351,61 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             case .success(let data):
                 print(data)
                 print("page saving success")
+                PageApi.shared.updateDefaultVoiceByPage(pageId: data.pageId, email: voiceUserMail) { res in
+                    switch res {
+                    case .success(let succ):
+                        print("success")
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             case .failure(let err):
                 print(err)
             }
         }
+    }
+    
+    private func loadEmotionByContents(text: String) {
+        VoiceApi.shared.getEmotionFromContent(content: text) { res in
+            switch res {
+            case .success(let emotion):
+                self.showEmotionView(emotion: emotion.emotion, strength: emotion.strength)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    private func loadVoiceList() {
+        VoiceApi.shared.getScrappedVoiceList { res in
+            switch res  {
+            case .success(let list):
+                self.scrapVoiceList = list
+                self.showVoiceList(scrapVoices: list)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func showVoiceList(scrapVoices: [VoiceResponseDto]){
+        
+        DispatchQueue.main.async {
+            self.VoiceView_1.isHidden = false
+        
+            
+            for (i, voice) in scrapVoices.enumerated() {
+                if (i == 0){
+                    self.VoiceView_2.isHidden = false
+                    self.VoiceLabel_2.text = voice.userNickname + " 님의 목소리"
+                }
+                if (i == 1){
+                    self.VoiceView_2.isHidden = false
+                    self.VoiceLabel_3.text = voice.userNickname + " 님의 목소리"
+                }
+            }
+        }
+        
     }
 }
 

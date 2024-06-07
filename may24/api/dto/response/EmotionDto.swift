@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EmotionDto : Codable {
+public struct EmotionDto : Codable {
     let emotion: String
     let strength: Int
     
