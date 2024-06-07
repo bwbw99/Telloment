@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131B837C2C129B4F002B321D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 131B837B2C129B4F002B321D /* pause.png */; };
 		132240502C06FE1D000266D1 /* BMHANNAAir_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132240492C06FE1C000266D1 /* BMHANNAAir_otf.otf */; };
 		132240512C06FE1D000266D1 /* BMYEONSUNG_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1322404A2C06FE1D000266D1 /* BMYEONSUNG_otf.otf */; };
 		132240522C06FE1D000266D1 /* BMHANNA_11yrs_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1322404B2C06FE1D000266D1 /* BMHANNA_11yrs_otf.otf */; };
@@ -106,6 +107,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		131B837B2C129B4F002B321D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		132240492C06FE1C000266D1 /* BMHANNAAir_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMHANNAAir_otf.otf; sourceTree = "<group>"; };
 		1322404A2C06FE1D000266D1 /* BMYEONSUNG_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMYEONSUNG_otf.otf; sourceTree = "<group>"; };
 		1322404B2C06FE1D000266D1 /* BMHANNA_11yrs_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMHANNA_11yrs_otf.otf; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				13E7DEC62BF7144B0093E643 /* voice-recognition.png */,
 				13837C1D2C0B1A16001229C8 /* microphone.png */,
+				131B837B2C129B4F002B321D /* pause.png */,
 			);
 			name = "기타 사진";
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				139F6C752C0605270040185B /* 건강·운동.png in Resources */,
 				133919332C071316008EC0A0 /* 표지10.png in Resources */,
 				139F6C882C0609D30040185B /* sad.png in Resources */,
+				131B837C2C129B4F002B321D /* pause.png in Resources */,
 				139F6C872C0609D30040185B /* rage.png in Resources */,
 				133919322C071316008EC0A0 /* 표지4.jpg in Resources */,
 				132240502C06FE1D000266D1 /* BMHANNAAir_otf.otf in Resources */,
