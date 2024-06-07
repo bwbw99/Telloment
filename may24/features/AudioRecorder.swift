@@ -16,7 +16,7 @@ import AVFoundation
 class AudioRecorder: NSObject, AVAudioRecorderDelegate {
     var audioRecorder: AVAudioRecorder?
     var recordingSession: AVAudioSession!
-    var outputFilePath: String?
+    var outputFileURL: URL?
 
     override init() {
         super.init()
@@ -43,8 +43,8 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
         
     func initRecorder(path: String) {
         
-        self.outputFilePath = path
-        
+        let p = FileManager.default.temporaryDirectory.appendingPathComponent(path)
+        self.outputFileURL = p
         let settings = [
             AVFormatIDKey: kAudioFormatLinearPCM,
             AVSampleRateKey: 44100,
@@ -55,7 +55,7 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
         ] as [String : Any]
         
         do {
-            audioRecorder = try AVAudioRecorder(url: URL(fileURLWithPath: path), settings: settings)
+            audioRecorder = try AVAudioRecorder(url: p, settings: settings)
             audioRecorder?.delegate = self
             audioRecorder?.prepareToRecord()
         } catch {
@@ -83,13 +83,13 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
     }
     
     func fetchData() -> Data? {
-        guard let filePath = outputFilePath else {
+        guard let p = outputFileURL else {
             print("Error: Recording file path not available")
             return nil
         }
 
         do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+            let data = try Data(contentsOf: p)
             return data
         } catch {
             print("Error reading recorded audio data: \(error)")

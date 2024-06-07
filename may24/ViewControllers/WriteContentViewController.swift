@@ -129,40 +129,14 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             // 자신의 이미지를 pause 로 바꾸고
             RecordImage.image = UIImage(named: "pause.png")
             // 녹음 시작
-            print("녹음 시작")
+            startRecord()
             
         }
         else{
             // 자신의 이미지를 microphone 으로 바꾸고
             RecordImage.image = UIImage(named: "microphone.png")
             // 녹음 중단
-            print("녹음 중단")
-            
-            
-            // 위에서 나오는 데이터를 CLOVA에 전달
-            let url = URL(string: "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor")!
-            let headers = [
-                "Content-Type": "application/octet-stream",
-                "X-NCP-APIGW-API-KEY-ID": "4k0u4eeqjb",
-                "X-NCP-APIGW-API-KEY": "6UCOsnQ7DgDuPP7sGKNvNnYOfUusxbftQ3Pw1MUR"
-            ]
-            
-            // data 에 녹음 파일 전달
-            let data = NSMutableData(data: "speaker=".data(using: .utf8)!)
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.allHTTPHeaderFields = headers
-            request.httpBody = data as Data
-            
-            
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    print(error)
-                } else if let data = data {
-                    print(data)
-                    
-                }
-            }
+            stopRecord()
         }
     }
     
@@ -193,8 +167,6 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         ]
         
         // 녹음을 해서 data에 넣어야 할듯.
-        
-        let data = NSMutableData(data: "speaker=".data(using: .utf8)!)
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
@@ -202,10 +174,32 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error)
-            } else if let data = data {
-                print(data)
+            } else if let dt = data {
+                
+                guard let str = String(data: dt, encoding: .utf8) else {
+                    print("encoding string error")
+                    return
+                }
+                if let jsonData = str.data(using: .utf8) {
+                    do {
+                        // JSON 데이터를 Dictionary로 변환
+                        if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                            DispatchQueue.main.async {
+                                guard let text = jsonObject["text"] else {
+                                    return
+                                }
+                                self.ContentTextField.text = "\(text)"
+                            }
+                        }
+                    } catch {
+                        print("Failed to convert JSON string to Dictionary: \(error.localizedDescription)")
+                    }
+                } else {
+                    print("Failed to convert JSON string to Data")
+                }
             }
         }
+        task.resume()
     }
     
     
