@@ -28,6 +28,7 @@ class CategoryViewController:UIViewController,SendDataDelegate{
     @IBOutlet weak var bookContentView06: UIView!
     @IBOutlet weak var bookContentView07: UIView!
     @IBOutlet weak var bookContentView08: UIView!
+    
     @IBOutlet weak var bookLikeCountLabel01: UILabel!
     @IBOutlet weak var bookLikeCountLabel02: UILabel!
     @IBOutlet weak var bookLikeCountLabel03: UILabel!
@@ -54,6 +55,8 @@ class CategoryViewController:UIViewController,SendDataDelegate{
     @IBOutlet weak var bookTitleLabel06: UILabel!
     @IBOutlet weak var bookTitleLabel07: UILabel!
     @IBOutlet weak var bookTitleLabel08: UILabel!
+    
+    var BookIds:[Int] = [0,0,0,0,0,0,0,0]
     
     private var categoryCode :String =  "TRIP"
     
@@ -89,6 +92,56 @@ class CategoryViewController:UIViewController,SendDataDelegate{
         loadBooks()
     }
     
+    
+    @IBAction func BookButtonTapped_1(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[0]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func BookButtonTapped_2(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[1]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func BookButtonTapped_3(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[2]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func BookButtonTapped_4(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[3]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func BookButtonTapped_5(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[4]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func BookButtonTapped_6(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[5]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func BookButtonTapped_7(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[6]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    @IBAction func BookButtonTapped_8(_ sender: UIButton) {
+        guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else { return }
+        sbvc.BookId = BookIds[7]
+        self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    
     private func loadBooks() {
         BookApi.shared.getAllBooksByCategory(category: categoryCode, page: 0, size: 8) { res in
             switch res {
@@ -108,48 +161,56 @@ class CategoryViewController:UIViewController,SendDataDelegate{
             bookTitleLabel01.text = book.bookName
             bookLikeCountLabel01.text = "\(book.totalLikeCount)"
             bookPageCountLabel01.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
         else if index == 1 {
             bookContentView02.isHidden = false
             bookTitleLabel02.text = book.bookName
             bookLikeCountLabel02.text = "\(book.totalLikeCount)"
             bookPageCountLabel02.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
         else if index == 2 {
             bookContentView03.isHidden = false
             bookTitleLabel03.text = book.bookName
             bookLikeCountLabel03.text = "\(book.totalLikeCount)"
             bookPageCountLabel03.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
         else if index == 3 {
             bookContentView04.isHidden = false
             bookTitleLabel04.text = book.bookName
             bookLikeCountLabel04.text = "\(book.totalLikeCount)"
             bookPageCountLabel04.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
         else if index == 4 {
             bookContentView05.isHidden = false
             bookTitleLabel05.text = book.bookName
             bookLikeCountLabel05.text = "\(book.totalLikeCount)"
             bookPageCountLabel05.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
         else if index == 5 {
             bookContentView06.isHidden = false
             bookTitleLabel06.text = book.bookName
             bookLikeCountLabel06.text = "\(book.totalLikeCount)"
             bookPageCountLabel06.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
         else if index == 6 {
             bookContentView07.isHidden = false
             bookTitleLabel07.text = book.bookName
             bookLikeCountLabel07.text = "\(book.totalLikeCount)"
             bookPageCountLabel07.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
         else if index == 7 {
             bookContentView08.isHidden = false
             bookTitleLabel08.text = book.bookName
             bookLikeCountLabel08.text = "\(book.totalLikeCount)"
             bookPageCountLabel08.text = "\(book.totalPageCount)"
+            BookIds[index] = book.bookId
         }
     }
 }

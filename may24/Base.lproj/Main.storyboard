@@ -3320,6 +3320,9 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                                                                 <state key="normal" title="Button"/>
                                                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                <connections>
+                                                                                                    <action selector="TagButtonTapped_1:" destination="x2n-xI-y9V" eventType="touchUpInside" id="aSr-2J-hL7"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3389,6 +3392,9 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                                                                 <state key="normal" title="Button"/>
                                                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                <connections>
+                                                                                                    <action selector="TagButtonTapped_2:" destination="x2n-xI-y9V" eventType="touchUpInside" id="pqz-os-jbk"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3458,6 +3464,9 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                                                                 <state key="normal" title="Button"/>
                                                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                <connections>
+                                                                                                    <action selector="TagButtonTapped_3:" destination="x2n-xI-y9V" eventType="touchUpInside" id="6c6-Ur-aKz"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3527,6 +3536,9 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                                                                 <state key="normal" title="Button"/>
                                                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                <connections>
+                                                                                                    <action selector="TagButtonTapped_4:" destination="x2n-xI-y9V" eventType="touchUpInside" id="GGG-XH-vKw"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3596,6 +3608,9 @@
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                                                                                                 <state key="normal" title="Button"/>
                                                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                                                <connections>
+                                                                                                    <action selector="TagButtonTapped_5:" destination="x2n-xI-y9V" eventType="touchUpInside" id="Epi-uq-vYj"/>
+                                                                                                </connections>
                                                                                             </button>
                                                                                         </subviews>
                                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3874,6 +3889,27 @@
                         <outlet property="Sad_View_3" destination="xUs-Yo-bO5" id="H4d-Va-HKd"/>
                         <outlet property="Sad_View_4" destination="utR-eP-bfg" id="EHK-3P-9Oe"/>
                         <outlet property="Sad_View_5" destination="fUq-Yu-WSB" id="QQG-Dz-fZO"/>
+                        <outlet property="TagButton_1" destination="wTr-6x-JB1" id="4dP-4g-b6J"/>
+                        <outlet property="TagButton_2" destination="SVx-Xk-uSg" id="Mge-7v-dVl"/>
+                        <outlet property="TagButton_3" destination="cCQ-WE-p0W" id="fWL-Gu-fCL"/>
+                        <outlet property="TagButton_4" destination="gjW-xB-mSH" id="96C-tP-WB9"/>
+                        <outlet property="TagButton_5" destination="9XL-ZN-O6h" id="bIy-z3-CPU"/>
+                        <outlet property="TagContent_1" destination="N2v-Vo-rXp" id="aeC-D0-IR6"/>
+                        <outlet property="TagContent_2" destination="sXB-xk-ycc" id="WHr-AF-fBG"/>
+                        <outlet property="TagContent_3" destination="IMb-PT-qic" id="LUt-gW-KF5"/>
+                        <outlet property="TagContent_4" destination="C6X-Qx-LKI" id="4uf-Hf-1dX"/>
+                        <outlet property="TagContent_5" destination="rN3-6K-GFn" id="mdM-Jt-ErR"/>
+                        <outlet property="TagHeart_1" destination="9fJ-Rv-YIg" id="9Tf-Jd-7yC"/>
+                        <outlet property="TagHeart_2" destination="Hoe-bT-3pN" id="7UB-HE-tUx"/>
+                        <outlet property="TagHeart_3" destination="ctC-pF-BHd" id="T3M-8P-HXA"/>
+                        <outlet property="TagHeart_4" destination="Rst-HJ-q72" id="ceS-hi-tZl"/>
+                        <outlet property="TagHeart_5" destination="NlB-8l-xQz" id="tuz-IZ-PpL"/>
+                        <outlet property="TagSuperLabel" destination="uTO-iL-KPC" id="tl8-DP-EdU"/>
+                        <outlet property="TagTitle_1" destination="r0Q-9P-DgO" id="Z5S-Ls-9aW"/>
+                        <outlet property="TagTitle_2" destination="zDD-dq-4KN" id="LIA-0S-d6w"/>
+                        <outlet property="TagTitle_3" destination="W4A-FI-KdW" id="S7j-cP-lzA"/>
+                        <outlet property="TagTitle_4" destination="XYg-m9-VPc" id="UuU-4H-OPA"/>
+                        <outlet property="TagTitle_5" destination="wMO-s3-YQf" id="IQk-Oi-oMi"/>
                         <outlet property="TodayEmotionTitle" destination="6iw-Tl-ZoT" id="1fa-Fh-5Vy"/>
                         <outlet property="User_Book_1" destination="b94-nT-bIv" id="OVx-ap-Ggc"/>
                         <outlet property="User_Book_2" destination="qws-6M-e8I" id="Iti-DK-tNh"/>
@@ -5395,6 +5431,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_1:" destination="KhD-Am-t1L" eventType="touchUpInside" id="2p4-5c-suR"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5490,6 +5529,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_2:" destination="KhD-Am-t1L" eventType="touchUpInside" id="PyF-Cp-Y2W"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5585,6 +5627,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_3:" destination="KhD-Am-t1L" eventType="touchUpInside" id="hyF-eD-0YU"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5680,6 +5725,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_4:" destination="KhD-Am-t1L" eventType="touchUpInside" id="dcw-em-zAR"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5775,6 +5823,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_5:" destination="KhD-Am-t1L" eventType="touchUpInside" id="pez-e2-p5b"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5870,6 +5921,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_6:" destination="KhD-Am-t1L" eventType="touchUpInside" id="9ky-xj-Gce"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5965,6 +6019,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_7:" destination="KhD-Am-t1L" eventType="touchUpInside" id="ROh-Wf-etB"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -6060,6 +6117,9 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="210"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain"/>
+                                                                <connections>
+                                                                    <action selector="BookButtonTapped_8:" destination="KhD-Am-t1L" eventType="touchUpInside" id="e2B-ig-waQ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -6368,8 +6428,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXG-W0-pdi">
-                                                        <rect key="frame" x="95.000000000000028" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXG-W0-pdi">
+                                                        <rect key="frame" x="95.000000000000028" y="39" width="28.333333333333329" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -6408,8 +6468,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ji-RN-8Hx">
-                                                        <rect key="frame" x="95" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.8K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ji-RN-8Hx">
+                                                        <rect key="frame" x="95" y="39" width="28.333333333333329" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -6448,7 +6508,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-eD-shj">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.2K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1Z-eD-shj">
                                                         <rect key="frame" x="95.000000000000028" y="39" width="32" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
@@ -6488,8 +6548,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ND0-ah-1is">
-                                                        <rect key="frame" x="95" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.2K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ND0-ah-1is">
+                                                        <rect key="frame" x="95" y="39" width="30.666666666666671" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -6528,7 +6588,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsK-Lx-EaX">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.6K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsK-Lx-EaX">
                                                         <rect key="frame" x="95" y="39" width="32" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
@@ -6568,8 +6628,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4O-N2-yW4">
-                                                        <rect key="frame" x="95" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6.1K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4O-N2-yW4">
+                                                        <rect key="frame" x="95" y="39" width="28.666666666666671" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -6608,8 +6668,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PG5-6r-eLT">
-                                                        <rect key="frame" x="95" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.9K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PG5-6r-eLT">
+                                                        <rect key="frame" x="95" y="39" width="28" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -6688,8 +6748,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21L-wR-D8t">
-                                                        <rect key="frame" x="95.000000000000028" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.1K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21L-wR-D8t">
+                                                        <rect key="frame" x="95.000000000000028" y="39" width="27.666666666666671" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -6728,8 +6788,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-rQ-zlN">
-                                                        <rect key="frame" x="95.000000000000028" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.8K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofG-rQ-zlN">
+                                                        <rect key="frame" x="95.000000000000028" y="39" width="31.333333333333329" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -6808,8 +6868,8 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc0-ed-LxR">
-                                                        <rect key="frame" x="95" y="39" width="32" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sc0-ed-LxR">
+                                                        <rect key="frame" x="95" y="39" width="27.666666666666671" height="17"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -8446,7 +8506,6 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain"/>
                                         <connections>
-                                            <action selector="BackButtonTapped:" destination="k3M-bF-Qzq" eventType="touchUpInside" id="b9D-Hh-mUK"/>
                                             <action selector="BackButtonTapped:" destination="yZr-bP-pbT" eventType="touchUpInside" id="rGy-7q-WPw"/>
                                         </connections>
                                     </button>
@@ -8609,7 +8668,7 @@
                                                 <rect key="frame" x="96.666666666666686" y="842" width="200" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감정 분석" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPB-GA-u0w">
-                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333314" height="24"/>
+                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333286" height="24"/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -8800,7 +8859,7 @@
                                                                 <rect key="frame" x="30" y="248" width="283" height="80"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="윤석열 님의 목소리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ME-CO-7Ft">
-                                                                        <rect key="frame" x="20" y="25" width="205.66666666666666" height="30"/>
+                                                                        <rect key="frame" x="20" y="25" width="205.66666666666663" height="30"/>
                                                                         <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="30"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -8922,7 +8981,7 @@
                                                                 <rect key="frame" x="96.666666666666686" y="35" width="200" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="작성 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TSZ-qi-9IY">
-                                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333314" height="24"/>
+                                                                        <rect key="frame" x="58.333333333333336" y="18" width="83.333333333333286" height="24"/>
                                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -10763,15 +10822,101 @@
             </objects>
             <point key="canvasLocation" x="-1170.2290076335878" y="2448.5915492957747"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Result View Controller-->
         <scene sceneID="4D6-8V-Ybf">
             <objects>
-                <viewController id="SeX-g5-1xm" sceneMemberID="viewController">
+                <viewController id="SeX-g5-1xm" customClass="SearchResultViewController" customModule="may24" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="idt-Uz-llb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KK-XS-w8I" userLabel="뒤로가기 View">
+                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt; Back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtu-Ho-LCw">
+                                        <rect key="frame" x="14.999999999999996" y="16" width="47.666666666666657" height="18"/>
+                                        <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxD-Ca-6P6" userLabel="BackButton">
+                                        <rect key="frame" x="10" y="10" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="8YM-fQ-dq9"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="dxD-Ca-6P6" firstAttribute="leading" secondItem="5KK-XS-w8I" secondAttribute="leading" constant="10" id="6ar-Se-kRb"/>
+                                    <constraint firstItem="rtu-Ho-LCw" firstAttribute="leading" secondItem="5KK-XS-w8I" secondAttribute="leading" constant="15" id="GUh-4r-IRx"/>
+                                    <constraint firstItem="rtu-Ho-LCw" firstAttribute="centerY" secondItem="5KK-XS-w8I" secondAttribute="centerY" id="Mab-xQ-NHn"/>
+                                    <constraint firstAttribute="bottom" secondItem="dxD-Ca-6P6" secondAttribute="bottom" constant="10" id="ain-cQ-ga1"/>
+                                    <constraint firstItem="dxD-Ca-6P6" firstAttribute="top" secondItem="5KK-XS-w8I" secondAttribute="top" constant="10" id="asm-Ze-brX"/>
+                                    <constraint firstAttribute="height" constant="50" id="vrJ-yj-xJE"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4t9-IB-Vwl">
+                                <rect key="frame" x="0.0" y="109" width="393" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색어 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfG-7y-eX9">
+                                        <rect key="frame" x="20" y="20" width="63" height="20"/>
+                                        <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="검색기준 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-6E-64t">
+                                        <rect key="frame" x="20" y="55" width="80" height="20"/>
+                                        <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뉴진스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpU-cn-gZe">
+                                        <rect key="frame" x="93" y="20" width="47" height="20"/>
+                                        <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="페이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bv8-vN-8qf">
+                                        <rect key="frame" x="110" y="55" width="49" height="20"/>
+                                        <fontDescription key="fontDescription" name="BMJUAOTF" family="BM JUA_OTF" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="에 대한 검색 결과입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0F-JO-gFg">
+                                        <rect key="frame" x="20.000000000000014" y="95" width="216.33333333333337" height="24"/>
+                                        <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Bv8-vN-8qf" firstAttribute="leading" secondItem="Hzr-6E-64t" secondAttribute="trailing" constant="10" id="EBC-wG-5uc"/>
+                                    <constraint firstItem="g0F-JO-gFg" firstAttribute="leading" secondItem="4t9-IB-Vwl" secondAttribute="leading" constant="20" id="Lfw-Ne-zWH"/>
+                                    <constraint firstAttribute="height" constant="300" id="MV6-mN-94y"/>
+                                    <constraint firstItem="BpU-cn-gZe" firstAttribute="centerY" secondItem="RfG-7y-eX9" secondAttribute="centerY" id="MsS-SN-OUf"/>
+                                    <constraint firstItem="g0F-JO-gFg" firstAttribute="top" secondItem="Hzr-6E-64t" secondAttribute="bottom" constant="20" id="R9d-d9-fuT"/>
+                                    <constraint firstItem="Hzr-6E-64t" firstAttribute="top" secondItem="RfG-7y-eX9" secondAttribute="bottom" constant="15" id="Uro-iV-sUv"/>
+                                    <constraint firstItem="RfG-7y-eX9" firstAttribute="top" secondItem="4t9-IB-Vwl" secondAttribute="top" constant="20" id="XuY-Vf-jxL"/>
+                                    <constraint firstItem="RfG-7y-eX9" firstAttribute="leading" secondItem="4t9-IB-Vwl" secondAttribute="leading" constant="20" id="Zrz-8L-d1Y"/>
+                                    <constraint firstItem="Hzr-6E-64t" firstAttribute="leading" secondItem="4t9-IB-Vwl" secondAttribute="leading" constant="20" id="cHu-ut-N8d"/>
+                                    <constraint firstItem="BpU-cn-gZe" firstAttribute="leading" secondItem="RfG-7y-eX9" secondAttribute="trailing" constant="10" id="naK-Ig-qqc"/>
+                                    <constraint firstItem="Bv8-vN-8qf" firstAttribute="centerY" secondItem="Hzr-6E-64t" secondAttribute="centerY" id="tUp-wa-Nts"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="IIw-f8-4f6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IIw-f8-4f6" firstAttribute="trailing" secondItem="5KK-XS-w8I" secondAttribute="trailing" id="9bE-pX-Td2"/>
+                            <constraint firstItem="4t9-IB-Vwl" firstAttribute="leading" secondItem="IIw-f8-4f6" secondAttribute="leading" id="HDF-Ix-EQ5"/>
+                            <constraint firstItem="IIw-f8-4f6" firstAttribute="trailing" secondItem="4t9-IB-Vwl" secondAttribute="trailing" id="NQr-7D-Bfb"/>
+                            <constraint firstItem="5KK-XS-w8I" firstAttribute="leading" secondItem="idt-Uz-llb" secondAttribute="leading" id="XDH-cA-l73"/>
+                            <constraint firstItem="4t9-IB-Vwl" firstAttribute="top" secondItem="5KK-XS-w8I" secondAttribute="bottom" id="XQp-7N-AYE"/>
+                            <constraint firstItem="5KK-XS-w8I" firstAttribute="top" secondItem="IIw-f8-4f6" secondAttribute="top" id="lwd-DB-ckl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBk-wd-DpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

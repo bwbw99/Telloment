@@ -6,11 +6,23 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SeePageViewController:UIViewController{
     @IBAction func BackButtonTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    private var player: AVAudioPlayer?
+    var tts_speaker:String = "nara"
+    var tts_text:String = "문장이 입력되지 않았습니다"
+    var tts_volume:Int = 0
+    var tts_speed:Int = 0
+    var tts_pitch:Int = 0
+    var tts_emotion:Int = 0
+    var tts_emotion_strength:Int = 0
+    
+    
     
     var PageId: Int = 1
     
@@ -46,7 +58,10 @@ class SeePageViewController:UIViewController{
     @IBOutlet weak var VoiceLabel_2: UILabel!
     @IBOutlet weak var VoiceLabel_3: UILabel!
     
+    var voice_emails:[String] = ["","",""]
     
+    var voice_name:String = ""
+    var voice_flag:Int = 0
     
     
     var Tags:[String] = []
@@ -83,7 +98,7 @@ class SeePageViewController:UIViewController{
         VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_3.layer.borderWidth = 2
         
-
+        
         
         
         // 아래의 정보들을 API 통신으로 불러오는 형태로 수정해야함.
@@ -131,7 +146,26 @@ class SeePageViewController:UIViewController{
                 print(err)
             }
         }
-        //sleep(1)
+        
+        VoiceApi.shared.getScrappedVoiceList(){res in
+            switch res{
+            case .success(let data):
+                if(data.count > 0){
+                    self.voice_emails[1] = data[0].userEmail
+                    self.VoiceLabel_2.text = data[0].userNickname + " 님의 목소리"
+                }
+                if(data.count > 1){
+                    self.voice_emails[2] = data[1].userEmail
+                    self.VoiceLabel_3.text = data[1].userNickname + " 님의 목소리"
+                }
+                
+            case .failure(let err):
+                print(err)
+            }
+        }
+        
+        
+        
     } // end of ViewDidLoad
     
     
@@ -140,10 +174,65 @@ class SeePageViewController:UIViewController{
         PlayButton.isHidden = true
         PauseImage.isHidden = false
         PauseButton.isHidden = false
+        print(voice_flag)
+        
+        
+        if(voice_flag == 0){
+            // CLOVA로 TTS
+            
+            
+            let session = AVAudioSession.sharedInstance()
+            
+            try? session.setCategory(.playAndRecord, options: [.allowAirPlay,.allowBluetooth,.defaultToSpeaker])
+            try? session.setActive(true)
+            
+            self.tts_text = ContentTextView.text!
+            
+            let data = NSMutableData(data: "speaker=\(tts_speaker)".data(using: .utf8)!)
+            data.append("&text=\(tts_text)".data(using: .utf8)!)
+            data.append("&volume=\(tts_volume)".data(using: .utf8)!)
+            data.append("&speed=\(tts_speed)".data(using: .utf8)!)
+            data.append("&pitch=\(tts_pitch)".data(using: .utf8)!)
+            //data.append("&emotion=\(tts_emotion)".data(using: .utf8)!)
+            //data.append("&emotion-strength=\(tts_emotion_strength)".data(using: .utf8)!)
+            
+            let url = URL(string: "https://naveropenapi.apigw.ntruss.com/tts-premium/v1/tts")!
+            let headers = [
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-NCP-APIGW-API-KEY-ID": "4k0u4eeqjb",
+                "X-NCP-APIGW-API-KEY": "6UCOsnQ7DgDuPP7sGKNvNnYOfUusxbftQ3Pw1MUR"
+            ]
+            
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.allHTTPHeaderFields = headers
+            request.httpBody = data as Data
+            
+            
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if let error = error {
+                    print(error)
+                } else if let data = data {
+                    self.player = try? AVAudioPlayer(data: data)
+                    self.player?.prepareToPlay()
+                    self.player?.play()
+                }
+            }
+            
+            task.resume()
+        }
+        else{
+            // 우리 API로 TTS
+            
+        }
+        
+        
     }
     
     
     @IBAction func PauseButtonTapped(_ sender: UIButton) {
+        self.player?.pause()
         PlayImage.isHidden = false
         PlayButton.isHidden = false
         PauseImage.isHidden = true
@@ -151,6 +240,24 @@ class SeePageViewController:UIViewController{
     }
     
     @IBAction func VoiceTapped_1(_ sender: UIButton) {
+        if(EmotionType.text == "중립"){ voice_name = "CLOVA_simple" }
+        if(EmotionType.text == "행복"){
+            if(EmotionLevel.text == "낮음"){ voice_name = "CLOVA_happy_0" }
+            if(EmotionLevel.text == "보통"){ voice_name = "CLOVA_happy_1" }
+            if(EmotionLevel.text == "높음"){ voice_name = "CLOVA_happy_2" }
+        }
+        if(EmotionType.text == "슬픔"){
+            if(EmotionLevel.text == "낮음"){ voice_name = "CLOVA_sad_0" }
+            if(EmotionLevel.text == "보통"){ voice_name = "CLOVA_sad_1" }
+            if(EmotionLevel.text == "높음"){ voice_name = "CLOVA_sad_2" }
+        }
+        if(EmotionType.text == "분노"){
+            if(EmotionLevel.text == "낮음"){ voice_name = "CLOVA_rage_0" }
+            if(EmotionLevel.text == "보통"){ voice_name = "CLOVA_rage_1" }
+            if(EmotionLevel.text == "높음"){ voice_name = "CLOVA_rage_2" }
+        }
+        voice_flag = 0
+        
         VoiceView_1.layer.borderColor = UIColor.black.cgColor
         VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
@@ -161,6 +268,8 @@ class SeePageViewController:UIViewController{
     }
     
     @IBAction func VoiceTapped_2(_ sender: UIButton) {
+        voice_name = voice_emails[1]
+        voice_flag = 1
         VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_2.layer.borderColor = UIColor.black.cgColor
         VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
@@ -171,6 +280,8 @@ class SeePageViewController:UIViewController{
     }
     
     @IBAction func VoiceTapped_3(_ sender: UIButton) {
+        voice_name = voice_emails[2]
+        voice_flag = 1
         VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_3.layer.borderColor = UIColor.black.cgColor

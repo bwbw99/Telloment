@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		131B837C2C129B4F002B321D /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 131B837B2C129B4F002B321D /* pause.png */; };
+		131B837E2C12AA96002B321D /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 131B837D2C12AA96002B321D /* SearchResultViewController.swift */; };
 		132240502C06FE1D000266D1 /* BMHANNAAir_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 132240492C06FE1C000266D1 /* BMHANNAAir_otf.otf */; };
 		132240512C06FE1D000266D1 /* BMYEONSUNG_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1322404A2C06FE1D000266D1 /* BMYEONSUNG_otf.otf */; };
 		132240522C06FE1D000266D1 /* BMHANNA_11yrs_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1322404B2C06FE1D000266D1 /* BMHANNA_11yrs_otf.otf */; };
@@ -108,6 +109,7 @@
 
 /* Begin PBXFileReference section */
 		131B837B2C129B4F002B321D /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		131B837D2C12AA96002B321D /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		132240492C06FE1C000266D1 /* BMHANNAAir_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMHANNAAir_otf.otf; sourceTree = "<group>"; };
 		1322404A2C06FE1D000266D1 /* BMYEONSUNG_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMYEONSUNG_otf.otf; sourceTree = "<group>"; };
 		1322404B2C06FE1D000266D1 /* BMHANNA_11yrs_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMHANNA_11yrs_otf.otf; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				13297FE42C10507200492D67 /* MyTabBarController.swift */,
 				132D53052C0D925300385603 /* SeeUserViewController.swift */,
 				13907FDB2C104A7B003B88FF /* AddBookViewController.swift */,
+				131B837D2C12AA96002B321D /* SearchResultViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				13E7DEB02BF70A390093E643 /* WriteViewController.swift in Sources */,
 				73118FCF2C102DEC0059E95F /* UpdatePageRequestDto.swift in Sources */,
 				132430DB2C09AF17006E00D6 /* MakeAccountViewController.swift in Sources */,
+				131B837E2C12AA96002B321D /* SearchResultViewController.swift in Sources */,
 				733CAE6C2C02FAC8007A4568 /* VoiceApi.swift in Sources */,
 				73118FDB2C1040F70059E95F /* SearchApi.swift in Sources */,
 				73118FE52C104ADA0059E95F /* UserApi.swift in Sources */,
