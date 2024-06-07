@@ -216,14 +216,14 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         loadVoiceList()
     }
     
-    private func showEmotionView(emotion: String, strength: Int) {
+    private func showEmotionView(emotion: String, strength: String) {
         DispatchQueue.main.async {
             self.EmotionView.isHidden = false
             self.EditButton.isHidden = false
             self.EmotionButton.isHidden = true
             self.DualLabel.text = "직접 변경"
             self.EmotionTypeLabel.text = emotion
-            self.EmotionLevelLabel.text = "\(strength)"
+            self.EmotionLevelLabel.text = strength
             if(self.EmotionTypeLabel.text == "중립"){
                 self.HideView.isHidden = false
             }
@@ -277,9 +277,14 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         guard let t = self.EmotionLevelLabel.text else {
             return
         }
-        let it : Int = Int(t)!
+        let st = switch  t {
+        case "낮음":0
+        case "보통":1
+        case "높음":2
+        default:0
+        }
         
-        defaultVoice = EmotionBasedDefaultVoices.extractFrom(emotion: self.EmotionTypeLabel.text!, strength: it).rawValue
+        defaultVoice = EmotionBasedDefaultVoices.extractFrom(emotion: self.EmotionTypeLabel.text!, strength: st).rawValue
     }
     
     
@@ -369,7 +374,13 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceApi.shared.getEmotionFromContent(content: text) { res in
             switch res {
             case .success(let emotion):
-                self.showEmotionView(emotion: emotion.emotion, strength: emotion.strength)
+                let strength = switch emotion.strength {
+                case 0: "낮음"
+                case 1: "보통"
+                case 2: "높음"
+                default: ""
+                }
+                self.showEmotionView(emotion: emotion.emotion, strength: strength)
             case .failure(let error):
                 print(error)
             }
