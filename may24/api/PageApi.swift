@@ -226,7 +226,7 @@ class PageApi {
             }
     }
     
-    func savePage(bookId: Int, content: String, emotionIntensity: Int, emotionType: String, hashtags: [String], title: String, completion: @escaping (Result<BaseResponse<FullContextPageDto>, Error>) -> Void) {
+    func savePage(bookId: Int, content: String, emotionIntensity: Int, emotionType: String, hashtags: [String], title: String, completion: @escaping (Result<FullContextPageDto, Error>) -> Void) {
         let url = "\(baseUrl)/save"
         let requestBody = SavePageRequest(bookId: bookId, content: content, emotionIntensity: emotionIntensity, emotionType: emotionType, hashtags: hashtags, title: title)
 
@@ -238,7 +238,7 @@ class PageApi {
                     return
                 }
 
-                guard let value = response.value else {
+                guard let value = response.value?.data else {
                     completion(.failure(NSError(domain: "api.page.save.error", code: -1, userInfo: ["message": "Data is empty"])))
                     return
                 }

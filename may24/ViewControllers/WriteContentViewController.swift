@@ -8,6 +8,9 @@
 import UIKit
 
 class WriteContentViewController:UIViewController,EmotionDelegate_1{
+    
+    private let ar = AudioRecorder()
+    
     func EVC_To_WCVC_Type(type: String) {
         self.EmotionTypeLabel.text = type
         if(type == "중립"){
@@ -58,18 +61,15 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     @IBOutlet weak var VoiceLabel_3: UILabel!
     
     
+    
     @IBOutlet weak var RecordImage: UIImageView!
-    
-    
-    
-    
-    
     
     @IBOutlet weak var DoneView: UIView!
     
     var BookId:Int = 0
     var PageTitle:String = ""
     var defaultVoice:String = ""
+    var scrapVoiceList : [VoiceResponseDto] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,86 +106,129 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceView_1.layer.cornerRadius = 20
         VoiceView_1.layer.borderWidth = 2
         VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_1.isHidden = true
         
         VoiceView_2.layer.cornerRadius = 20
         VoiceView_2.layer.borderWidth = 2
         VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_2.isHidden = true
         
         VoiceView_3.layer.cornerRadius = 20
         VoiceView_3.layer.borderWidth = 2
         VoiceView_3.layer.borderColor = UIColor.lightGray.cgColor
+        VoiceView_3.isHidden = true
         
         VoiceLabel_1.textColor = UIColor.lightGray
         VoiceLabel_2.textColor = UIColor.lightGray
         VoiceLabel_3.textColor = UIColor.lightGray
-            
+        
+        
+        ar.requestAudioPermission()
     }
     
     
     @IBAction func STTButtonTapped(_ sender: UIButton) {
         
+        
         if(RecordImage.image == UIImage(named: "microphone.png")){
             // 자신의 이미지를 pause 로 바꾸고
             RecordImage.image = UIImage(named: "pause.png")
             // 녹음 시작
-            print("녹음 시작")
+            startRecord()
             
         }
         else{
             // 자신의 이미지를 microphone 으로 바꾸고
             RecordImage.image = UIImage(named: "microphone.png")
             // 녹음 중단
-            print("녹음 중단")
-            
-            
-            // 위에서 나오는 데이터를 CLOVA에 전달
-            let url = URL(string: "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor")!
-            let headers = [
-                "Content-Type": "application/octet-stream",
-                "X-NCP-APIGW-API-KEY-ID": "4k0u4eeqjb",
-                "X-NCP-APIGW-API-KEY": "6UCOsnQ7DgDuPP7sGKNvNnYOfUusxbftQ3Pw1MUR"
-            ]
-            
-            // data 에 녹음 파일 전달
-            let data = NSMutableData(data: "speaker=".data(using: .utf8)!)
-            var request = URLRequest(url: url)
-            request.httpMethod = "POST"
-            request.allHTTPHeaderFields = headers
-            request.httpBody = data as Data
-            
-            
-            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let error = error {
-                    print(error)
-                } else if let data = data {
-                    print(data)
-                    
-                }
-            }
-            task.resume()
+            stopRecord()
         }
-        
     }
     
     
     
+    private func startRecord() {
+        ar.initRecorder(path: "temp.wav")
+        ar.start()
+    }
+    
+    private func stopRecord() {
+        ar.stop()
+        guard let data = ar.fetchData() else {
+            print("error on fetch Data!")
+            return
+        }
+        
+        getSTTFrom(data: data)
+    }
     
     
+    private func getSTTFrom(data: Data) {
+        let url = URL(string: "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor")!
+        let headers = [
+            "Content-Type": "application/octet-stream",
+            "X-NCP-APIGW-API-KEY-ID": "4k0u4eeqjb",
+            "X-NCP-APIGW-API-KEY": "6UCOsnQ7DgDuPP7sGKNvNnYOfUusxbftQ3Pw1MUR"
+        ]
+        
+        // 녹음을 해서 data에 넣어야 할듯.
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.allHTTPHeaderFields = headers
+        request.httpBody = data as Data
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print(error)
+            } else if let dt = data {
+                
+                guard let str = String(data: dt, encoding: .utf8) else {
+                    print("encoding string error")
+                    return
+                }
+                if let jsonData = str.data(using: .utf8) {
+                    do {
+                        // JSON 데이터를 Dictionary로 변환
+                        if let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: Any] {
+                            guard let text = jsonObject["text"] as? String else {
+                                return
+                            }
+                            DispatchQueue.main.async {
+                                self.ContentTextField.text = text
+                            }
+                        }
+                    } catch {
+                        print("Failed to convert JSON string to Dictionary: \(error.localizedDescription)")
+                    }
+                } else {
+                    print("Failed to convert JSON string to Data")
+                }
+            }
+        }
+        task.resume()
+    }
     
     
     @IBAction func EmotionButtonTapped(_ sender: UIButton) {
-        EmotionView.isHidden = false
-        EditButton.isHidden = false
-        EmotionButton.isHidden = true
-        DualLabel.text = "직접 변경"
-        
-        // 감정 분석을 해서 label에 연결
-        
-        
-        if(EmotionTypeLabel.text == "중립"){
-            HideView.isHidden = false
+        guard let x = self.ContentTextField.text else {
+            return
         }
-        
+        loadEmotionByContents(text: x)
+        loadVoiceList()
+    }
+    
+    private func showEmotionView(emotion: String, strength: Int) {
+        DispatchQueue.main.async {
+            self.EmotionView.isHidden = false
+            self.EditButton.isHidden = false
+            self.EmotionButton.isHidden = true
+            self.DualLabel.text = "직접 변경"
+            self.EmotionTypeLabel.text = emotion
+            self.EmotionLevelLabel.text = "\(strength)"
+            if(self.EmotionTypeLabel.text == "중립"){
+                self.HideView.isHidden = false
+            }
+            
+        }
     }
     
     
@@ -231,7 +274,12 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_2.textColor = UIColor.lightGray
         VoiceLabel_3.textColor = UIColor.lightGray
         
-        defaultVoice = ""
+        guard let t = self.EmotionLevelLabel.text else {
+            return
+        }
+        let it : Int = Int(t)!
+        
+        defaultVoice = EmotionBasedDefaultVoices.extractFrom(emotion: self.EmotionTypeLabel.text!, strength: it).rawValue
     }
     
     
@@ -244,8 +292,8 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_1.textColor = UIColor.lightGray
         VoiceLabel_2.textColor = UIColor.black
         VoiceLabel_3.textColor = UIColor.lightGray
-            
-        defaultVoice = ""
+        
+        defaultVoice = scrapVoiceList[0].userEmail
     }
     
     
@@ -259,7 +307,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_2.textColor = UIColor.lightGray
         VoiceLabel_3.textColor = UIColor.black
         
-        defaultVoice = ""
+        defaultVoice = scrapVoiceList[1].userEmail
     }
     
     @IBAction func PlayButtonTapped_1(_ sender: UIButton) {
@@ -282,7 +330,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             TagArr.append(String(i.suffix(i.count - 1)))
         }
         
-       
+        
         var emo_type:String = ""
         if (EmotionTypeLabel.text == "화남") { emo_type = "ANGER" }
         if (EmotionTypeLabel.text == "슬픔") { emo_type = "SADNESS" }
@@ -295,6 +343,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         if (EmotionLevelLabel.text == "보통") { emo_intensity = 1 }
         if (EmotionLevelLabel.text == "높음") { emo_intensity = 2 }
         
+        var voiceUserMail = defaultVoice
         
         // 아래 api 에 defaultVoice 를 넣을 수 있게 수정 필요한것 같음
         PageApi.shared.savePage(bookId: BookId, content: ContentTextField.text!, emotionIntensity: emo_intensity, emotionType: emo_type, hashtags: TagArr, title: PageTitle){ res in
@@ -302,15 +351,61 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             case .success(let data):
                 print(data)
                 print("page saving success")
+                PageApi.shared.updateDefaultVoiceByPage(pageId: data.pageId, email: voiceUserMail) { res in
+                    switch res {
+                    case .success(let succ):
+                        print("success")
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
             case .failure(let err):
                 print(err)
             }
         }
     }
     
+    private func loadEmotionByContents(text: String) {
+        VoiceApi.shared.getEmotionFromContent(content: text) { res in
+            switch res {
+            case .success(let emotion):
+                self.showEmotionView(emotion: emotion.emotion, strength: emotion.strength)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
+    private func loadVoiceList() {
+        VoiceApi.shared.getScrappedVoiceList { res in
+            switch res  {
+            case .success(let list):
+                self.scrapVoiceList = list
+                self.showVoiceList(scrapVoices: list)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
-    
-    
+    func showVoiceList(scrapVoices: [VoiceResponseDto]){
+        
+        DispatchQueue.main.async {
+            self.VoiceView_1.isHidden = false
+        
+            
+            for (i, voice) in scrapVoices.enumerated() {
+                if (i == 0){
+                    self.VoiceView_2.isHidden = false
+                    self.VoiceLabel_2.text = voice.userNickname + " 님의 목소리"
+                }
+                if (i == 1){
+                    self.VoiceView_2.isHidden = false
+                    self.VoiceLabel_3.text = voice.userNickname + " 님의 목소리"
+                }
+            }
+        }
+        
+    }
 }
 
