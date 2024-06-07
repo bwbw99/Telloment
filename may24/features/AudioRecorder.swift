@@ -81,5 +81,20 @@ class AudioRecorder: NSObject, AVAudioRecorderDelegate {
             }
         }
     }
+    
+    func fetchData() -> Data? {
+        guard let filePath = outputFilePath else {
+            print("Error: Recording file path not available")
+            return nil
+        }
+
+        do {
+            let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+            return data
+        } catch {
+            print("Error reading recorded audio data: \(error)")
+            return nil
+        }
+    }
 }
 

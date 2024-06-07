@@ -8,6 +8,9 @@
 import UIKit
 
 class WriteContentViewController:UIViewController,EmotionDelegate_1{
+    
+    private let ar = AudioRecorder()
+    
     func EVC_To_WCVC_Type(type: String) {
         self.EmotionTypeLabel.text = type
         if(type == "중립"){
@@ -56,13 +59,6 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
     @IBOutlet weak var VoiceLabel_1: UILabel!
     @IBOutlet weak var VoiceLabel_2: UILabel!
     @IBOutlet weak var VoiceLabel_3: UILabel!
-    
-    
-    
-    
-    
-    
-    
     
     @IBOutlet weak var DoneView: UIView!
     
@@ -115,12 +111,33 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         VoiceLabel_1.textColor = UIColor.lightGray
         VoiceLabel_2.textColor = UIColor.lightGray
         VoiceLabel_3.textColor = UIColor.lightGray
-            
+        
+        ar.requestAudioPermission()
     }
     
     
     @IBAction func STTButtonTapped(_ sender: UIButton) {
         
+    }
+    
+    
+    private func startRecord() {
+        ar.initRecorder(path: "temp.wav")
+        ar.start()
+    }
+    
+    private func stopRecord() {
+        ar.stop()
+        guard let data = ar.fetchData() else {
+            print("error on fetch Data!")
+            return
+        }
+        
+        getSTTFrom(data: data)
+    }
+    
+    
+    private func getSTTFrom(data: Data) {
         let url = URL(string: "https://naveropenapi.apigw.ntruss.com/recog/v1/stt?lang=Kor")!
         let headers = [
             "Content-Type": "application/octet-stream",
@@ -135,22 +152,14 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = data as Data
-        
-        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print(error)
             } else if let data = data {
                 print(data)
-                
             }
         }
-        
         task.resume()
-        
-        
-        
-        
     }
     
     
@@ -165,11 +174,9 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
         
         // 감정 분석을 해서 label에 연결
         
-        
         if(EmotionTypeLabel.text == "중립"){
             HideView.isHidden = false
         }
-        
     }
     
     
@@ -291,10 +298,5 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
             }
         }
     }
-    
-    
-    
-    
-    
 }
 
