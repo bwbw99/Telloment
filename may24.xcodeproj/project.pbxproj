@@ -832,6 +832,8 @@
 				DEVELOPMENT_TEAM = 9LPGL9GXUQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = may24/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -861,6 +863,8 @@
 				DEVELOPMENT_TEAM = 9LPGL9GXUQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = may24/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
