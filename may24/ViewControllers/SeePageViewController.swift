@@ -15,12 +15,13 @@ class SeePageViewController:UIViewController{
     
     private var player: AVAudioPlayer?
     var tts_speaker:String = "nara"
+    var tts_emotion:Int = 0
+    var tts_emotion_strength:Int = 0
     var tts_text:String = "문장이 입력되지 않았습니다"
     var tts_volume:Int = 0
     var tts_speed:Int = 0
     var tts_pitch:Int = 0
-    var tts_emotion:Int = 0
-    var tts_emotion_strength:Int = 0
+    
     
     
     
@@ -59,10 +60,10 @@ class SeePageViewController:UIViewController{
     @IBOutlet weak var VoiceLabel_3: UILabel!
     
     var voice_emails:[String] = ["","",""]
-    
+    var voice_ids:[Int] = [0, 0, 0]
     var voice_name:String = ""
     var voice_flag:Int = 0
-    
+    var voice_ID:Int = 0
     
     var Tags:[String] = []
     
@@ -150,12 +151,13 @@ class SeePageViewController:UIViewController{
         VoiceApi.shared.getScrappedVoiceList(){res in
             switch res{
             case .success(let data):
+                print(data)
                 if(data.count > 0){
-                    self.voice_emails[1] = data[0].userEmail
+                    self.voice_ids[1] = data[0].id
                     self.VoiceLabel_2.text = data[0].userNickname + " 님의 목소리"
                 }
                 if(data.count > 1){
-                    self.voice_emails[2] = data[1].userEmail
+                    self.voice_ids[2] = data[1].id
                     self.VoiceLabel_3.text = data[1].userNickname + " 님의 목소리"
                 }
                 
@@ -179,7 +181,55 @@ class SeePageViewController:UIViewController{
         
         if(voice_flag == 0){
             // CLOVA로 TTS
-            
+            if(voice_name == "CLOVA_simple"){
+                self.tts_speaker = "nara"
+                self.tts_emotion = 0
+            }
+            if(voice_name == "CLOVA_sad_0"){
+                self.tts_speaker = "ngoeun"
+                self.tts_emotion = 1
+                self.tts_emotion_strength = 0
+            }
+            if(voice_name == "CLOVA_sad_1"){
+                self.tts_speaker = "ngoeun"
+                self.tts_emotion = 1
+                self.tts_emotion_strength = 1
+            }
+            if(voice_name == "CLOVA_sad_2"){
+                self.tts_speaker = "ngoeun"
+                self.tts_emotion = 1
+                self.tts_emotion_strength = 2
+            }
+            if(voice_name == "CLOVA_happy_0"){
+                self.tts_speaker = "ndonghyun"
+                self.tts_emotion = 2
+                self.tts_emotion_strength = 0
+            }
+            if(voice_name == "CLOVA_happy_1"){
+                self.tts_speaker = "ndonghyun"
+                self.tts_emotion = 2
+                self.tts_emotion_strength = 1
+            }
+            if(voice_name == "CLOVA_happy_2"){
+                self.tts_speaker = "ndonghyun"
+                self.tts_emotion = 2
+                self.tts_emotion_strength = 2
+            }
+            if(voice_name == "CLOVA_rage_0"){
+                self.tts_speaker = "ndonghyun"
+                self.tts_emotion = 3
+                self.tts_emotion_strength = 0
+            }
+            if(voice_name == "CLOVA_rage_1"){
+                self.tts_speaker = "ndonghyun"
+                self.tts_emotion = 3
+                self.tts_emotion_strength = 1
+            }
+            if(voice_name == "CLOVA_rage_2"){
+                self.tts_speaker = "ndonghyun"
+                self.tts_emotion = 3
+                self.tts_emotion_strength = 2
+            }
             
             let session = AVAudioSession.sharedInstance()
             
@@ -193,8 +243,6 @@ class SeePageViewController:UIViewController{
             data.append("&volume=\(tts_volume)".data(using: .utf8)!)
             data.append("&speed=\(tts_speed)".data(using: .utf8)!)
             data.append("&pitch=\(tts_pitch)".data(using: .utf8)!)
-            //data.append("&emotion=\(tts_emotion)".data(using: .utf8)!)
-            //data.append("&emotion-strength=\(tts_emotion_strength)".data(using: .utf8)!)
             
             let url = URL(string: "https://naveropenapi.apigw.ntruss.com/tts-premium/v1/tts")!
             let headers = [
@@ -224,6 +272,23 @@ class SeePageViewController:UIViewController{
         }
         else{
             // 우리 API로 TTS
+            voice_ID = voice_ids[voice_flag]
+            VoiceApi.shared.getAudibleTextData(
+                    emotion: "중립",
+                    content: "안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 안녕하세요 ",
+                    intensity: 0,
+                    voiceId: voice_ID
+                ) { res in
+                    switch res {
+                    case .failure(let error):
+                        print(error)
+                        //todo: error handle
+                        
+                    case .success(let data):
+                        self.playAudioData(data: data)
+                    }
+                    
+                }
             
         }
         
@@ -268,7 +333,6 @@ class SeePageViewController:UIViewController{
     }
     
     @IBAction func VoiceTapped_2(_ sender: UIButton) {
-        voice_name = voice_emails[1]
         voice_flag = 1
         VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_2.layer.borderColor = UIColor.black.cgColor
@@ -280,8 +344,7 @@ class SeePageViewController:UIViewController{
     }
     
     @IBAction func VoiceTapped_3(_ sender: UIButton) {
-        voice_name = voice_emails[2]
-        voice_flag = 1
+        voice_flag = 2
         VoiceView_1.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_2.layer.borderColor = UIColor.lightGray.cgColor
         VoiceView_3.layer.borderColor = UIColor.black.cgColor
@@ -291,5 +354,23 @@ class SeePageViewController:UIViewController{
         VoiceLabel_3.textColor = UIColor.black
     }
     
+    private func playAudioData(data: Data) {
+        do {
+            player = try AVAudioPlayer(data: data)
+        } catch {
+            print("error on AVplayer")
+            return
+        }
+        
+        // Try to create an AVAudioPlayer object from the data
+        guard let audioPlayer = player else {
+            // If creating the player fails, it's likely not audio data
+            print("Error: Unable to create AVAudioPlayer from data")
+            return
+        }
+        
+        audioPlayer.volume = 0.5
+        audioPlayer.play()
+    }
     
 }

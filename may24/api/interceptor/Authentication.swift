@@ -6,6 +6,6 @@
 //
 
 public class Authentication {
-    static var token: String = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0MDQiLCJhdXRoIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzE3NzMxNjc5fQ.iF0Vto_WFT-5YbwXHmyuMN5--LEcfFv8tRIw35FkecfIlPebjC48BMRlTaBLRjDplj5R5ZlTiud3x8mACM1aXA"
-    static var refreshToken: String = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYW5nMTIzIiwiZXhwIjoxNzE4MjgyMjU1fQ.WgV9V9HM0euDebH-2253aQjz32vW1kWQ5BnPo-GXi0ynZkpV0elTJ94Yznl8EVLSRjPi-wsgdbPVkqrYQjaQIQ"
+    static var token: String = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYW5nMTIzIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTcxNzczNTU2OH0.9GrxAHp5qDXo1LADT3fVDjLD3JuqPAjs12055oxCIoSiUXxyf10Y6tQ2B4JmUuL26LsrQMUMt7y5mzC1zN0wKw"
+    static var refreshToken: String = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJiYW5nMTIzIiwiZXhwIjoxNzE4MzM2NzY4fQ.D34e4gJcY4aD0Z0h5eMYVqRb6Phq5CFo7m3xiNj8M_wNSAiW3kS_B9Wc-nFk1xAJy13-pUGmD_DJBWpIIYZuHw"
 }
