@@ -420,7 +420,7 @@ class WriteContentViewController:UIViewController,EmotionDelegate_1{
                     self.VoiceLabel_2.text = voice.userNickname + " 님의 목소리"
                 }
                 if (i == 1){
-                    self.VoiceView_2.isHidden = false
+                    self.VoiceView_3.isHidden = false
                     self.VoiceLabel_3.text = voice.userNickname + " 님의 목소리"
                 }
             }
