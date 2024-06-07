@@ -212,11 +212,71 @@ class HomeViewController:UIViewController{
                 for i in 0...4{
                     self.nameData[i] = self.categoryEnglishToKorean(category: data[i].category)
                     self.scoreData[i] = data[i].score
-                    // here
                 }
                 self.setPieData(pieChartView: self.CategoryChart, pieChartDataEntries: self.entryData(values: self.scoreData))
-                
                 self.setup(pieChartView: self.CategoryChart)
+                let first_category_code = self.categoryEnglishToCode(category: data[0].category)
+                let first_category_name = self.categoryEnglishToKorean(category: data[0].category)
+                let second_category_code = self.categoryEnglishToCode(category: data[1].category)
+                let second_category_name = self.categoryEnglishToKorean(category: data[1].category)
+                
+                RankingApi.shared.getTopLikedBooksInCategory(category: first_category_code, top: 5){ res in
+                    switch res{
+                    case .success(let books):
+                        self.CategoryTitle_1_1.text = books[0].bookName
+                        self.CategoryTitle_1_2.text = books[1].bookName
+                        self.CategoryTitle_1_3.text = books[2].bookName
+                        self.CategoryTitle_1_4.text = books[3].bookName
+                        self.CategoryTitle_1_5.text = books[4].bookName
+                        
+                        self.CategoryHeart_1_1.text = String(books[0].totalLikeCount)
+                        self.CategoryHeart_1_2.text = String(books[1].totalLikeCount)
+                        self.CategoryHeart_1_3.text = String(books[2].totalLikeCount)
+                        self.CategoryHeart_1_4.text = String(books[3].totalLikeCount)
+                        self.CategoryHeart_1_5.text = String(books[4].totalLikeCount)
+                        
+                        self.CategoryPage_1_1.text = String(books[0].totalPageCount)
+                        self.CategoryPage_1_2.text = String(books[1].totalPageCount)
+                        self.CategoryPage_1_3.text = String(books[2].totalPageCount)
+                        self.CategoryPage_1_4.text = String(books[3].totalPageCount)
+                        self.CategoryPage_1_5.text = String(books[4].totalPageCount)
+                        
+                        self.CategoryIds_1 = books.map({book in book.bookId})
+                    case .failure(let err):
+                        print(err)
+                    }
+                }
+                RankingApi.shared.getTopLikedBooksInCategory(category: second_category_code, top: 5){ res in
+                    switch res{
+                    case .success(let books):
+                        self.CategoryTitle_2_1.text = books[0].bookName
+                        self.CategoryTitle_2_2.text = books[1].bookName
+                        self.CategoryTitle_2_3.text = books[2].bookName
+                        self.CategoryTitle_2_4.text = books[3].bookName
+                        self.CategoryTitle_2_5.text = books[4].bookName
+                        
+                        self.CategoryHeart_2_1.text = String(books[0].totalLikeCount)
+                        self.CategoryHeart_2_2.text = String(books[1].totalLikeCount)
+                        self.CategoryHeart_2_3.text = String(books[2].totalLikeCount)
+                        self.CategoryHeart_2_4.text = String(books[3].totalLikeCount)
+                        self.CategoryHeart_2_5.text = String(books[4].totalLikeCount)
+                        
+                        self.CategoryPage_2_1.text = String(books[0].totalPageCount)
+                        self.CategoryPage_2_2.text = String(books[1].totalPageCount)
+                        self.CategoryPage_2_3.text = String(books[2].totalPageCount)
+                        self.CategoryPage_2_4.text = String(books[3].totalPageCount)
+                        self.CategoryPage_2_5.text = String(books[4].totalPageCount)
+                        
+                        self.CategoryIds_2 = books.map({book in book.bookId})
+                    case .failure(let err):
+                        print(err)
+                    }
+                }
+                
+                
+                
+                
+                
             case .failure(let err):
                 print(err)
             }
@@ -294,6 +354,34 @@ class HomeViewController:UIViewController{
     @IBOutlet weak var CategoryButton_2_5: UIButton!
     
     
+    // 태그로 추천
+    @IBOutlet weak var TagSuperLabel: UILabel!
+    var TagIds:[Int] = [0,0,0,0,0]
+    
+    @IBOutlet weak var TagTitle_1: UILabel!
+    @IBOutlet weak var TagTitle_2: UILabel!
+    @IBOutlet weak var TagTitle_3: UILabel!
+    @IBOutlet weak var TagTitle_4: UILabel!
+    @IBOutlet weak var TagTitle_5: UILabel!
+    
+    @IBOutlet weak var TagContent_1: UITextView!
+    @IBOutlet weak var TagContent_2: UITextView!
+    @IBOutlet weak var TagContent_3: UITextView!
+    @IBOutlet weak var TagContent_4: UITextView!
+    @IBOutlet weak var TagContent_5: UITextView!
+    
+    @IBOutlet weak var TagHeart_1: UILabel!
+    @IBOutlet weak var TagHeart_2: UILabel!
+    @IBOutlet weak var TagHeart_3: UILabel!
+    @IBOutlet weak var TagHeart_4: UILabel!
+    @IBOutlet weak var TagHeart_5: UILabel!
+    
+    @IBOutlet weak var TagButton_1: UIButton!
+    @IBOutlet weak var TagButton_2: UIButton!
+    @IBOutlet weak var TagButton_3: UIButton!
+    @IBOutlet weak var TagButton_4: UIButton!
+    @IBOutlet weak var TagButton_5: UIButton!
+    
     
     
     
@@ -369,6 +457,41 @@ class HomeViewController:UIViewController{
         User_Inner_3.layer.cornerRadius = 10
         User_Inner_4.layer.cornerRadius = 10
         User_Inner_5.layer.cornerRadius = 10
+        
+        
+        // 태그로 추천
+        TagSuperLabel.text = "#위로\n해쉬태그가 달린 페이지에요"
+        
+        RankingApi.shared.getTopLikedPagesInTag(tag: "위로", top: 5){ res in
+            switch res{
+            case .success(let pages):
+                self.TagIds = pages.map({page in page.pageId})
+                
+                self.TagTitle_1.text = pages[0].title
+                self.TagTitle_2.text = pages[1].title
+                self.TagTitle_3.text = pages[2].title
+                self.TagTitle_4.text = pages[3].title
+                self.TagTitle_5.text = pages[4].title
+                
+                self.TagContent_1.text = pages[0].content
+                self.TagContent_2.text = pages[1].content
+                self.TagContent_3.text = pages[2].content
+                self.TagContent_4.text = pages[3].content
+                self.TagContent_5.text = pages[4].content
+                
+                self.TagHeart_1.text = String(pages[0].likeCount)
+                self.TagHeart_2.text = String(pages[1].likeCount)
+                self.TagHeart_3.text = String(pages[2].likeCount)
+                self.TagHeart_4.text = String(pages[3].likeCount)
+                self.TagHeart_5.text = String(pages[4].likeCount)
+                
+                
+            case .failure(let err):
+                print(err)
+            }
+            
+        }
+        
         
     }
     
@@ -641,6 +764,58 @@ class HomeViewController:UIViewController{
         }
     }
     
+    func categoryEnglishToCode(category:String) -> String{
+        if(category == "COOKING"){
+            return "COK"
+        }
+        else if(category == "HUMOR"){
+            return "HUMR"
+        }
+        else if(category == "ITNSCIENCE"){
+            return "ITNSCI"
+        }
+        else if(category == "STUDYING"){
+            return "STD"
+        }
+        else if(category == "LITERATURE"){
+            return "LIT"
+        }
+        else if(category == "ANIMAL"){
+            return "ANML"
+        }
+        else if(category == "ROMANCE"){
+            return "ROM"
+        }
+        else if(category == "HEALTH"){
+            return "HLTH"
+        }
+        else if(category == "MARRIAGE"){
+            return "MRG"
+        }
+        else if(category == "MUSIC"){
+            return "MUS"
+        }
+        else if(category == "TRIP"){
+            return "TRIP"
+        }
+        else if(category == "MOVIEDRAMA"){
+            return "MVD"
+        }
+        else if(category == "ART"){
+            return "ART"
+        }
+        else if(category == "HUMANITY"){
+            return "HUMN"
+        }
+        else{
+            return "FIN"
+        }
+    }
+    
+    
+    
+    
+    
     
     // 카테고리로 추천
     @IBAction func CategoryButtonTapped_1_1(_ sender: UIButton) {
@@ -704,6 +879,37 @@ class HomeViewController:UIViewController{
         guard let sbvc = self.storyboard?.instantiateViewController(withIdentifier: "SeeBookVC") as? SeeBookViewController else {return}
         sbvc.BookId = CategoryIds_2[4]
         self.navigationController?.pushViewController(sbvc, animated: true)
+    }
+    
+    // 태그로 추천
+    @IBAction func TagButtonTapped_1(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else { return }
+        spvc.PageId = TagIds[0]
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func TagButtonTapped_2(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else { return }
+        spvc.PageId = TagIds[1]
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func TagButtonTapped_3(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else { return }
+        spvc.PageId = TagIds[2]
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func TagButtonTapped_4(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else { return }
+        spvc.PageId = TagIds[4]
+        self.navigationController?.pushViewController(spvc, animated: true)
+    }
+    
+    @IBAction func TagButtonTapped_5(_ sender: UIButton) {
+        guard let spvc = self.storyboard?.instantiateViewController(withIdentifier: "SeePageVC") as? SeePageViewController else { return }
+        spvc.PageId = TagIds[5]
+        self.navigationController?.pushViewController(spvc, animated: true)
     }
     
     
